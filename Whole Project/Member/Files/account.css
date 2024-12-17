@@ -88,14 +88,17 @@ body {
 }
 
 .menu .logout {
+    border-radius: 25px;
     background-color: #D76767;
     color: white;
     font-weight: bold;
 }
 
 .menu .logout:hover {
+    border-radius: 25px;
     background-color: #C45555;
 }
+
 
 hr {
     width: 100%;

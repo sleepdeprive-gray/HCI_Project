@@ -64,14 +64,14 @@ body {
     cursor: pointer;
 }
 
-.menu .savedbook-btn {
+.menu .discover-btn {
     border-radius: 25px;
     background-color: #ffffff;
     font-weight: bold;
     color: #333;
 }
 
-.menu .savedbook-btn:hover {
+.menu .discover-btn:hover {
     background-color: #cce4db;
 }
 
@@ -88,14 +88,17 @@ body {
 }
 
 .menu .logout {
+    border-radius: 25px;
     background-color: #D76767;
     color: white;
     font-weight: bold;
 }
 
 .menu .logout:hover {
+    border-radius: 25px;
     background-color: #C45555;
 }
+
 
 hr {
     width: 100%;
@@ -147,14 +150,14 @@ hr {
     padding: 15px 20px;
     border: none;
     background-color: transparent;
-    color: rgb(233, 227, 227);
+    color: rgb(224, 213, 213);
     font-size: 14px;
     cursor: pointer;
     transition: 0.3s ease;
 }
 
 .categories button:hover {
-    color: #141414;
+    color: #f7f5f5;
     text-decoration: underline;
 }
 
@@ -176,89 +179,51 @@ hr {
     }
 }
 
+/* Main Content Styles */
 .main-content {
-    margin-left: 200px;
-    width: calc(100% - 200px);
-    padding: 0 20px;
-    box-sizing: border-box;
-    
+    margin-left: 190px; /* Add space for the fixed sidebar */
+    padding: 20px;
+    width: calc(100% - 190px); /* Prevent overflow */
+    box-sizing: border-box; /* Include padding in width calculation */
+    overflow-y: auto; /* Enable scrolling for the main content */
 }
 
-/* Fixed Header Section */
-.header {
-    position: fixed;
-    top: 0;
-    left: 200px; /* Account for sidebar width */
-    width: calc(100% - 200px); /* Full width minus sidebar */
-    padding: 15px 20px;
-    z-index: 10;
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 columns */
+    grid-template-rows: repeat(3, auto); /* 3 rows */
+    gap: 10px; /* Space between items */
+    margin: 5px;
+    padding: 60px;
 }
 
-.header h1 {
-    margin: 0;
-    font-size: 24px;
-    color: #faf9f9;
-    font-weight: bold;
+.book {
+    text-align: center;
+    background-color: transparent; /* Set background to transparent */
+    border-radius: 2px;
+    box-shadow: none; /* Optional: Remove shadow for a cleaner transparent look */
+    overflow: hidden;
 }
 
-/* Table Section */
-.table-container {
-    margin-top: 120px; /* Space below the fixed header */
-    max-height: 500px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 10px;
-}
-
-table {
+.book img {
     width: 100%;
-    border-collapse: collapse;
+    height: 200px;
+    display: block;
 }
 
-thead {
-    background-color: rgba(245, 245, 245, 0.9);
-    position: sticky;
-    top: 0;
-    z-index: 5;
+.book p {
+    margin: 10px 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fdf9f9;
 }
 
-th, td {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+.book h4 {
+    font-size: 16px;
+    color: #fdf9f9;
 }
 
-.remove-btn {
-    padding: 5px 10px;
-    background-color: #d9534f;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.remove-btn:hover {
-    background-color: #c9302c;
-}
-/* Pagination (if applicable) */
-.pagination {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.pagination button {
-    padding: 8px 12px;
-    background-color: #5bc0de;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.pagination button:hover {
-    background-color: #31b0d5;
+button img {
+    height: 25px;
+    width: 25px;
 }
