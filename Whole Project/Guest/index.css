@@ -122,12 +122,22 @@ form .button button{
     box-shadow: 0 10px 10px rgba(0,0,0,0.2);
 }
 
+input[readonly] {
+    user-select: none; /* Prevent text selection */
+    pointer-events: none; /* Prevent cursor and clicking */
+}
+
+input[readonly]::placeholder {
+    color: black; /* Set placeholder color to black */
+}
+
 form .button{
     margin-top: 20px;
-    display: flex;
     align-items: center;
     justify-content: center;
+    align-self: center;
 }
+
 form .button p{
   color: #8B8383;
 }
