@@ -15,6 +15,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 175px;
 }
 
 .logo-and-title img {

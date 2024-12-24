@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editor | Book Room</title>
-    <link rel="stylesheet" href="css/bg-and-nav.css">
+
+    <!--Web Icon-->
     <link rel="shortcut icon" href="../images/weblogo.png" type="image/x-icon">
+
+    <!--CSS Stylesheets-->
+    <link rel="stylesheet" href="css/bg-and-nav.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+
 </head>
 <body>
+
     <!--Logo and Title -->
     <header class ="logo-and-title">
         <img src="../images/weblogo.png" alt="book room logo">
@@ -19,8 +26,8 @@
         <h1>Book <span style="color: #A1BE95;">Room</span></h1>
         <div class="profile">
             <img src="https://via.placeholder.com/80" alt="Profile Picture">
-            <h2>Sarah</h2>
-            <p>Duterte</p>
+            <h2>Gray</h2>
+            <p>Editor</p>
             <hr>
         </div>
         <div class="menu">
@@ -28,10 +35,59 @@
             <a href="Editor-Books.html"><button class="text-btn">Books</button></a> 
             <a href="Editor-AddBooks.html"><button class="text-btn">Add Books</button></a> 
             <a href="Editor-BooksOwned.html"><button class="text-btn">Book Owned</button></a>
-            <br><br><br><br>
+            <br><br><br><br><br><br><br><br><br>
             <a href="Editor-Accounts.html"><button class="text-btn">Account</button> </a>
             <a href="../../Guest/login.html"><button class="logout">Logout</button></a>
         </div>
+    </div>
+
+    <!--Main Content-->
+    <div class="dashboard-content">
+
+        <div class="right-content">
+            <div class="high-download-content">
+                <div class="download-content">
+                    <img src="../images/book-1.png" alt="highest download book">
+                    <div class="content-right-wrapper">
+                        <p><b>YOUR TOP DOWNLOADED BOOK</b></p>
+                        <h2>Les Entremondes</h2>
+                        <p>WITH OVER <span class="highlight-number">45</span> DOWNLOADS</p>
+                    </div>
+                    <button>View book</button>
+                </div>
+            </div>
+            <div class="low-download-content">
+                <div class="download-content">
+                    <img src="../images/book-2.png" alt="lowest download book">
+                    <div class="content-right-wrapper">
+                        <p><b>YOUR LEAST DOWNLOADED BOOK</b></p>
+                        <h2>The Ten Riddles of Earth Quicksmith</h2>
+                        <p>WITH ONLY HAVING <span class="highlight-number">5</span> DOWNLOADS</p>
+                    </div>
+                    <button>View book</button>
+                </div>
+            </div>
+        </div>
+        <div class="left-content">
+            <div class="download-content">
+                <img src="../images/publish.png" alt="publish book logo">
+                <div class="content-left-wrapper">
+                    <h2>
+                        <b>25</b>
+                    </h2>
+                    <h4>Total Book Published</h4>
+                </div>
+            </div>
+            <div class="download-content">
+                <img src="../images/download.png" alt="total book logo">
+                <div class="content-left-wrapper">
+                    <h2>
+                        <b>25</b>
+                    </h2>
+                    <h4>Total Downloads of Books
+            </div>
+        </div>
+
     </div>
 
 </body>

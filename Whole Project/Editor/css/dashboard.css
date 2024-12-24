@@ -1,0 +1,128 @@
+body {
+    overflow: hidden;
+}
+
+.dashboard-content {
+    margin-left: 210px;
+    height: 500px;
+    display: flex;
+    color: black;
+}
+
+.right-content,
+.left-content {
+    height: 500px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.high-download-content,
+.low-download-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 245px;
+    width: 100%;
+}
+
+.download-content {
+    height: 225px;
+    background-color: #D9D9D9;
+    width: 500px;
+    display: flex;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.download-content img:nth-of-type(1),
+.download-content img:nth-of-type(2) {
+    height: 200px;
+    padding: 10px;
+    align-self: center;
+}
+
+.content-right-wrapper {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    flex: 1;
+}
+
+.content-right-wrapper h2,
+.content-right-wrapper p {
+    margin: 3px 0;
+}
+
+.content-right-wrapper p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12px;
+}
+
+.content-right-wrapper p:nth-of-type(1),
+.content-right-wrapper p:nth-of-type(3) {
+    font-size: 10px;
+}
+
+.content-right-wrapper p:nth-of-type(1) {
+    margin-top: -5px;
+}
+
+.highlight-number {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #000000;
+}
+
+.download-content button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.download-content button:hover {
+    background-color: #629e74;
+    color: #000000;
+}
+
+.content-left-wrapper {
+    margin-left: -30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1.5;
+    text-align: center;
+}
+
+.content-left-wrapper h2 {
+    margin-top: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 65px;
+}
+
+.content-left-wrapper h4 {
+    margin-top: -25px;
+    font-size: 20px;
+}
+
+.download-content img:nth-of-type(3),
+.download-content img:nth-of-type(4) {
+    height: 150px;
+    padding: 10px;
+}
