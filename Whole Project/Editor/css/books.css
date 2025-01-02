@@ -238,7 +238,7 @@ tr td:nth-child(2), tr td:nth-child(3) {
 /* Style the current page */
 .current-page {
     font-weight: bold;
-    color: red;  /* Red color for current page */
+    color: rgb(72, 255, 0);  /* Red color for current page */
 }
 
 /* Style the arrows */

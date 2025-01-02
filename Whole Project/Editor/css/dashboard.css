@@ -126,3 +126,9 @@ body {
     height: 150px;
     padding: 10px;
 }
+
+i {
+    height: 400px;
+    width: 180px;
+    color: black;
+}
