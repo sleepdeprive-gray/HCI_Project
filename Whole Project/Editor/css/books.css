@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Kumbh+Sans:wght@100..900&display=swap');
+
+.search-bar {
+    margin-left: 1000px;
+    position: relative;
+    display: inline-block;
+}
+
+#searchbar-field {
+    height: 37px;
+    width: 280px;
+    padding: 0px 25px 0px  35px;
+    text-align: start;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: none;
+}
+
+#mic-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #000000;
+    font-size: 16px;
+}
+
+#mic-icon:hover {
+    color: red;
+}
+
+#search-icon {
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    transform: translateY(-50%);
+    color: #000000;
+    font-size: 16px;
+}
+
+#search-icon:hover{
+    color: red;
+}
+
+#searchbar-field:focus {
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#searchbar-field::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 9px;
+    width: 9px;
+    background-color: transparent;
+    mask: url('https://cdn-icons-png.flaticon.com/512/1828/1828778.png') no-repeat;
+    mask-size: cover;
+    background-color: rgb(63, 63, 63);
+}
+
+#searchbar-field::-webkit-search-cancel-button:hover {
+    background-color: #000000;
+}
+
+
+
+/* NAVIGATION */
+
+.navigations {
+    margin-left: 300px;
+    display: flex; /* Aligns elements in a straight line */
+    align-items: center; /* Vertically centers the items */
+    justify-content: flex-start; /* Aligns all items to the left */
+    gap: 20px; /* Adds space between the elements */
+}
+
+#order-dropdown {
+    height: 35px;
+    width: 145px;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+    font-family: 'Krona One', Arial;
+    font-size: 20px;
+    font-weight: bold;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center; /* Shift arrow slightly to the left */
+    background-size: 18px; /* Adjust size of the arrow */
+    appearance: none; /* Removes the default dropdown arrow */
+    background-color: #16423C;
+    color: white;
+    padding-right: 30px; /* Adds space for the arrow */
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.6);
+    letter-spacing: 2px;
+}
+
+#order-dropdown:focus {
+    outline: none;
+}
+
+#sort-type-dropdown {
+    margin-left: -10px;
+    height: 35px;
+    width: 185px;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+    font-family: 'Krona One';
+    font-size: 15px;
+    font-weight: bold;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center; /* Shift arrow slightly to the left */
+    background-size: 18px; /* Adjust size of the arrow */
+    appearance: none; /* Removes the default dropdown arrow */
+    background-color: #16423C;
+    color: white;
+    padding-right: 30px; /* Adds space for the arrow */
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.6);
+    letter-spacing: 2px;
+}
+
+#sort-type-dropdown:focus {
+    outline: none;
+}
+
+select option{
+    letter-spacing: 2px;
+}
+
+ul {
+    list-style-type: none; /* Removes bullet points */
+    padding: 0;
+}
+
+ul li {
+    display: inline-block; /* Displays items in a line */
+    margin-right: 30px; /* Space between items */
+}
+
+li a {
+    text-decoration: none;
+    color: white;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.8);
+}
+
+li a:hover {
+    text-decoration: none;
+    color: rgb(215, 59, 59);
+}
+
+.genre-selected {
+    font-size: large;
+    font-weight: bolder;
+}
+
+
+/* TABLE */
+table {
+    margin-left: 300px;
+    margin-top: 10px;
+    width: 900px;
+    background-color: white;
+    color: #000;
+    font-family: 'Kumbh Sans', Arial;
+}
+
+thead {
+    background-color: #6A9C89;
+    border: 1px #000 solid;
+    color: white;
+}
+
+thead th:nth-child(1), thead th:nth-child(4), thead th:nth-child(5) {
+    text-align: center;
+    padding: 5px;
+}
+
+thead th:nth-child(2), thead th:nth-child(3) {
+    text-align: left;
+    padding: 5px 25px;
+}
+
+tbody {
+    text-align: center;
+}
+
+tr td{
+    padding: 5px;
+}
+
+/* Data - Small space for the first, and small space for the 4th and 5th columns */
+tr td:nth-child(1), tr td:nth-child(4), tr td:nth-child(5) {
+    padding: 5px 5px; /* Smaller padding */
+}
+
+/* Data - Larger space for the 2nd and 3rd columns */
+tr td:nth-child(2), tr td:nth-child(3) {
+    padding: 5px 50px; /* Larger padding */
+}
+
+.view-button {
+    background-color: #D9D9D9;
+    padding: 3px 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* PAGES */
+/* Style the .pages container */
+.pages {
+    margin-left: 1115px;
+    height: 40px;
+}
+
+/* Style the <ul> in .pages */
+.pages ul {
+    list-style: none;  /* Remove bullet points */
+    display: inline-block; /* Keep inline-block for positioning */
+    padding: 0;
+    margin: 0;
+}
+
+/* Style each <li> in .pages */
+.pages ul li {
+    display: inline-flex;  /* Keep list items inline */
+    align-items: center;   /* Align vertically */
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);  /* Apply text shadow */
+    font-size: 15px;  /* Set font size for list items */
+    margin-right: 5px;  /* Adjust margin to make the items closer together */
+}
+
+/* Remove margin on the last list item to avoid extra space */
+.pages ul li:last-child {
+    margin-right: 0;
+}
+
+/* Style the current page */
+.current-page {
+    font-weight: bold;
+    color: red;  /* Red color for current page */
+}
+
+/* Style the arrows */
+.pages ul li i {
+    font-size: 15px;  /* Adjust icon size */
+}

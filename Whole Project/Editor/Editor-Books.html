@@ -4,8 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editor | Book Room</title>
-    <link rel="stylesheet" href="css/bg-and-nav.css">
+
+    <!-- Icon Import -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <!--Web Icon-->
     <link rel="shortcut icon" href="../images/weblogo.png" type="image/x-icon">
+
+    <!--CSS Stylesheets-->
+    <link rel="stylesheet" href="css/bg-and-nav.css">
+    <link rel="stylesheet" href="css/books.css">
+
 </head>
 <body>
     <!--Logo and Title -->
@@ -19,8 +28,8 @@
         <h1>Book <span style="color: #A1BE95;">Room</span></h1>
         <div class="profile">
             <img src="https://via.placeholder.com/80" alt="Profile Picture">
-            <h2>Sarah</h2>
-            <p>Duterte</p>
+            <h2>Gray</h2>
+            <p>Editor</p>
             <hr>
         </div>
         <div class="menu">
@@ -34,6 +43,193 @@
         </div>
     </div>
 
+    <!-- 
+    
+        Main Content 
+        - Search Bar
+        - Navigation (Table Order and Genre)
+        - Table
+        - Pop-up Books
+
+                                    -->
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <a href="">
+            <i id="mic-icon" class="fa-solid fa-microphone"></i>
+        </a>
+        <input type="search" name="searchbar" id="searchbar-field" placeholder="Search book name, author...">
+        <a href="">
+            <i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
+        </a>
+    </div>
+
+
+    <!-- Navigation -->
+    <div class="navigations">
+        <select name="Order" id="order-dropdown">
+            <option value="Ascending">ASC</option>
+            <option value="Descending">DESC</option>
+        </select>
+        <select name="Sort Type" id="sort-type-dropdown">
+            <option value="">DEFAULT</option>
+            <option value="">DOWNLOAD</option>
+            <option value="">A - Z</option>
+        </select>
+        <ul>
+            <li class="genre-selected"><a href="">Science</a></li>
+            <li><a href="">Novel</a></li>
+            <li><a href="">Mystery</a></li>
+            <li><a href="">Narrative</a></li>
+            <li><a href="">Fiction</a></li>
+            <li><a href="">History</a></li>
+            <li><a href="">Fantasy</a></li>
+        </ul>
+    </div>
+
+
+    <!-- Table -->
+    <table>
+        <thead>
+            <th>Book No.</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Downloads</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>The Escapers</td>
+                <td>Lj Monahan</td>
+                <td>7</td>
+                <td>
+                    <button class = "view-button">View</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>The Escapers</td>
+                <td>Lj Monahan</td>
+                <td>7</td>
+                <td>
+                    <button class = "view-button">View</button>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>The Escapers</td>
+                <td>Lj Monahan</td>
+                <td>7</td>
+                <td>
+                    <button class = "view-button">View</button>
+                </td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>The Escapers</td>
+                <td>Lj Monahan</td>
+                <td>7</td>
+                <td>
+                    <button class = "view-button">View</button>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>The Escapers</td>
+                <td>Lj Monahan</td>
+                <td>7</td>
+                <td>
+                    <button class = "view-button">View</button>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>The Escapers</td>
+                <td>Lj Monahan</td>
+                <td>7</td>
+                <td>
+                    <button class = "view-button">View</button>
+                </td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>The Escapers</td>
+                <td>Lj Monahan</td>
+                <td>7</td>
+                <td>
+                    <button class = "view-button">View</button>
+                </td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>The Escapers</td>
+                <td>Lj Monahan</td>
+                <td>7</td>
+                <td>
+                    <button class = "view-button">View</button>
+                </td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>The Escapers</td>
+                <td>Lj Monahan</td>
+                <td>7</td>
+                <td>
+                    <button class = "view-button">View</button>
+                </td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>The Escapers</td>
+                <td>Lj Monahan</td>
+                <td>7</td>
+                <td>
+                    <button class = "view-button">View</button>
+                </td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>The Escapers</td>
+                <td>Lj Monahan</td>
+                <td>7</td>
+                <td>
+                    <button class = "view-button">View</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Table Pages -->
+    <div class="pages">
+        <ul>
+            <li>
+                <a href="">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </a>
+            </li>
+            <li>
+               <a href="" class = "current-page">
+                    1
+               </a>
+            </li>
+            <li>
+                <a href="">
+                    2
+               </a>
+            </li>
+            <li>
+                <a href="">
+                    3
+               </a>
+            </li>
+            <li>
+                <a href="">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
 
 </body>
 </html>
