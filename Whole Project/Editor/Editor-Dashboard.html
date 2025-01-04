@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editor | Book Room</title>
 
+    <!-- Icon Import -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
     <!--Web Icon-->
     <link rel="shortcut icon" href="../images/weblogo.png" type="image/x-icon">
 
@@ -43,17 +46,16 @@
 
     <!--Main Content-->
     <div class="dashboard-content">
-
         <div class="right-content">
             <div class="high-download-content">
                 <div class="download-content">
                     <img src="../images/book-1.png" alt="highest download book">
                     <div class="content-right-wrapper">
-                        <p><b>YOUR TOP DOWNLOADED BOOK</b></p>
+                        <p><b>YOUR MOST DOWNLOADED BOOK</b></p>
                         <h2>Les Entremondes</h2>
                         <p>WITH OVER <span class="highlight-number">45</span> DOWNLOADS</p>
                     </div>
-                    <button>View book</button>
+                    <button onclick="openPopupMost(); MostCounterAnimation()">View book</button>
                 </div>
             </div>
             <div class="low-download-content">
@@ -62,9 +64,9 @@
                     <div class="content-right-wrapper">
                         <p><b>YOUR LEAST DOWNLOADED BOOK</b></p>
                         <h2>The Ten Riddles of Earth Quicksmith</h2>
-                        <p>WITH ONLY HAVING <span class="highlight-number">5</span> DOWNLOADS</p>
+                        <p>WITH ONLY HAVING <span class="highlight-number">10</span> DOWNLOADS</p>
                     </div>
-                    <button>View book</button>
+                    <button onclick="openPopupLeast(); LeastCounterAnimation()">View book</button>
                 </div>
             </div>
         </div>
@@ -91,9 +93,53 @@
         </div>
     </div>
 
+    <!-- Popup Modal -->
+    <div id="popup-modal" class="popup-modal">
+        <div class="popup-content">
+            <span class="close-button" onclick="closePopupMost()">&times;</span>
+            <div class="popup-layout">
+                <!-- Left Side -->
+                <div class="left-side">
+                    <h3><i class="fa-solid fa-book"></i>YOUR MOST DOWNLOADED BOOK</h3>
+                    <img src="../images/book-1.png" alt="Most Downloaded Book">
+                </div>
+                <!-- Right Side -->
+                <div class="right-side">
+                    <h2> Les Entremondes</h2>
+                    <p>
+                        The Escapers Books is a digital platform centered around the Alien Investors series, offering fans immersive reading experiences. It features personalized book recommendations, interactive content, and secure access using face recognition, voice commands, and fingerprint authentication. The platform allows users to explore the Alien Investors universe, track their reading progress, and engage with other fans in discussions.
+                    </p>
+                    <p class ="total-downloads">WITH OVER <span class="highlight-number"><b  id="popup-most-counter">0</b></span> DOWNLOADS</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Popup Modal Least -->
+        <div id="popup-modal-least" class="popup-modal">
+            <div class="popup-content">
+                <span class="close-button" onclick="closePopupLeast()">&times;</span>
+                <div class="popup-layout">
+                    <!-- Left Side -->
+                    <div class="left-side">
+                        <h3><i class="fa-solid fa-book"></i>YOUR LEAST DOWNLOADED BOOK</h3>
+                        <img src="../images/book-2.png" alt="Most Downloaded Book">
+                    </div>
+                    <!-- Right Side -->
+                    <div class="right-side">
+                        <h2> The Ten Riddles of Earth Quicksmith</h2>
+                        <p>
+                            The Escapers Books is a digital platform centered  around  the Alien Investors series, offering fans immersive reading experience. It features personalized book recommendations, interactive content,and secrueaccess uisng face recognition, voice commands, and fingerprint autentication. The platform allowss users to explore the Alien invstors universe, track their reading progress and enggae with other fans in discussions.
+                        </p>
+                        <p class ="total-downloads">WITH ONLY <span class="highlight-number-2"><b  id="popup-least-counter">0</b></span> DOWNLOADS</p>
+                    </div>
+                </div>
+            </div>
+        </div>   
+
     <!-- Scripts -->
     <script src="js/dashboard-animate-counter.js"></script>
-
+    <script src="js/popup-modal.js"></script>
 
 </body>
 </html>

@@ -15,5 +15,13 @@ function animateCounter(elementId, start, end, duration) {
 }
 
 // Trigger the animation
-animateCounter("published-counter", 1, 25, 1500); // Animate from 1 to 25 over 2 seconds
-animateCounter("download-counter", 1, 25, 3000); // Animate from 1 to 25 over 2 seconds
+animateCounter("published-counter", 1, 25, 2500); // Animate from 1 to 25 over 2 seconds
+animateCounter("download-counter", 1, 55, 2500); // Animate from 1 to 25 over 2 seconds
+
+function MostCounterAnimation() {
+    animateCounter("popup-most-counter", 1, 45, 2500); // Animate from 1 to 45 over 2.5 seconds
+}
+
+function LeastCounterAnimation() {
+    animateCounter("popup-least-counter", 1, 10, 1500); // Animate from 1 to 45 over 2.5 seconds
+}
