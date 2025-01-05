@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Kumbh+Sans:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+.main-content {
+    margin-left: 275px;
+    height: 500px;
+    width: 975px;
+    font-family: 'Jost', Arial, Helvetica, sans-serif;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.top-content {
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: space-between; /* Distribute space between search bar and dropdown */
+    align-items: center; /* Align items vertically in the center */
+    margin-bottom: 20px; /* Add some spacing below the top content */
+}
+
+.search-bar {
+    /* margin-left: 670px; */
+    position: relative;
+    display: inline-block;
+}
+
+#searchbar-field {
+    height: 37px;
+    width: 280px;
+    padding: 0px 25px 0px  35px;
+    text-align: start;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: none;
+}
+
+#mic-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #000000;
+    font-size: 16px;
+}
+
+#mic-icon:hover {
+    color: red;
+}
+
+#search-icon {
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    transform: translateY(-50%);
+    color: #000000;
+    font-size: 16px;
+}
+
+#search-icon:hover{
+    color: red;
+}
+
+#searchbar-field:focus {
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#searchbar-field::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 9px;
+    width: 9px;
+    background-color: transparent;
+    mask: url('https://cdn-icons-png.flaticon.com/512/1828/1828778.png') no-repeat;
+    mask-size: cover;
+    background-color: rgb(63, 63, 63);
+}
+
+#searchbar-field::-webkit-search-cancel-button:hover {
+    background-color: #000000;
+}
+
+
+#sorting-dropdown {
+    height: 35px;
+    width: 200px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Krona One', Arial;
+    font-size: 12px;
+    font-weight: bold;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center; /* Shift arrow slightly to the left */
+    background-size: 18px; /* Adjust size of the arrow */
+    appearance: none; /* Removes the default dropdown arrow */
+    background-color: #16423C;
+    color: white;
+    padding-right: 30px; /* Adds space for the arrow */
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.6);
+    letter-spacing: 1.5px;
+
+}
+
+    .table-container {
+        text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.6);
+        max-height: 425px; /* Set the height limit for the table body */
+        overflow-y: auto; /* Enable vertical scrolling */
+        border: 1px solid #ddd; /* Add border around the table container */
+        color: #000000;
+        background-color: white;
+        text-align: center;
+        border-radius: 10px;
+        scrollbar-width: none; /* For Firefox */
+    }
+
+    .table-container::-webkit-scrollbar {
+        display: none; /* For Chrome, Safari, and Edge */
+    }    
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    thead th {
+        position: sticky; /* Keep the header fixed while scrolling */
+        top: 0;
+        background-color: #f4f4f4;
+        z-index: 2; /* Ensure the header is above the scrolling content */
+        text-align: left;
+        padding: 13px 15px;
+        text-align: center;
+    }
+
+    tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    th, td {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+    }
+
+    button {
+        padding: 6px 12px;
+        font-size: 14px;
+        color: white;
+        background-color: #007BFF;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }

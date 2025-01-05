@@ -146,3 +146,18 @@ body {
     margin: 0 0 15px;
     color: #000000;
 }
+
+#status-button {
+    margin-left: 15px;
+    background-color: #d37e7e; /* Optional: Set background color */
+    color: #ffffff; /* Text color */
+    padding: 7px 10px;
+    border: none;
+    border-radius: 5px; /* Optional: Add rounded corners */
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#status-button:hover {
+    background-color: rgb(255, 0, 0);
+}

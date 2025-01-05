@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editor | Book Room</title>
-    <link rel="stylesheet" href="css/bg-and-nav.css">
+
+    <!-- Web Icon-->
     <link rel="shortcut icon" href="../images/weblogo.png" type="image/x-icon">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/bg-and-nav.css">
+    <link rel="stylesheet" href="css/addbooks.css">
+
 </head>
 <body>
     <!--Logo and Title -->
@@ -34,6 +40,126 @@
         </div>
     </div>
 
+    <!--
+    
+        Main Content
+        - Add Book Form
+        - Title
+        - Author & Genre
+        - Language, Date Published
+        - Add Front Cover & Author Photo
+        - Add Back Cover
+        - Book File Copy (PDF)
+        - Popup Modal
+
+                    -->
+
+    <div class="form-background">
+        <div class="form-container" enctype="multipart/form-data">
+            <h3>Add a Book</h3>
+            <div class="form-group-title" class="form-group">
+                <label for="title">Title</label><br>
+                <input type="text" name="title" id="title" placeholder="Add title here...">
+            </div>
+            
+            <div class="form-group-author-genre" class="form-group">
+                <label for="authorname">Author Name</label>
+                <label for="genre" class ="genre-space">Genre</label> <br>
+                <input type="text" name="authorname" id="authorname" placeholder="Add author name here...">
+                <select name="genre" id="genre">
+                    <option value="">Choose...</option>
+                    <option value="Science">Science</option>
+                    <option value="Novel">Novel</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Narrative">Narrative</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="History">History</option>
+                    <option value="Fantasy">Fantasy</option>
+                </select>
+            </div>
+            
+            <div>
+                <label for="description">Description</label><br>
+                <input type="text" name="description" id="description" placeholder="Add book description here...">
+            </div>
+            
+            <div>
+                <label for="language">Language</label>
+                <label for="date-published" class = "date-published-space">Date Published</label><br>
+                <select name="language" id="language">
+                    <option value="">Choose...</option>
+                    <option value="English">English</option>
+                    <option value="Filipino">Filipino</option>
+                    <option value="Others">Others</option>
+                </select>
+                <input type="date" name="date-published" id="date-published">
+            </div>
+    
+            <div class="bottom-part">
+                <div class="file-upload-left">
+                    <div class="file-upload-item">
+                        <label for="front-upload">Front Cover</label>
+                        <input type="file" name="front-upload" id="front-upload">
+                    </div>
+                    
+                    <div class="file-upload-item">
+                        <label for="back-upload">Back Cover</label>
+                        <input type="file" name="back-upload" id="back-upload">
+                    </div>
+                    
+                    <div class="file-upload-item">
+                        <label for="book-file-upload">Book File Copy (PDF)</label>
+                        <input type="file" name="book-file-upload" id="book-file-upload">
+                    </div>
+                </div>
+                
+                <div class="file-upload-right">
+                    <div class="file-upload-item">
+                        <label for="author-upload">Author Photo</label>
+                        <input type="file" name="author-upload" id="author-upload">
+                    </div>
+                
+                    <div class="submit-item">
+                        <button id="addBookButton">Add Book</button>
+                    </div>
+                    
+                    <p class="form-footer"><span style="color: black;">book.</span><span style ="color: #A1BE95;">room</span></p>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+
+            <!-- The Modal -->
+            <div id="addBookModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeModal">&times;</span>
+                    <div class="book-details">
+                        <div>
+                            <span id ="modal-genre">Genre</span>
+                        </div>
+                        <div>
+                            <span id="modal-title">Title Name</span>
+                        </div>
+                        <div>
+                            <span id="modal-author">Author Name</span>
+                        </div>
+                        <div class = "images">
+                            <img src="../images/book-1.png" alt="" class = "space1">
+                            <img src="../images/book-1.png" alt="" class = "space2">
+                        </div>
+                    </div> <br>
+
+                    <div class="modal-actions">
+                        <button id="editButton">Edit</button>
+                        <button id="addButton">Add Book</button>
+                    </div>
+                </div>
+            </div>
+
+    <!-- Scripts -->
+     <script src="js/addbooks-popup.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,277 @@
+/* IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Krona+One&family=Kumbh+Sans:wght@100..900&display=swap');
+
+/* Form Background */
+.form-background {
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    margin-left: 350px;
+    height: 500px;
+    width: 875px;
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent teal */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border-radius: 15px;
+    font-family: 'Kumbh Sans', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.form-container {
+    margin-left: 30px;
+}
+
+h3 {
+    margin-right: 30px;
+    padding-top: 25px;
+    text-align: center;
+    font-family: 'Krona One', Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+#title, #description {
+    width: 750px;
+    height: 30px;
+    padding: 0 20px;
+    margin-bottom: 15px;
+}
+
+#authorname {
+    width: 450px;
+    height: 30px;
+    padding: 0 20px;
+}
+
+.genre-space {
+    padding-left: 435px;
+}
+
+#genre {
+    margin-left: 45px;
+    height: 30px;
+    width: 250px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#language {
+    height: 30px;
+    width: 250px;
+    text-align: center;
+}
+
+.date-published-space {
+    margin-left: 225px;
+}
+
+#date-published {
+    margin-left: 50px;
+    height: 30px;
+    width: 250px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+input, select {
+    border-radius: 15px;
+    border: none;
+}
+
+input:focus, select:focus {
+    outline: none; /* Remove the default outline */
+    border: none;  /* Remove the border */
+    box-shadow: none; /* Remove any potential box shadow */
+}
+
+
+/* Bottom Part */
+.bottom-part {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Space between left and right sections */
+}
+
+/* Left-Side File Upload */
+.file-upload-left {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+}
+
+.file-upload-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.file-upload-item label {
+    width: 150px;
+    font-weight: bold;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.file-upload-item input {
+    padding: 8px;
+    font-size: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 50%;
+}
+
+/* Right-Side File Upload */
+.file-upload-right {
+    font-size: 12px;
+    margin-right: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+    justify-content: flex-start;
+    height: 50%;
+}
+
+/* Submit Button */
+.submit-item {
+    margin-top: auto;
+}
+
+.submit-item button {
+    margin-top: 25px;
+    margin-left: 150px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #16423C;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.submit-item button:hover {
+    background-color: #26746a;
+}
+
+/* Footer */
+.form-footer {
+    margin-left: 300px;
+    font-size: 20px;
+    font-family: 'Geologica', Arial, Helvetica, sans-serif;
+    color: #777;
+    text-align: center;
+    margin-top: -10px;
+}
+
+/* Modal Background */
+.modal {
+    font-family: 'Kumbh Sans', Arial, Helvetica, sans-serif;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    margin-top: -50px;
+    text-align: center;
+    border: none;
+}
+
+#addBookModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    padding-top: 100px;
+}
+
+.modal-content {
+    background-color: rgb(22, 66, 60);
+    color: white;
+    border-radius: 15px;
+    margin: auto;
+    padding: 20px;
+    border: none;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.modal-genre {
+    margin-bottom: 10px;
+    font-family: 'Kumbh Sans', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+
+#modal-title {
+    font-family: 'Kumbh Sans', Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+#modal-author {
+    font-family: 'Kumbh Sans', Arial, Helvetica, sans-serif;
+}
+
+.images {
+    margin-top: 25px;
+}
+
+img {
+    width: 200px;
+    height: auto;
+}
+
+.space1 {
+    margin-right: 10px;
+}
+
+.space2 {
+    margin-left: 10px;
+}
+
+/* Close Button */
+.close {
+    margin-right: 5px;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#editButton, #addButton {
+    padding: 10px 25px;
+    border-radius: 15px;
+    border: none;
+}
+
+#editButton {
+    margin-right: 40px;
+    background-color: #421616;
+    color: white;
+    font-family: 'Kumbh Sans', Arial, Helvetica, sans-serif;
+}
+
+#addButton {
+    background-color: rgb(17, 51, 47);
+    color: white;
+}
