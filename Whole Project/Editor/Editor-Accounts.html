@@ -4,8 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editor | Book Room</title>
-    <link rel="stylesheet" href="css/bg-and-nav.css">
+
+    <!-- Web page Icon -->
     <link rel="shortcut icon" href="../images/weblogo.png" type="image/x-icon">
+
+    <!-- Icon Import -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bg-and-nav.css">
+    <link rel="stylesheet" href="css/accounts.css">
+
 </head>
 <body>
     <!--Logo and Title -->
@@ -34,6 +43,152 @@
         </div>
     </div>
 
+    <!--
+    
+        Main Content
+        - Personal Information
+        - Picture, Name & User ID
+        - Account Credentials
+        - Update Profile Popup
+        - Update Credentials Popup
+        - Change Password Popup
+
+                -->
+
+    <div class="main-content">
+        <div class="personal-information-part">
+            <div class="personal-information-content">
+                <h3>Personal Information</h3>
+                <div class = "text-box">
+                    <h4>December 12, 1994</h4>
+                    <p>Birthdate</p>
+                </div>
+                <div class = "text-box">
+                    <h4>Cis Male</h4>
+                    <p>Gender</p>
+                </div>
+                <div class = "text-box">
+                    <h4>Metro Manila</h4>
+                    <p>Location</p>
+                </div>
+                <button id="openModal1">
+                        <i class="fa-regular fa-pen-to-square"></i> Edit
+                </button>
+            </div>
+        </div>
+        
+        <div class="right-side-part">
+            <div class="picture-name-userid-part">
+                <img src="https://via.placeholder.com/80" alt="Profile Picture">
+                <h1>Gray Smith</h1>
+                <div class="user-id">
+                    <p>User ID</p>
+                    <div class="userid-background">
+                        <h2>1</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="user-credentials">
+                <div class="credentials-left">
+                    <h2  class ="space">Account Credentials</h2>
+                    <div class="divider">
+                        <h3>Email</h3>
+                        <div class="credentials-text-box">
+                            <h4>gray@email.com</h4>
+                        </div>
+                        <h3>Phone Number</h3>
+                        <div class="credentials-text-box">
+                            <h4>+639389042134</h4>
+                        </div>
+                        <h3>Secondary Email</h3>
+                        <div class="credentials-text-box">
+                            <h4>gray2@email.com</h4>
+                        </div> <br> 
+                    </div>
+                </div>
+                <div class="credentials-right">
+                    <h3>Security Question</h3>
+                    <div class="credentials-text-box">
+                        <h4>Who is your mother?</h4>
+                    </div>
+                    <div class="buttons">
+                            <button id="openModal2">
+                                <i class="fa-regular fa-pen-to-square"></i> Update
+                            </button>
+                            <button id="openModal3">
+                                <i class="fa-regular fa-pen-to-square"></i> Change Password
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals for Button -->
+    <!-- Modal 1 -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal1">&times;</span>
+            <h2>Update Profile Info</h2>
+            <div class="section">
+                <div class="left-side">
+                    First Name<br> <input type="text"> <br>
+                    Last Name<br><input type="text"> <br>
+                    Gender <br>
+                    <select name="gender" id="">
+                        <option value="">Cis Male</option>
+                        <option value="">Cis Male</option>
+                        <option value="">Lesbian</option>
+                        <option value="">Others</option>
+                    </select> <br>
+                    Location  <br>
+                    <select name="gender" id="">
+                        <option value="">Metro Manila</option>
+                        <option value="">Visayas</option>
+                        <option value="">Mindanao</option>
+                        <option value="">Hollow Earth</option>
+                    </select> <br>
+                    Birthdate  <br>
+                    <input type="date" name="birthdate" id="birthdate"> <br>
+                </div>
+                <div class="right-side">
+                    Upload New Profile Picture <br>
+                    <input type="file" name="" id="">
+                </div>
+            </div> <br> <br>
+            <div class="button-container">
+                <button id="cancel-button">Cancel</button>
+                <button id="update-button">Update</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal2">&times;</span>
+            <h2>Edit Gender</h2>
+            <select>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <button>Save Changes</button>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal3">&times;</span>
+            <h2>Edit Location</h2>
+            <input type="text" placeholder="Enter your location" />
+            <button>Save Changes</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+     <script src="js/accounts-popup.js"></script>
 
 </body>
 </html>

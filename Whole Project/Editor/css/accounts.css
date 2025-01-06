@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Gulzar&family=Lateef:wght@200;300;400;500;600;700;800&display=swap');
+
+.main-content {
+    margin-left: 300px;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    font-family: 'Lateef', Arial, Helvetica, sans-serif;
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.personal-information-content {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    gap: 10px; /* Adds spacing between stacked items */
+    width: 200px;
+    height: 500px;
+    text-align: center;
+    background-color: #6A9C89;
+    border-radius: 30px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.personal-information-content h3 {
+    padding-top: 20px;
+    display: inline-block; /* Shrinks the width to fit the content */
+    border-bottom: 2px white solid;
+    font-family: 'Gulzar', Arial, Helvetica, sans-serif;
+    line-height: 1; /* Tighten the vertical spacing */
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.text-box {
+    width: 165px;
+    height: 30px;
+    background-color: #D9D9D9;
+    margin-bottom: 40px;
+    color: black;
+    border-radius: 30px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.4);
+}
+
+.personal-information-content h4 {
+    margin-top: 0px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.personal-information-content p {
+    margin-top: -20px;
+    color: white;
+    font-size: 20px;
+}
+
+.personal-information-content button {
+    height: auto;
+    width: 75px;
+    padding: 5px;
+    border: none;
+    font-size: 13px;
+    margin-left: 80px;
+    margin-top: 125px;
+}
+
+.right-side-part {
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.picture-name-userid-part {
+    width: 725px;
+    height: 150px;
+    background-color: #6A9C89;
+    border-radius: 30px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.picture-name-userid-part img {
+    margin-left: 50px;
+    margin-right: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    background-color: #6A8891;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.8);
+}
+
+.user-id {
+    margin-left:350px;
+}
+
+.user-id p {
+    font-size: 15px;
+    font-family: 'Lateef', Arial, Helvetica, sans-serif;
+}
+
+.userid-background {
+    margin-top: -15px;
+    margin-left: -5px;
+    margin-bottom: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    text-align: center;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.user-credentials {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    width: 725px;
+    height: 330px;
+    background-color: #6A9C89;
+    border-radius: 30px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    color: black;
+}
+
+.space {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.credentials-left {
+    margin-left: 20px;
+    width: 50%;
+} 
+
+.credentials-left h2 {
+    color: white;
+    font-weight: 300;
+    font-size: 30px;
+}
+
+.credentials-left h3 {
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.credentials-text-box {
+    margin-top: -20px;
+    width: 80%;
+    height: 30px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+}
+
+.credentials-text-box h4 {
+    padding-top: 3px;
+    padding-left: 10px;
+    color: black;
+}
+
+.divider {
+    width: 100%;
+    border-right: 2px solid rgb(255, 255, 255);
+    display: inline-block; /* Shrinks the width to fit the content */
+}
+
+.credentials-right {
+    margin-left: 20px;
+    width: 50%;
+} 
+
+.credentials-right h3 {
+    margin-left: 5px;
+    margin-top: 78px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 140px;
+    margin-left: 100px;
+}
+
+.buttons button {
+    height: auto;
+    width: auto;
+    padding: 5px;
+    border: none;
+    font-size: 13px;
+}
+
+button:hover  {
+    background-color: #22332d;
+    color: white;
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Black with transparency */
+    color: rgb(255, 255, 255);
+}
+
+.modal-content {
+    background-color: #6A9C89;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 45%;
+
+}
+
+.close {
+    color: rgb(255, 255, 255);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.section {
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.modal h2 {
+    text-align: center;
+}
+
+.modal button {
+    align-items: center;
+}
+
+.modal .left-side, .modal .right-side {
+    width: 50%;
+}
+
+.modal .left-side {
+    margin-left: 35px;
+    font-size: 20px;
+    font-family: 'Lateef', Arial, Helvetica, sans-serif;
+}
+
+.left-side input {
+    font-family: 'Lateef', Arial, Helvetica, sans-serif;
+}
+
+.left-side input {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 15px;
+    width: 250px;
+    height: 25px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.6);
+    background-color: #D9D9D9;
+}
+
+.left-side select {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 15px;
+    width: 270px;
+    height: 25px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.6);
+    background-color: #D9D9D9;
+}
+
+.left-side input:focus, .left-side select:focus {
+    outline: none; /* Remove the default outline */
+    border: none;  /* Remove the border */
+}
+
+.left-side select {
+    text-align: center;
+    font-family: 'Lateef', Arial, Helvetica, sans-serif;
+}
+
+.left-side #birthdate {
+    text-align: center;
+    font-family: 'Lateef', Arial, Helvetica, sans-serif;
+}
+
+#cancel-button, #update-button {
+    padding: 5px;
+    border: none;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.6);
+    width: 75px;
+}
+
+.modal .right-side {
+    font-size: 20px;
+    font-family: 'Lateef', Arial, Helvetica, sans-serif;
+}
+
+.button-container {
+   margin-left: 225px;
+}
+
+#update-button {
+    margin-left: 25px;
+}
