@@ -18,7 +18,7 @@ a {
     align-items: center; /* Center items horizontally */
     gap: 10px; /* Adds spacing between stacked items */
     width: 200px;
-    height: 500px;
+    height: 510px;
     text-align: center;
     background-color: #6A9C89;
     border-radius: 30px;
@@ -65,6 +65,8 @@ a {
     font-size: 13px;
     margin-left: 80px;
     margin-top: 125px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
 }
 
 .right-side-part {
@@ -119,6 +121,7 @@ a {
     align-items: center;
     justify-content: center;
     font-size: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.6);
 }
 
 .user-credentials {
@@ -129,7 +132,7 @@ a {
     height: 330px;
     background-color: #6A9C89;
     border-radius: 30px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.6);
     color: black;
 }
 
@@ -190,6 +193,7 @@ a {
     gap: 10px;
     margin-top: 140px;
     margin-left: 100px;
+    border-radius: 10px;
 }
 
 .buttons button {
@@ -225,6 +229,15 @@ button:hover  {
     padding: 20px;
     border-radius: 10px;
     width: 45%;
+
+}
+
+.modal-content-1 {
+    background-color: #6A9C89;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: fit-content;
 
 }
 
@@ -266,7 +279,7 @@ button:hover  {
     font-family: 'Lateef', Arial, Helvetica, sans-serif;
 }
 
-.left-side input {
+.left-side input, .right-side input {
     padding-left: 10px;
     padding-right: 10px;
     font-size: 15px;
@@ -278,7 +291,18 @@ button:hover  {
     background-color: #D9D9D9;
 }
 
-.left-side select {
+.right-side-1 input {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 15px;
+    width: 250px;
+    height: 25px;
+    border: none;
+    border-radius: 10px;
+
+}
+
+.left-side select, .right-side select {
     padding-left: 10px;
     padding-right: 10px;
     font-size: 15px;
@@ -317,10 +341,38 @@ button:hover  {
     font-family: 'Lateef', Arial, Helvetica, sans-serif;
 }
 
+.modal .right-side-1 {
+    font-size: 20px;
+    font-family: 'Lateef', Arial, Helvetica, sans-serif;
+}
+
 .button-container {
    margin-left: 225px;
 }
 
 #update-button {
     margin-left: 25px;
+}
+
+.change-password {
+    display: flex;
+    flex-direction: column;
+    color: black;
+}
+
+.change-password input {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 15px;
+    width: 270px;
+    height: 25px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.6);
+    background-color: #D9D9D9;
+
+}
+
+.button-container-1 {
+    margin-left: 50px;
 }

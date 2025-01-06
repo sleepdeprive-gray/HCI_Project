@@ -125,7 +125,8 @@
     </div>
 
     <!-- Modals for Button -->
-    <!-- Modal 1 -->
+
+    <!-- Update Personal Information -->
     <div id="modal1" class="modal">
         <div class="modal-content">
             <span class="close" id="closeModal1">&times;</span>
@@ -151,7 +152,7 @@
                     Birthdate  <br>
                     <input type="date" name="birthdate" id="birthdate"> <br>
                 </div>
-                <div class="right-side">
+                <div class="right-side-1">
                     Upload New Profile Picture <br>
                     <input type="file" name="" id="">
                 </div>
@@ -163,27 +164,49 @@
         </div>
     </div>
 
-    <!-- Modal 2 -->
+    <!-- Update Credentials -->
     <div id="modal2" class="modal">
         <div class="modal-content">
             <span class="close" id="closeModal2">&times;</span>
-            <h2>Edit Gender</h2>
-            <select>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-            </select>
-            <button>Save Changes</button>
+            <h2>Update Credentials</h2>
+            <div class="section">
+                <div class="left-side">
+                    Email<br> <input type="email"> <br>
+                    Phone Number<br><input type="Number"> <br>
+                    Secondary Email<br> <input type="email"> <br>
+                </div>
+                <div class="right-side">
+                    Security Question <br>
+                    <select name="" id="">
+                        <option value="">Who is your Mother?</option>
+                        <option value="">What is your favorite color?</option>
+                        <option value="">What is your birthplace?</option>
+                        <option value="">What is your nickname?</option>
+                    </select> <br>
+                    Answer<br> <input type="text"> <br>
+                </div>
+            </div> <br> <br>
+            <div class="button-container">
+                <button id="cancel-button">Cancel</button>
+                <button id="update-button">Update</button>
+            </div> 
         </div>
     </div>
 
-    <!-- Modal 3 -->
+    <!-- Change Password -->
     <div id="modal3" class="modal">
-        <div class="modal-content">
+        <div class="modal-content-1">
             <span class="close" id="closeModal3">&times;</span>
-            <h2>Edit Location</h2>
-            <input type="text" placeholder="Enter your location" />
-            <button>Save Changes</button>
+            <h2>Update Password</h2>
+            <div class="change-password">
+                Old Password<br> <input type="password"> <br>
+                New Password<br><input type="password"> <br>
+                Confirm New Password<br><input type="password"> <br>
+            </div>
+            <div class="button-container-1">
+                <button id="cancel-button">Cancel</button>
+                <button id="update-button">Update</button>
+            </div> 
         </div>
     </div>
 
