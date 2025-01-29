@@ -2,16 +2,14 @@
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    text-decoration: none;
 }
-
 .container{
     display: flex;
 }
 .picture{
     width: 50%;
     height: 100vh;
-    background-image: url(../images/background.jpg);
+    background-image: url(../../images/background.jpg);
     background-size: cover;
     position: relative;
 }
@@ -24,20 +22,6 @@
     height: 100%;
     background: rgba(0,0,0,0.6);
 }
-/* .LOGIN_SIGNUP{
-    display: flex;
-    margin: 20px;
-    width: 150px;
-    justify-content: space-around;
-}
-.LOGIN_SIGNUP a{
-    text-decoration: none;
-}
-.LOGIN_SIGNUP a p{
-    position: relative;
-    
-    color: white;
-} */
 
 .needed_content{
     margin-top: 100px;
@@ -70,10 +54,6 @@ span{
 .link{
     margin-top: 60px;
     font-size: 15px;
-    font-weight: lighter;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
 }
 
 .needed_content a{
@@ -98,13 +78,13 @@ span{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 25px;
 }
 
 .forms h1{
     margin-bottom: 50px;
     font-size: 50px;
 }
+
 form{
     display: flex;
     flex-direction: column;
@@ -112,54 +92,12 @@ form{
 
 form input{
     width: 350px;
-    height: 45px;
+    height: 40px;
     padding-left: 10px;
     margin: 10px;
-    border-radius: 15px;
-    background-color: black;
+    border-radius: 10px;
     border: 1px solid black;
-    color: white;
     box-shadow: 0 10px 10px rgba(0,0,0,0.2);
-}
-::-webkit-input-placeholder{
-    color: white;
-}
-
-.next{
-    margin-top: 25px;
-    display: flex;
-    margin-right: 10px;
-    justify-content: flex-end;
-    color: black;
-    /* font-weight: bold; */
-}
-
-.prev_next{
-    margin-top: 25px;
-    display: flex;
-    justify-content: space-between;
-}
-
-label{
-    font-weight: bold;
-}
-
-.prev_next p{
-    color: black;
-}
-
-.prev_sub{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.prev_sub button{
-    cursor: pointer;
-}
-
-.prev_sub p{
-    color: black;
 }
 form .button button{
     cursor: pointer;
@@ -170,30 +108,36 @@ form .button button{
     box-shadow: 0 10px 10px rgba(0,0,0,0.2);
 }
 
+input[readonly] {
+    user-select: none; /* Prevent text selection */
+    pointer-events: none; /* Prevent cursor and clicking */
+}
+
+input[readonly]::placeholder {
+    color: black; /* Set placeholder color to black */
+}
+
 form .button{
     margin-top: 20px;
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-    
+    justify-content: center;
+    align-self: center;
 }
+
 form .button p{
   color: #8B8383;
 }
 
 .loginButton{
     background-color: #2EA1F3;
+    margin-left: 40px;
 }
 
 .faceRecognitionButton{
     background-color: #F06565;
-    border: none;
-    width: 100px;
-    height: 30px;
-    border-radius: 10px;
 }
 .terms{
-    margin-top: 10px;
+    margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -219,18 +163,6 @@ form .button p{
     font-weight: bold;
 }
 
-.signs{
-    margin-top: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    font-weight: bold;
-}
-.signs a{
-    color: #FF0000;
-}
-
 .logo{
     display: flex;
     width: 100%;
@@ -245,6 +177,7 @@ form .button p{
 }
 .logo p{
     margin-top: 10px;
+    margin-left: 0px;
     margin-right: 20px;
     font-weight: bold;
 }
@@ -253,7 +186,6 @@ form .button p{
 .takeAphoto{
     margin-left: 10px;
     border-radius: 10px;
-    margin-bottom: 30px;
     width: 363px;
     height: 100px;
     background-color: #000000c0;
@@ -271,79 +203,4 @@ form .button p{
     height: 35px;
 }
 
-select{
-    width: 363px;
-    height: 45px;
-    padding-left: 10px;
-    margin: 10px;
-    border-radius: 15px;
-    background-color: black;
-    border: 1px solid black;
-    color: white;
-    box-shadow: 0 10px 10px rgba(0,0,0,0.2);
-}
 
-.info{
-    display: flex;
-    margin-top: -20px;
-    flex-direction: column;
-    align-items: center;
-    font-weight: bold;
-}
-.choose{
-    display: flex;
-    margin-top: 40px;
-}
-.choose button{
-    margin-left: 60px;
-    border-radius: 10px;
-    width: 160px;
-    height: 100px;
-    background-color: #000000c0;
-    color: white;
-    display: flex;
-    border: none;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    box-shadow: 0 10px 10px rgba(0,0,0,0.2);
-}
-
-.choose img{
-    width: 35px;
-    height: 35px;
-    margin-bottom: 10px;
-}
-
-.head{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 25px;
-    margin-bottom: 40px;
-}
-
-
-.last{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.last a{
-    color: black;
-}
-.last span{
-    color: #2EA1F3;
-}
-.last label{
-    margin-top: 30px;
-}
-.last input{
-    background-color: white;
-    margin-bottom: 80px;
-}
-
-.last ::-webkit-input-placeholder{
-    color: #6B6B6B;
-}

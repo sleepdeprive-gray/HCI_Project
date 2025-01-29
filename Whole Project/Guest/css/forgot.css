@@ -12,7 +12,7 @@
 .picture{
     width: 50%;
     height: 100vh;
-    background-image: url(../images/background.jpg);
+    background-image: url(../../images/background.jpg);
     background-size: cover;
     position: relative;
 }
@@ -25,21 +25,6 @@
     height: 100%;
     background: rgba(0,0,0,0.6);
 }
-
-/* .LOGIN_SIGNUP{
-    display: flex;
-    margin: 20px;
-    width: 150px;
-    justify-content: space-around;
-}
-.LOGIN_SIGNUP a{
-    text-decoration: none;
-}
-.LOGIN_SIGNUP a p{
-    position: relative;
-    
-    color: white;
-} */
 
 .needed_content{
     margin-top: 100px;

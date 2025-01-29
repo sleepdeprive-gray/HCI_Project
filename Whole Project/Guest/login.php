@@ -3,17 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/index.css">
     <title> BR | Login</title>
 </head>
 <body>
     <div class="container">
-        <div class="picture">
-            <!-- <div class="LOGIN_SIGNUP">
-                <a href=""><p>Login</p></a>
-                <a href=""><p>Sign up</p></a>
-            </div> -->
 
+        <div class="picture">
             <div class="needed_content">
                 <h1>BOOK <span>ROOM</span></h1>
                 <img src="../images/weblogo.png">
@@ -31,13 +27,13 @@
 
             <div class="forms">
                 <h1>LOGIN</h1>
-                <form action="../Member/Files/discover.html" method="post">
-                    <input type="email" name="" id="" placeholder="Email">
-                    <input type="password" name="" id="" placeholder="Password">
+                <form action="../process/Guest/login-validation.php" method="post">
+                    <input type="email" name="email" id="email" placeholder="Email" required>
+                    <input type="password" name="password" id="password" placeholder="Password" required>
                     <div class="button">
-                        <a href="../Member/Files/discover.html"><button class="loginButton">Login</button></a>
+                        <button type="submit"class="loginButton">Login</button></a>
                     <div class="sign">
-                        <p>Didn’t have an account? <a href="signup.html">Sign Up.</a></p>
+                        <p>Didn’t have an account? <a href="Signup/signup.php">Sign Up.</a></p>
                     </div>
                 </form>
             </div>

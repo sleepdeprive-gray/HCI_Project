@@ -1,22 +1,27 @@
+<?php
+    session_start();
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['password'] = $_POST['password'];
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="../css/signup.css">
     <title>Sign Up | Member Credentials</title>
 </head>
 <body>
     <div class="container">
-        <div class="picture">
-            <!-- <div class="LOGIN_SIGNUP">
-                <a href=""><p>Login</p></a>
-                <a href=""><p>Sign up</p></a>
-            </div> -->
 
+        <div class="picture">
             <div class="needed_content">
                 <h1>BOOK <span>ROOM</span></h1>
-                <img src="../images/weblogo.png">
+                <img src="../../images/weblogo.png">
                 <p class="text">Discover, Download, and Dive into</p>
                 <p class="text">Stories Across Many Genres!</p>
                 <div class="link">
@@ -29,24 +34,24 @@
 
         <div class="form">
             <div class="logo">
-                <img src="../images/weblogo.png" alt="">
+                <img src="../../images/weblogo.png" alt="">
                 <p>book.<span>room</span></p>
             </div>
 
             <div class="forms">
                 <h1>Sign Up</h1>
-                <form action="" method="post">
-                    <input type="text" name="" id="" placeholder="First name">
-                    <input type="text" name="" id="" placeholder="Last name">
+                <form action="signupThird_step.php" method="post">
+                    <input type="text" name="firstname" id="firstname" placeholder="First name" required>
+                    <input type="text" name="lastname" id="lastname" placeholder="Last name" required>
                     <label for="">Birthday</label>
-                    <input type="date" name="" id="">
+                    <input type="date" name="birthdate" id="birthdate" required>
                   
                     <div class="prev_next">
-                        <a href="signup.html" ><p>GO BACK</p></a>
-                        <a href="signupThird_step.html"><p>NEXT</p></a>
+                        <a href="signup.php"><p>GO BACK</p></a>
+                        <button type="submit"><p>NEXT</p></button>
                     </div>
                     <div class="sign">
-                        <p>Already have an account? <a href="login.html">Login</a></p>
+                        <p>Already have an account? <a href="../login.php">Login</a></p>
                     </div>
                 </form>
             </div>
