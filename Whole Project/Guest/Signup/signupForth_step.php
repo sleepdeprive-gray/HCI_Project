@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="choose">
-                        <button type="button" onclick="window.location.href='signupQA.html'">
+                        <button type="button" onclick="window.location.href='signupQA.php'">
                             <img src="../../Logos/contract.png" alt="">Question & Answer
                         </button>
                     </div>

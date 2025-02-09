@@ -1,5 +1,5 @@
 <?php
-session_start(); // Start the session to store data
+session_start();
 
 
 ?>
@@ -10,7 +10,7 @@ session_start(); // Start the session to store data
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/signup.css">
-    <title>Document</title>
+    <title>BR | Add Security</title>
 </head>
 <body>
     <div class="container">
@@ -41,14 +41,13 @@ session_start(); // Start the session to store data
                     <h2> your account</h2>
                 </div>
                 <form action="" method="post">
-                    <select name="" id="">
-                        <option value="">Security Question</option>
-                        <option value="">Who is you best friend ?</option>
-                        <option value="">Where did you graduated in elementary school ?</option>
+                    <select name="security_question" id="security_question" required>
+                        <option value="Who is you best friend?">Who is you best friend?</option>
+                        <option value="Where did you graduated in elementary school?">Where did you graduated in elementary school?</option>
                     </select>
                     <input type="text" name="" id="" placeholder="Answer">
                     
-                  
+                    <br>
                     <div class="prev_sub">
                         <a href="signupForth_step.php" ><p>GO BACK</p></a>
                         <a href="successful.html"><p>SUBMIT</p></a>
