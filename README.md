@@ -1,1 +1,2 @@
-# ITEC80A---Project
+# Human-Computer Interaction Project
+<hr>
