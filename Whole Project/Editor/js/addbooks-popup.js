@@ -24,5 +24,5 @@ editButton.onclick = () => {
 
 addButton.onclick = () => {
     alert("Book has been added.");
-    window.location.href = "Editor-BooksOwned.html";
+    window.location.href = "Editor-BooksOwned.php";
 };

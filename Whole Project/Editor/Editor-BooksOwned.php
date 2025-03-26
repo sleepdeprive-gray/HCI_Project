@@ -33,13 +33,13 @@
             <hr>
         </div>
         <div class="menu">
-            <a href="Editor-Dashboard.html"><button class="text-btn">Dashboard</button></a>
-            <a href="Editor-Books.html"><button class="text-btn">Books</button></a> 
-            <a href="Editor-AddBooks.html"><button class="text-btn">Add Books</button></a> 
-            <a href="Editor-BooksOwned.html"><button class="chosen-btn">Book Owned</button></a>
+            <a href="Editor-Dashboard.php"><button class="text-btn">Dashboard</button></a>
+            <a href="Editor-Books.php"><button class="text-btn">Books</button></a> 
+            <a href="Editor-AddBooks.php"><button class="text-btn">Add Books</button></a> 
+            <a href="Editor-BooksOwned.php"><button class="chosen-btn">Book Owned</button></a>
             <br><br><br><br><br><br><br><br><br>
-            <a href="Editor-Accounts.html"><button class="text-btn">Account</button> </a>
-            <a href="../../Guest/login.html"><button class="logout">Logout</button></a>
+            <a href="Editor-Accounts.php"><button class="text-btn">Account</button> </a>
+            <a href="../../Guest/login.php"><button class="logout">Logout</button></a>
         </div>
     </div>
 
@@ -97,7 +97,7 @@
                             <td>January 1, 2025</td>
                             <td>Archived</td>
                             <td>
-                                <a href="Editor-BooksOwned-Archived.html">
+                                <a href="Editor-BooksOwned-Archived.">
                                     <button>View</button>
                                 </a>
                             </td>
@@ -109,7 +109,7 @@
                             <td>January 1, 2025</td>
                             <td>Available</td>
                             <td>
-                                <a href="Editor-BooksOwned-Available.html">
+                                <a href="Editor-BooksOwned-Available.php">
                                     <button>View</button>
                                 </a>
                             </td>
@@ -128,7 +128,7 @@
                             <td>The Escapers</td>
                             <td>July 15, 1990</td>
                             <td>January 1, 2025</td>
-                            <td>Available</td>
+                            <td>For Approval</td>
                             <td>
                                 <button onclick="viewBook()">View</button>
                             </td>

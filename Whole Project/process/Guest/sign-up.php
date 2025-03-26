@@ -6,6 +6,7 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+        $user_type = 'Member';
         $email = $_SESSION['email'];
         $password = $_SESSION['password'];
         $firstname = $_SESSION['firstname'];
@@ -30,11 +31,11 @@
 
         include '../database_connection.php';
 
-        $sql = "INSERT INTO users (email, password, first_name, last_name, birthdate, gender, location, security_question, sq_answer) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO users (user_type, email, password, first_name, last_name, birthdate, gender, location, security_question, sq_answer) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssssssss", $email, $hashedPassword, $firstname, $lastname, $birthdate, $gender, $location, $security_question, $security_answer);
+        $stmt->bind_param("sssssssss", $user_type, $email, $hashedPassword, $firstname, $lastname, $birthdate, $gender, $location, $security_question, $security_answer);
 
         if ($stmt->execute()) {
 

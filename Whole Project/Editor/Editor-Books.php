@@ -33,13 +33,13 @@
             <hr>
         </div>
         <div class="menu">
-            <a href="Editor-Dashboard.html"><button class="text-btn">Dashboard</button></a>
-            <a href="Editor-Books.html"><button class="chosen-btn">Books</button></a> 
-            <a href="Editor-AddBooks.html"><button class="text-btn">Add Books</button></a> 
-            <a href="Editor-BooksOwned.html"><button class="text-btn">Book Owned</button></a>
+            <a href="Editor-Dashboard.php"><button class="text-btn">Dashboard</button></a>
+            <a href="Editor-Books.php"><button class="chosen-btn">Books</button></a> 
+            <a href="Editor-AddBooks.php"><button class="text-btn">Add Books</button></a> 
+            <a href="Editor-BooksOwned.php"><button class="text-btn">Book Owned</button></a>
             <br><br><br><br><br><br><br><br><br>
-            <a href="Editor-Accounts.html"><button class="text-btn">Account</button> </a>
-            <a href="../../Guest/login.html"><button class="logout">Logout</button></a>
+            <a href="Editor-Accounts.php"><button class="text-btn">Account</button> </a>
+            <a href="../../Guest/login.php"><button class="logout">Logout</button></a>
         </div>
     </div>
 
@@ -104,7 +104,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.html">
+                    <a href="Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -115,7 +115,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.html">
+                    <a href="Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -126,7 +126,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.html">
+                    <a href="Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -137,7 +137,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.html">
+                    <a href="Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -148,7 +148,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.html">
+                    <a href="Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -159,7 +159,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.html">
+                    <a href="Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -170,7 +170,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.html">
+                    <a href="Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -181,7 +181,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.html">
+                    <a href="Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -192,7 +192,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.html">
+                    <a href="Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -203,7 +203,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.html">
+                    <a href="Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -214,7 +214,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.html">
+                    <a href="Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>

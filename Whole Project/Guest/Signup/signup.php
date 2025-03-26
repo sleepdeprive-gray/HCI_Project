@@ -1,7 +1,6 @@
 <?php
-session_start(); // Start the session to store form data
+session_start();
 
-// Capture data from the previous form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
@@ -42,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="forms">
                 <h1>Sign Up</h1>
-                <form action="signupSecond_step.php" method="post" id="signup1">
+                <form action="../../process/Guest/email-validation.php" method="post" id="signup1">
                     <input type="email" name="email" id="email" placeholder="Email" required>
                     <input type="password" name="password" id="password" placeholder="Password" required>
                   
@@ -58,17 +57,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <script>
-        
-        function submitForm() {
+        document.getElementById('signup1').addEventListener('submit', function(event) {
+            const email = document.getElementById('email').value;
+            if (!validateEmail(email)) {
+                event.preventDefault();
+                alert("Please enter a valid email address.");
+            }
+        });
 
-        const form = document.getElementById('signup1');
-        if (form.checkValidity()) {
-            form.submit();
-        } else {
-            alert("Please fill out all required fields.");
+        function validateEmail(email) {
+            const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return re.test(email);
         }
-        }
-
+    </script>
     </script>
     
 </body>

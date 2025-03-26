@@ -75,7 +75,7 @@
     
     // Log session data to the browser console
     console.log("User Session Data:", sessionData);
-</script>
+    </script>
 
 </body>
 </html>

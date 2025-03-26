@@ -1,27 +1,38 @@
-// Function to animate the number
+document.addEventListener("DOMContentLoaded", function () {
+    // Ensure the elements exist before animating
+    if (document.getElementById("published-counter")) {
+        animateCounter("published-counter", 1, totalBooks, 2500);
+    }
+
+    if (document.getElementById("download-counter")) {
+        animateCounter("download-counter", 1, totalDownloads, 2500);
+    }
+});
+
+// Function to animate the counter
 function animateCounter(elementId, start, end, duration) {
     const element = document.getElementById(elementId);
+    if (!element) return; // Prevent errors if the element is missing
+
     const range = end - start;
     const increment = range / (duration / 10);
     let current = start;
+
     const timer = setInterval(() => {
         current += increment;
         if (current >= end) {
-            current = end; // Ensure it stops at the final number
+            current = end; // Stop exactly at the final number
             clearInterval(timer);
         }
         element.textContent = Math.floor(current);
     }, 10);
 }
 
-// Trigger the animation
-animateCounter("published-counter", 1, 25, 2500); // Animate from 1 to 25 over 2 seconds
-animateCounter("download-counter", 1, 55, 2500); // Animate from 1 to 25 over 2 seconds
-
+// Function to trigger when opening popups
 function MostCounterAnimation() {
-    animateCounter("popup-most-counter", 1, 45, 2500); // Animate from 1 to 45 over 2.5 seconds
+    animateCounter("popup-most-counter", 1, $mostDownloads, 2500);
 }
 
 function LeastCounterAnimation() {
-    animateCounter("popup-least-counter", 1, 10, 1500); // Animate from 1 to 45 over 2.5 seconds
-}
+    animateCounter("popup-least-counter", 1, $leastDownloads, 1500);
+};
