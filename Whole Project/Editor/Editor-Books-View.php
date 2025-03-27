@@ -1,3 +1,15 @@
+<?php
+session_start();
+include '../process/database_connection.php'; 
+
+// Ensure only logged-in editors can access this page
+if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'Editor') {
+    header("Location: ../Guest/login.php");
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
