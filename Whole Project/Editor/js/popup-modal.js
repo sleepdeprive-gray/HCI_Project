@@ -1,6 +1,7 @@
 // Function to open the "Most Downloaded" popup
 function openPopupMost() {
     const modal = document.getElementById("popup-modal");
+    MostCounterAnimation(); // <-- Make sure this is here
     modal.style.display = "flex"; // Show the modal (centered using flexbox)
 }
 
@@ -13,6 +14,7 @@ function closePopupMost() {
 // Function to open the "Least Downloaded" popup
 function openPopupLeast() {
     const modal = document.getElementById("popup-modal-least");
+    LeastCounterAnimation(); // <-- And this too
     modal.style.display = "flex"; // Show the modal (centered using flexbox)
 }
 

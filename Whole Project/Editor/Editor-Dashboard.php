@@ -1,63 +1,62 @@
 <?php
-session_start();
-include '../process/database_connection.php'; 
+    session_start();
+    include '../process/database_connection.php'; 
 
-// Ensure only logged-in editors can access this page
-if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'Editor') {
-    header("Location: ../Guest/login.php");
-    exit();
-}
+    // Ensure only logged-in editors can access this page
+    if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'Editor') {
+        header("Location: ../Guest/login.php");
+        exit();
+    }
 
-$editor_id = $_SESSION['user_id']; // Current editor ID
+    $editor_id = $_SESSION['user_id']; // Current editor ID
 
-// Fetch the editor's name
-$sql_editor_name = "SELECT first_name FROM users WHERE user_id = ?";
-$stmt = $conn->prepare($sql_editor_name);
-$stmt->bind_param("i", $editor_id);
-$stmt->execute();
-$stmt->bind_result($editor_name);
-$stmt->fetch();
-$stmt->close();
+    // Fetch the editor's name
+    $sql_editor_name = "SELECT first_name FROM users WHERE user_id = ?";
+    $stmt = $conn->prepare($sql_editor_name);
+    $stmt->bind_param("i", $editor_id);
+    $stmt->execute();
+    $stmt->bind_result($editor_name);
+    $stmt->fetch();
+    $stmt->close();
 
-// Fetch total approved books
-$query = "SELECT COUNT(*) AS total FROM books WHERE status = 'approved'";
-$result = mysqli_query($conn, $query);
-$row = mysqli_fetch_assoc($result);
-$total_books = $row['total'] ?? 0;
+    // Fetch total approved books
+    $query = "SELECT COUNT(*) AS total FROM books WHERE status = 'approved'";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $total_books = $row['total'] ?? 0;
 
-// Fetch the total downloads of all books by this editor
-$sql_total_downloads = "SELECT SUM(downloads) FROM books WHERE editor_id = ?";
-$stmt = $conn->prepare($sql_total_downloads);
-$stmt->bind_param("i", $editor_id);
-$stmt->execute();
-$stmt->bind_result($total_downloads);
-$stmt->fetch();
-$stmt->close();
+    // Fetch the total downloads of all books by this editor
+    $sql_total_downloads = "SELECT SUM(downloads) FROM books WHERE editor_id = ?";
+    $stmt = $conn->prepare($sql_total_downloads);
+    $stmt->bind_param("i", $editor_id);
+    $stmt->execute();
+    $stmt->bind_result($total_downloads);
+    $stmt->fetch();
+    $stmt->close();
 
-// Function to limit description length
-function truncateDescription($description, $limit = 400) {
-    return strlen($description) > $limit ? substr($description, 0, $limit) . '...' : $description;
-}
+    function truncateDescription($description, $limit = 400) {
+        return strlen($description) > $limit ? substr($description, 0, $limit) . '...' : $description;
+    }
 
-// Fetch the most downloaded book
-$sql_most_downloaded = "SELECT title, downloads, front_cover, description FROM books WHERE editor_id = ? ORDER BY downloads DESC LIMIT 1";
-$stmt = $conn->prepare($sql_most_downloaded);
-$stmt->bind_param("i", $editor_id);
-$stmt->execute();
-$stmt->bind_result($most_downloaded_title, $most_downloads, $most_downloaded_image, $most_downloaded_desc);
-$stmt->fetch();
-$stmt->close();
+    // Fetch the most downloaded book
+    $sql_most_downloaded = "SELECT title, downloads, front_cover, description FROM books WHERE editor_id = ? ORDER BY downloads DESC LIMIT 1";
+    $stmt = $conn->prepare($sql_most_downloaded);
+    $stmt->bind_param("i", $editor_id);
+    $stmt->execute();
+    $stmt->bind_result($most_downloaded_title, $most_downloads, $most_downloaded_image, $most_downloaded_desc);
+    $stmt->fetch();
+    $stmt->close();
 
-// Fetch the least downloaded book
-$sql_least_downloaded = "SELECT title, downloads, front_cover, description FROM books WHERE editor_id = ? ORDER BY downloads ASC LIMIT 1";
-$stmt = $conn->prepare($sql_least_downloaded);
-$stmt->bind_param("i", $editor_id);
-$stmt->execute();
-$stmt->bind_result($least_downloaded_title, $least_downloads, $least_downloaded_image, $least_downloaded_desc);
-$stmt->fetch();
-$stmt->close();
+    // Fetch the least downloaded book
+    $sql_least_downloaded = "SELECT title, downloads, front_cover, description FROM books WHERE editor_id = ? ORDER BY downloads ASC LIMIT 1";
+    $stmt = $conn->prepare($sql_least_downloaded);
+    $stmt->bind_param("i", $editor_id);
+    $stmt->execute();
+    $stmt->bind_result($least_downloaded_title, $least_downloads, $least_downloaded_image, $least_downloaded_desc);
+    $stmt->fetch();
+    $stmt->close();
 
-$conn->close();
+    $conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -114,7 +113,7 @@ $conn->close();
             <!-- Most Downloaded Book -->
             <div class="high-download-content">
                 <div class="download-content">
-                    <img src="<?php echo $most_downloaded_image ? $most_downloaded_image : '../images/book-1.png'; ?>" alt="highest download book">
+                    <img src="<?php echo $most_downloaded_image ? 'data:image/jpeg;base64,' . base64_encode($most_downloaded_image) : '../images/Sample-Front.png'; ?>" alt="highest download book">
                     <div class="content-right-wrapper">
                         <p><b>YOUR MOST DOWNLOADED BOOK</b></p>
                         <h2><?php echo $most_downloaded_title ?: 'No Books Available'; ?></h2>
@@ -126,7 +125,7 @@ $conn->close();
             <!-- Least Downloaded Book -->
             <div class="low-download-content">
                 <div class="download-content">
-                    <img src="<?php echo $least_downloaded_image ? $least_downloaded_image : '../images/book-1.png'; ?>" alt="lowest download book">
+                    <img src="<?php echo $least_downloaded_image ? 'data:image/jpeg;base64,' . base64_encode($least_downloaded_image) : '../images/Sample-Front.png'; ?>" alt="lowest download book">
                     <div class="content-right-wrapper">
                         <p><b>YOUR LEAST DOWNLOADED BOOK</b></p>
                         <h2><?php echo $least_downloaded_title ?: 'No Books Available'; ?></h2>
@@ -163,7 +162,7 @@ $conn->close();
             <div class="popup-layout">
                 <div class="left-side">
                     <h3><i class="fa-solid fa-book"></i>YOUR MOST DOWNLOADED BOOK</h3>
-                    <img src="<?php echo $most_downloaded_image ? $most_downloaded_image : '../images/book-1.png'; ?>" alt="Most Downloaded Book">
+                   <img src="<?php echo $most_downloaded_image ? 'data:image/jpeg;base64,' . base64_encode($most_downloaded_image) : '../images/Sample-Front.png'; ?>" alt="Most Downloaded Book">
                 </div>
                 <div class="right-side">
                     <h2><?php echo $most_downloaded_title ?: 'No Books Available'; ?></h2>
@@ -181,7 +180,7 @@ $conn->close();
             <div class="popup-layout">
                 <div class="left-side">
                     <h3><i class="fa-solid fa-book"></i>YOUR LEAST DOWNLOADED BOOK</h3>
-                    <img src="<?php echo $least_downloaded_image ? $least_downloaded_image : '../images/book-1.png'; ?>" alt="Least Downloaded Book">
+                    <img src="<?php echo $least_downloaded_image ? 'data:image/jpeg;base64,' . base64_encode($least_downloaded_image) : '../images/Sample-Front.png'; ?>" alt="Least Downloaded Book">
                 </div>
                 <div class="right-side">
                     <h2><?php echo $least_downloaded_title ?: 'No Books Available'; ?></h2>

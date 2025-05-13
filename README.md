@@ -13,3 +13,9 @@
 <li>Author is automatically not added if existing</li>
 <li>Dashboard must convert the pictures to present it</li>
 </ul>
+<b>5/14/2025</b>
+<ul>
+<li>Editor Dashboard 100% Complete</li>
+<li>Editor Add Books Page Validation</li>
+<li>Editor Add Books Page 100% Complete</li>
+</ul>

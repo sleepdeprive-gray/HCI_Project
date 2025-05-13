@@ -30,9 +30,9 @@ function animateCounter(elementId, start, end, duration) {
 
 // Function to trigger when opening popups
 function MostCounterAnimation() {
-    animateCounter("popup-most-counter", 1, $mostDownloads, 2500);
+    animateCounter("popup-most-counter", 1, mostDownloads, 2500);
 }
 
 function LeastCounterAnimation() {
-    animateCounter("popup-least-counter", 1, $leastDownloads, 1500);
+    animateCounter("popup-least-counter", 1, leastDownloads, 1500);
 };
