@@ -8,7 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="admin.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
     
 </head>
 <body>
@@ -25,7 +29,7 @@
         <!-- NAVIGATION 1 -->
         <nav class="nav1">
             <div class="" style="display: flex; justify-self: center;margin-top: 10px;margin-bottom: 10px;">
-                <img src="../images/weblogo.png" alt="" style="width: 40px;height: 40px; border-radius: 0; border: none;">
+                <img src="images/weblogo.png" alt="" style="width: 40px;height: 40px; border-radius: 0; border: none;">
                 <p style="font-size: 15px;margin-left: 4px;font-weight: bold;">BOOK <span style="color: #A1BE95;">ROOM</span></p>
             </div>
             <img src="../images/<?php echo $results['profile_pic'] ?>" alt="">
@@ -225,20 +229,20 @@
                             <!-- TOP 2 AUTHOR -->
                             <div class="" style="display: flex; flex-direction: column;align-items: center; justify-content: center;color: white">
                                 <p style="margin-bottom: 1px;font-weight: bold;">Top 2</p>
-                                <img src="../apate.png" alt="" style="width: 60px;height: 60px; border: 3px dashed white; padding: 5px; box-shadow: 5px 5px 5px rgba(0, 0, 0,.6);">
+                                <img src="images/Agatha Christie.png" alt="" style="width: 60px;height: 60px; border: 3px dashed white; padding: 5px; box-shadow: 5px 5px 5px rgba(0, 0, 0,.6);">
                                 <p style="margin-top: 5px;">NIca</p>
                             </div>
                             <!-- TOP 1 AUTHOR -->
                              <div class="" style="display: flex; flex-direction: column;align-items: center; justify-content: center;color: white">
                                 <p style="margin-bottom: 1px;font-weight: bold;">Top 1</p>
-                             <img src="../apate.png" alt="" style="width: 90px;height: 90px; border: 3px dashed white; padding: 5px; box-shadow: 5px 5px 5px rgba(0, 0, 0,.6);">
+                             <img src="images/Agatha Christie.png" alt="" style="width: 90px;height: 90px; border: 3px dashed white; padding: 5px; box-shadow: 5px 5px 5px rgba(0, 0, 0,.6);">
                                 <p style="margin-top: 5px;">Nica Rontal</p>
 
                              </div>
                              <!-- TOP 3 AUTHOR -->
                               <div class="" style="display: flex; flex-direction: column;align-items: center; justify-content: center;color: white">
                                 <p style="margin-bottom: 1px;font-weight: bold; ">Top 3</p>
-                              <img src="../apate.png" alt="" style="width: 60px;height: 60px; border: 3px dashed white; padding: 5px; box-shadow: 5px 5px 5px rgba(0, 0, 0,.6);">
+                              <img src="images/Agatha Christie.png" alt="" style="width: 60px;height: 60px; border: 3px dashed white; padding: 5px; box-shadow: 5px 5px 5px rgba(0, 0, 0,.6);">
                                 <p style="margin-top: 5px;">NIca</p>
 
                               </div>
