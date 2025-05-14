@@ -305,6 +305,7 @@
                      <div class="container_TOP_BOOKS" >
                         <div class="top_books_image">
                             <img src="../images/<?= $authors_infos["bookCOVER"] ?>" alt="">
+                            
                         </div>
                         <div class="BOOKS_name_and_author">
                             <p style="font-weight: bold;"><?= $authors_infos["title"] ?></p>
