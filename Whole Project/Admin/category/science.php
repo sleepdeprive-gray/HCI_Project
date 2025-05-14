@@ -210,7 +210,7 @@
                                      <?php
                                     if(isset($_POST['orderBY'])){
                                          if($_POST['orderBY'] == "author_id" || $_POST['orderBY'] == "book_id" || $_POST['orderBY'] == "title"){
-                                        echo $oderBY = $_POST['orderBY'];
+                                            $oderBY = $_POST['orderBY'];
                                          $selects_logs = mysqli_query($conn, "SELECT * FROM books WHERE `genre`= 'Science' ORDER BY $oderBY");
                                     }elseif($_POST['orderBY'] == "Highest"){
                                          $oderBY = 'downloads';
