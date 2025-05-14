@@ -297,10 +297,15 @@
                      <h1><i class="fa-solid fa-book-open"></i> TOP 5 BOOKS</h1>
 
                     <?php 
-                        $all_BOOKS = mysqli_query($conn, "SELECT *, DAY(date_published) as dayToday,
-                        MONTH(date_published) as MonthToday, YEAR(date_published) as YearToday FROM books ORDER BY downloads DESC LIMIT 5");
+                       $sql_most_downloaded = "SELECT title, downloads, front_cover, description FROM books WHERE editor_id = ? ORDER BY downloads DESC LIMIT 1";
+                        $stmt = $conn->prepare($sql_most_downloaded);
+                        $stmt->bind_param("i", $editor_id);
+                        $stmt->execute();
+                        $stmt->bind_result($most_downloaded_title, $most_downloads, $most_downloaded_image, $most_downloaded_desc);
+                        $stmt->fetch();
+                        $stmt->close();
 
-                                    while ($authors_infos = mysqli_fetch_assoc($all_BOOKS)) {
+                                 
                     ?>
                      <div class="container_TOP_BOOKS" >
                         <div class="top_books_image">
@@ -308,34 +313,17 @@
                             
                         </div>
                         <div class="BOOKS_name_and_author">
-                            <p style="font-weight: bold;"><?= $authors_infos["title"] ?></p>
-                            <p class="p"><?php 
-                            
-                                $authorNAME = $authors_infos["author_id"];
-                               
-                                $selectsAUTHOR_name = mysqli_query($conn, "SELECT fname FROM author_account WHERE authorID = $authorNAME");
-                                 
-                                while ($authorName = mysqli_fetch_assoc($selectsAUTHOR_name)) {
-                                    echo $authorName["fname"];
-                                }
-                                ?>    
-                            </p>
+                            <p style="font-weight: bold;"><?= $most_downloaded_title ?></p>
+                            <p class="p">NAME</p>
                         </div>
                         <div class="BOOK_rank_and_date">
-                            <h1>TOP <?php echo mysqli_num_rows($all_BOOKS); ?></h1>
-                            <p><?php 
-                                $date = $authors_infos["MonthToday"]; // Original date in DD/MM/YYYY format
-                                $dateTime = date("M", $date);
-                                echo  $dateTime. " " . $authors_infos["dayToday"]. " " . $authors_infos["YearToday"];
-                               
-                                // echo $formattedDate;
-                                
-                                ?>
+                            <h1>TOP</h1>
+                            <p>date
                             </p>
                         </div>
                      </div>
                      <?php
-                        }
+                        
                      ?>
                     
                 </div>
