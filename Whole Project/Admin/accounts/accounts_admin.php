@@ -108,17 +108,17 @@
                         <div class="" style="display: flex; justify-content: space-between;">
                             <div class="" style="display: flex;">
                                 <p style="font-weight: bold; color: white;">Users</p>
-                               <a href="accounts_all.php" style="align-self: center;margin-left: 10px;background-color: #3c554c; border-radius: 5px; height: 33px; display:flex; justify-content:center">
+                               <a href="accounts_all.php" style="align-self: center;margin-left: 10px;background-color: #3c554c; border-radius: 5px; height: 33px;display:flex; justify-content:center">
                                 <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">All</button>
                                </a>
 
                                <a href="accounts_editor.php" style="align-self: center;margin-left: 10px;background-color: #3c554c; align-items: center; align-content: center;border-radius: 5px; height: 33px; width: 60px; display:flex; justify-content: center;">
                                 <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">Editor</button>
                                </a>
-                               <a href="accounts_member.php" style="margin-left: 10px;background-color: #3c554c; align-items: center; align-content: center;border-radius: 10px;justify-content:center; width: 60px">
+                               <a href="accounts_member.php" style="align-self: center;margin-left: 10px;background-color: #3c554c; border-radius: 5px; height: 33px; width: 60px; display:flex;">
                                 <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">Member</button>
                                </a>
-                                <a href="accounts_admin.php" style="align-self: center;margin-left: 10px;background-color: #3c554c; border-radius: 5px; height: 33px; width: 60px; display:flex; justify-content:center">
+                                <a href="accounts_admin.php" style="margin-left: 10px;background-color: #3c554c; align-items: center; align-content: center;border-radius: 10px;justify-content:center; width: 60px; display:flex">
                                 <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">Admin</button>
                                </a>
                             </div>

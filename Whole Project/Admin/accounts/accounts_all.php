@@ -118,6 +118,9 @@
                                <a href="accounts_member.php" style="align-self: center;margin-left: 10px;background-color: #3c554c; border-radius: 5px; height: 33px; width: 60px; display:flex;">
                                 <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">Member</button>
                                </a>
+                               <a href="accounts_admin.php" style="align-self: center;margin-left: 10px;background-color: #3c554c; border-radius: 5px; height: 33px; width: 60px; display:flex;justify-content:center">
+                                <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">Admin</button>
+                               </a>
                             </div>
 
                             <form method="post" class="" style="display: flex;">
