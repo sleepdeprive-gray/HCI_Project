@@ -17,7 +17,7 @@
 
             <div class="needed_content">
                 <h1>BOOK <span>ROOM</span></h1>
-                <img src="images/logo.jpg">
+                <img src="../images/weblogo.png">
                 <p class="text">Discover, Download, and Dive into</p>
                 <p class="text">Stories Across Many Genres!</p>
                 <p class="link">Forgot Account? <a href="forgot.html">Click Here</a>.</p>
@@ -26,7 +26,7 @@
 
         <div class="form">
             <div class="logo">
-                <img src="images/logo.jpg" alt="">
+                <img src="../images/weblogo.png" alt="">
                 <p>book.<span>room</span></p>
             </div>
 
@@ -35,7 +35,7 @@
                 <p id='demo' style="color: red;font-size: 20px;height:20px"></p>
                     <p></p>
                 </div>
-                <form action="login-validation.php" method="post">
+                <form action="../process/Guest/login-validation.php" method="post">
                     <input type="email" name="email" id="" placeholder="Email">
                     <input type="password" name="password" id="" placeholder="Password">
                     <div class="button">
