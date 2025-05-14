@@ -141,16 +141,20 @@
                         <div class="" style="display: flex; justify-content: space-between;">
                             
                             <!-- SORTING OPTION -->
-                            <div class="" style="display: flex;">
+                            <form method="post" class="" style="display: flex;">
                                 <p style="font-weight: bold; color: white;">Sort</p>
-                                <select name="" id="" style="color: white; margin-left: 10px; height: 30px; background-color: #3c554c; border: none;
+                                <select name="orderBY" id="" onchange="this.form.submit()" style="color: white; margin-left: 10px; height: 30px; background-color: #3c554c; border: none;
                                 display: flex;align-self: center;">
-                                    <option value="">ID</option>
-                                    <option value="">Time</option>
+                                    <option value="<?php if(isset($_POST['orderBY'])){echo $_POST['orderBY'];}else{echo "";} ?>"><?php if(isset($_POST['orderBY'])){echo $_POST['orderBY'];}else{echo "Select";} ?></option>
+                                    <option value="ID">ID</option>
+                                    <option value="Time">Time</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="Editor">Editor</option>
+                                    <option value="Member">Member</option>
                                 </select>
-                            </div>
+                            </form>
 
-                          
+                       
                            
                         </div>
 
@@ -171,7 +175,28 @@
  
                                     
                                      <?php
-                                    $selects_logs = mysqli_query($conn, "SELECT * FROM recent_logs ORDER BY The_time DESC");
+                                     if(isset($_POST['orderBY'])){
+                                            if ($_POST['orderBY'] == "Admin") {
+                                            $selects_logs = mysqli_query($conn, "SELECT * FROM recent_logs WHERE user_type = 'Admin'");
+                                            }elseif ($_POST['orderBY'] == "Member") {
+                                                $selects_logs = mysqli_query($conn, "SELECT * FROM recent_logs WHERE user_type = 'Member'");
+                                            }elseif ($_POST['orderBY'] == "Editor") {
+                                                $selects_logs = mysqli_query($conn, "SELECT * FROM recent_logs WHERE user_type = 'Editor'");
+                                            }elseif ($_POST['orderBY'] == "Time") {
+                                                $selects_logs = mysqli_query($conn, "SELECT * FROM recent_logs ORDER BY The_time DESC");
+                                            }elseif ($_POST['orderBY'] == "ID") {
+                                                $selects_logs = mysqli_query($conn, "SELECT * FROM recent_logs ORDER BY ID");
+                                            }
+                                            else{
+                                                $selects_logs = mysqli_query($conn, "SELECT * FROM recent_logs ORDER BY The_time DESC");
+                                            }
+                                     }else {
+                                         $selects_logs = mysqli_query($conn, "SELECT * FROM recent_logs ORDER BY The_time DESC");
+                                     }
+                                        
+                                       
+                                        
+                                   
                                     if(mysqli_num_rows($selects_logs) > 0){
                                     while ($recent_logs = mysqli_fetch_assoc($selects_logs)) {
                                         # code...
@@ -186,13 +211,15 @@
                                
                             </tr>
                             <?php
-                                    }}else {
+                                    }
+                                    }else {
                                         ?>
                                             <tr>
                                                 <td colspan="4" style="color: red;">No available data</td>
                                             </tr>
                                         <?php
                                     }
+                                     
                                 ?> 
                                 </tbody>
                              </table>
