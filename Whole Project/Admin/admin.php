@@ -32,7 +32,7 @@
                 <img src="images/weblogo.png" alt="" style="width: 40px;height: 40px; border-radius: 0; border: none;">
                 <p style="font-size: 15px;margin-left: 4px;font-weight: bold;">BOOK <span style="color: #A1BE95;">ROOM</span></p>
             </div>
-            <img src="../images/<?php echo $results['profile_pic'] ?>" alt="">
+            <img src="images/<?php echo $results['profile_pic'] ?>" alt="">
             <p style="font-weight: bold;">
                 <?php
                     if(strlen($results['fname']) < 6){

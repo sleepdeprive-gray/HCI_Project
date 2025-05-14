@@ -52,7 +52,7 @@
                 <p style="font-size: 15px;margin-left: 4px;font-weight: bold;">BOOK <span style="color: #A1BE95;">ROOM</span></p>
             </div>
             <!-- PROFILE PICTURE -->
-             <img src="../images/<?php echo $results['profile_pic'] ?>" alt="">
+             <img src="images/<?php echo $results['profile_pic'] ?>" alt="">
             <!-- NAME OF THE USER -->
           <p style="font-weight: bold;">
                 <?php
