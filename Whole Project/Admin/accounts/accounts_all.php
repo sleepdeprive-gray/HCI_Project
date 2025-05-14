@@ -120,17 +120,17 @@
                                </a>
                             </div>
 
-                            <div class="" style="display: flex;">
+                            <form method="post" class="" style="display: flex;">
                                 <p style="font-weight: bold; color: white;">Sort</p>
-                                <select name="" id="" style="color: white; margin-left: 10px; height: 30px; background-color: #3c554c; border: none;
+                                <select name="orderBY" id="" onchange="this.form.submit()" style="color: white; margin-left: 10px; height: 30px; background-color: #3c554c; border: none;
                                 display: flex;align-self: center;">
-                                    <option value="">ID</option>
-                                    <option value="">Name</option>
-                                    <option value="">Email</option>
-                                    <option value="">Available</option>
-                                    <option value="">Archive</option>
+                                    <option value="<?php if(isset($_POST['orderBY'])){echo $_POST['orderBY'];}else{echo "";} ?>"><?php if(isset($_POST['orderBY'])){echo $_POST['orderBY'];}else{echo "Select";} ?></option>
+                                    <option value="ID">ID</option>
+                                    <option value="Name">Name</option>
+                                    <option value="Email">Email</option>
+                                    <option value="Birthdate">Birthdate</option>
                                 </select>
-                            </div>
+                            </form>
 
                             <div class="" style="display: flex;">
                                 <i class="fa-solid fa-microphone" style="display: flex; align-items: center;"></i>
@@ -155,7 +155,23 @@
                                 
                                     
                                     <?php
-                                    $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Editor'");
+                                    if(isset($_POST['orderBY'])){
+                                            if ($_POST['orderBY'] == "Name") {
+                                            $authorACC = mysqli_query($conn, "SELECT * FROM users  ORDER BY first_name");
+                                            }elseif ($_POST['orderBY'] == "Email") {
+                                               $authorACC = mysqli_query($conn, "SELECT * FROM users ORDER BY email");
+                                            }elseif ($_POST['orderBY'] == "Birthdate") {
+                                                $authorACC = mysqli_query($conn, "SELECT * FROM users ORDER BY birthdate");
+                                            }elseif ($_POST['orderBY'] == "ID") {
+                                                $authorACC = mysqli_query($conn, "SELECT * FROM users ORDER BY user_id");
+                                            }
+                                            else{
+                                                $authorACC = mysqli_query($conn, "SELECT * FROM users");
+                                            }
+                                     }else {
+                                         $authorACC = mysqli_query($conn, "SELECT * FROM users");
+                                     }
+                                  
 
                                         while ($recent_logs = mysqli_fetch_assoc($authorACC)) {
                                       
@@ -175,27 +191,7 @@
                                     <?php
                                         }
                                     ?>
-                                     <?php
-                                    $memberACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Member'");
-
-                                        while ($recent_logs = mysqli_fetch_assoc($memberACC)) {
-                                      
                                     
-                                    ?>
-                                        <tr>
-                                        
-                                            <td><?php echo $recent_logs['user_id']; ?></td>
-                                            <td><?php echo $recent_logs['first_name']; ?></td>
-                                            <td><?php echo $recent_logs['email'];?></td>
-                                            <td><?php echo $recent_logs['birthdate'];?></td>
-                                            <td>Member</td>
-                                            <td><button type="submit" onclick="openPOPUP()">view</button></td>
-
-                                        
-                                        </tr>
-                                    <?php
-                                        }
-                                    ?>
                                 </tbody>
                              </table>
                         </div>
