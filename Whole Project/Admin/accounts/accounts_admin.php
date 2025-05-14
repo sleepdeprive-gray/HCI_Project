@@ -158,39 +158,39 @@
                                 
                                     
                                     <?php
-                                    if(isset($_POST['orderBY'])){
-                                            if ($_POST['orderBY'] == "Name") {
-                                            $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Member' ORDER BY first_name");
-                                            }elseif ($_POST['orderBY'] == "Email") {
-                                               $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Member' ORDER BY email");
-                                            }elseif ($_POST['orderBY'] == "Birthdate") {
-                                                $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Member' ORDER BY birthdate");
-                                            }elseif ($_POST['orderBY'] == "ID") {
-                                                $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Member' ORDER BY user_id");
-                                            }
-                                            else{
-                                                $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Member'");
-                                            }
-                                     }else {
-                                         $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Member'");
-                                     }
-                                  
-
-                                        while ($recent_logs = mysqli_fetch_assoc($authorACC)) {
-                                      
+                                        if(isset($_POST['orderBY'])){
+                                                if ($_POST['orderBY'] == "Name") {
+                                                $authorACC = mysqli_query($conn, "SELECT * FROM admin_account ORDER BY fname");
+                                                }elseif ($_POST['orderBY'] == "Email") {
+                                                $authorACC = mysqli_query($conn, "SELECT * FROM admin_account ORDER BY email");
+                                                }elseif ($_POST['orderBY'] == "Birthdate") {
+                                                    $authorACC = mysqli_query($conn, "SELECT * FROM admin_account ORDER BY birthday");
+                                                }elseif ($_POST['orderBY'] == "ID") {
+                                                    $authorACC = mysqli_query($conn, "SELECT * FROM admin_account ORDER BY adminID");
+                                                }
+                                                else{
+                                                    $authorACC = mysqli_query($conn, "SELECT * FROM admin_account");
+                                                }
+                                        }else {
+                                            $authorACC = mysqli_query($conn, "SELECT * FROM admin_account");
+                                        }
                                     
-                                    ?>
-                                        <tr>
-                                        
-                                            <td><?php echo $recent_logs['user_id']; ?></td>
-                                            <td><?php echo $recent_logs['first_name']. " " .$recent_logs['last_name']; ?></td>
-                                            <td><?php echo $recent_logs['email'];?></td>
-                                            <td><?php echo $recent_logs['birthdate'];?></td>
-                                            <td><?php echo $recent_logs['user_type'];?></td>
-                                            <td><button type="submit" onclick="openPOPUP()">view</button></td>
 
+                                            while ($recent_logs = mysqli_fetch_assoc($authorACC)) {
                                         
-                                        </tr>
+                                        
+                                        ?>
+                                            <tr>
+                                            
+                                                <td><?php echo $recent_logs['adminID']; ?></td>
+                                                <td><?php echo $recent_logs['fname']?></td>
+                                                <td><?php echo $recent_logs['email'];?></td>
+                                                <td><?php echo $recent_logs['birthday'];?></td>
+                                                <td>Admin</td>
+                                                <td><button type="submit" onclick="openPOPUP()">view</button></td>
+
+                                            
+                                            </tr>
                                     <?php
                                         }
                                     ?>
