@@ -112,10 +112,10 @@
                                 <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">All</button>
                                </a>
 
-                               <a href="accounts_editor.html" style="align-self: center;margin-left: 10px;background-color: #3c554c; align-items: center; align-content: center;border-radius: 5px; height: 33px; width: 60px; display:flex; justify-content: center;">
+                               <a href="accounts_editor.php" style="align-self: center;margin-left: 10px;background-color: #3c554c; align-items: center; align-content: center;border-radius: 5px; height: 33px; width: 60px; display:flex; justify-content: center;">
                                 <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">Editor</button>
                                </a>
-                               <a href="accounts_member.html" style="align-self: center;margin-left: 10px;background-color: #3c554c; border-radius: 5px; height: 33px; width: 60px; display:flex;">
+                               <a href="accounts_member.php" style="align-self: center;margin-left: 10px;background-color: #3c554c; border-radius: 5px; height: 33px; width: 60px; display:flex;">
                                 <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">Member</button>
                                </a>
                             </div>
@@ -183,7 +183,7 @@
                                             <td><?php echo $recent_logs['first_name']. " " .$recent_logs['last_name']; ?></td>
                                             <td><?php echo $recent_logs['email'];?></td>
                                             <td><?php echo $recent_logs['birthdate'];?></td>
-                                            <td>Author</td>
+                                            <td><?php echo $recent_logs['user_type'];?></td>
                                             <td><button type="submit" onclick="openPOPUP()">view</button></td>
 
                                         

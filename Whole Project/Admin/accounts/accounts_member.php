@@ -157,19 +157,19 @@
                                     <?php
                                     if(isset($_POST['orderBY'])){
                                             if ($_POST['orderBY'] == "Name") {
-                                            $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Editor' ORDER BY first_name");
+                                            $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Member' ORDER BY first_name");
                                             }elseif ($_POST['orderBY'] == "Email") {
-                                               $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Editor' ORDER BY email");
+                                               $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Member' ORDER BY email");
                                             }elseif ($_POST['orderBY'] == "Birthdate") {
-                                                $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Editor' ORDER BY birthdate");
+                                                $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Member' ORDER BY birthdate");
                                             }elseif ($_POST['orderBY'] == "ID") {
-                                                $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Editor' ORDER BY user_id");
+                                                $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Member' ORDER BY user_id");
                                             }
                                             else{
-                                                $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Editor'");
+                                                $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Member'");
                                             }
                                      }else {
-                                         $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Editor'");
+                                         $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Member'");
                                      }
                                   
 
