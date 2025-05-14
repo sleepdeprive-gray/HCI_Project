@@ -296,35 +296,42 @@
                     <!-- TOP BOOKS -->
                      <h1><i class="fa-solid fa-book-open"></i> TOP 5 BOOKS</h1>
 
-                    <?php 
-                       $sql_most_downloaded = "SELECT title, downloads, front_cover, description FROM books WHERE editor_id = ? ORDER BY downloads DESC LIMIT 1";
-                        $stmt = $conn->prepare($sql_most_downloaded);
-                        $stmt->bind_param("i", $editor_id);
-                        $stmt->execute();
-                        $stmt->bind_result($most_downloaded_title, $most_downloads, $most_downloaded_image, $most_downloaded_desc);
-                        $stmt->fetch();
-                        $stmt->close();
-
-                                 
-                    ?>
-                     <div class="container_TOP_BOOKS" >
-                        <div class="top_books_image">
-                            <img src="../images/<?= $authors_infos["bookCOVER"] ?>" alt="">
+                  <?php
+                  $i = 5;
+                  $res = mysqli_query($conn, "SELECT *, DAY(date_published) as dayToday,
+                        MONTH(date_published) as MonthToday, YEAR(date_published) as YearToday FROM books ORDER BY downloads DESC LIMIT 5");
+                     while ($row=mysqli_fetch_array($res)) {
                             
-                        </div>
-                        <div class="BOOKS_name_and_author">
-                            <p style="font-weight: bold;"><?= $most_downloaded_title ?></p>
-                            <p class="p">NAME</p>
-                        </div>
-                        <div class="BOOK_rank_and_date">
-                            <h1>TOP</h1>
-                            <p>date
-                            </p>
-                        </div>
-                     </div>
-                     <?php
-                        
-                     ?>
+                            echo '    
+                                <div class="container_TOP_BOOKS" >
+                                    <div class="top_books_image">
+                                        <img src="data:image/jpeg;base64, '.base64_encode($row['front_cover']).'" height="100" width="100"/>
+                                    </div>
+                                    <div class="BOOKS_name_and_author">
+                                        <p style="font-weight: bold;">'. $row["title"] .'</p>
+                                        <p class="p">';
+                                         $authorNAME = $row["author_id"];
+                               
+                                        $selectsAUTHOR_name = mysqli_query($conn, "SELECT fname FROM author_account WHERE authorID = $authorNAME");
+                                        
+                                        while ($authorName = mysqli_fetch_assoc($selectsAUTHOR_name)) {
+                                            echo $authorName["fname"];
+                                        }
+                        echo            '</p>
+                                    </div>
+                                    <div class="BOOK_rank_and_date">
+                                        <h1>TOP '.$i.'</h1>
+                                        <p>';
+                                            $date = $row["MonthToday"]; // Original date in DD/MM/YYYY format
+                                            $dateTime = date("M", $date);
+                                            echo  $dateTime. " " . $row["dayToday"]. " " . $row["YearToday"];
+                        echo            '</p>
+                                    </div>
+                                </div>    
+                                ';
+                                $i --;
+                        }
+                  ?>
                     
                 </div>
 
