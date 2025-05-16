@@ -1,0 +1,105 @@
+ table{
+        background-color: #e6e6e6;
+    }
+    .table_body{
+        width: 100%;   
+    }
+    thead th{
+        background-color: #3c554c;
+        color: white;
+    }
+    tbody tr:nth-child(even){
+    background-color: #0000000b;
+    }
+    tbody tr:hover{
+        background-color: #fff6;
+    }
+    .table_body{
+        height: 300px;
+        margin-top: 10px;
+    }
+    
+
+    .popUP{
+        display: none;
+        width:100%; height:100vh;position:absolute; top: 0; left:0;background: rgba(0,0,0,0.6);justify-content:center;align-items:center
+    }
+    .open_popup{
+        display: flex;
+    }
+    .user{
+        width: 80%;
+        display: flex;
+        align-self: center;
+        align-items: center;
+        font-weight: bold;
+        justify-content: space-between;
+    }
+    .user img{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+    .user .ID_number{
+        background-color: #F49090;
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        border-radius: 10px;
+        padding: 3px;
+        justify-self: center;
+        margin-left: 10px;
+    }
+    .user .ids{
+        display: flex; align-items:center
+    }
+     .neededInfo{
+                                                width: 80%;
+                                                display: flex;
+                                                flex-direction: column;
+                                                align-self: center;
+                                                margin-bottom: 20px;
+                                            }
+                                            .neededInfo input{
+                                            display: flex;
+                                            
+                                            align-items: center;
+                                            align-self: center;
+                                            border-radius: 10px;
+                                            width: 300px;
+                                            height:30px;box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.27);
+                                            border: none;
+                                            }
+                                            .neededInfo p{
+                                                font-weight: bold;
+                                            }
+                                            .open{
+                                                background-color: #C4DAD2; min-width:30%; min-height:50%; position:relative; display:flex; flex-direction:column;
+                                                flex-wrap:wrap;padding: 10px;border-radius: 15px;
+                                            }
+.buttons{
+    width: 90%;
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.buttons button{
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.change{
+    background-color: #27BAD4;
+}
+.delete{
+    background-color: #961D1D;
+}
+.edit{
+    background-color: #16AE6C;
+}
+
