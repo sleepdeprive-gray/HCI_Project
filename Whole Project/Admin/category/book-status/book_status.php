@@ -317,7 +317,7 @@
                                                             <?php
                                                         }else{
                                                             ?>
-                                                            <a href="../fnc/pending.php?book=<?= $recent_logs['book_id']?>&c=<?= $category?>&s=Archive">
+                                                            <a onclick="archive('../fnc/pending.php?book=<?= $recent_logs['book_id']?>&c=<?= $category?>&s=Rejected')">
                                                                 <button style="background-color: red; color: white; border: none; padding: 5px; width: 80px;display: flex;
                                                                     justify-content: space-around; align-items: center;cursor: pointer;">
                                                                         <i class="fa-solid fa-circle-xmark"></i>
@@ -418,6 +418,17 @@
     
     <script>
         function rejects(locations) {
+            let userResponse = confirm('Do you want to proceed?');
+
+        // Check the user's response
+        if (userResponse) {
+        window.location.href = locations;
+        } else {
+        console.log('User clicked Cancel!');
+        }
+        }
+
+        function archive(locations) {
             let userResponse = confirm('Do you want to proceed?');
 
         // Check the user's response
