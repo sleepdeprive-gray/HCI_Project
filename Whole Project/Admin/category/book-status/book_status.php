@@ -52,10 +52,10 @@
         <!-- NAVIGATION 1 -->
         <nav class="nav1">
             <div class="" style="display: flex; justify-self: center;margin-top: 10px;margin-bottom: 10px;">
-                <img src="../../images/weblogo.png" alt="" style="width: 40px;height: 40px; border-radius: 0; border: none;">
+                <img src="../../../images/weblogo.png" alt="" style="width: 40px;height: 40px; border-radius: 0; border: none;">
                 <p style="font-size: 15px;margin-left: 4px;font-weight: bold;">BOOK <span style="color: #A1BE95;">ROOM</span></p>
             </div>
-            <img src="../../images/<?php echo $results['profile_pic'] ?>" alt="">
+            <img src="../../../images/<?php echo $results['profile_pic'] ?>" alt="">
             <p style="font-weight: bold;">
                 <?php
                     if(strlen($results['fname']) < 6){
@@ -131,7 +131,7 @@
                         <!-- SEARCH BAR -->
                         <div class="" style="display: flex; justify-content: space-between;">
                             <div class="">   
-                                <p style="font-weight: bold; color:white">SCIENCE BOOK</p>
+                                <p style="font-weight: bold; color:white"><?= $statusofBook ." ". $category?> BOOK</p>
                             </div>
                             <div class="" style=" justify-content: end; display: flex;">
                                 <i class="fa-solid fa-microphone" style="display: flex; align-items: center; display: flex;"></i>
@@ -161,13 +161,13 @@
                             <!-- CATEGORY -->
                              <ol style="display: flex; color: white; font-weight: bold; gap: 40px;margin-right: 10px;">
                                 <ul style="color:black">Category :</ul>
-                                <a href="../science.php" style="text-decoration: none; color: white;"><ul style="padding: 0; cursor: pointer;">Science</ul></a>
-                                <a href="../novel.php" style="text-decoration: none; color: white;"><ul style="padding: 0; cursor: pointer;">Novel</ul></a>
-                                <a href="../mystery.php" style="text-decoration: none; color: white;"><ul style="padding: 0; cursor: pointer;">Mystery</ul></a>
-                                <a href="../narrative.php" style="text-decoration: none; color: white;"><ul style="padding: 0; cursor: pointer;">Narrative</ul></a>
-                                <a href="../fiction.php" style="text-decoration: none; color: white;"><ul style="padding: 0; cursor: pointer;">Fiction</ul></a>
-                                <a href="../history.php" style="text-decoration: none; color: white;"><ul style="padding: 0; cursor: pointer;">History</ul></a>
-                                <a href="../fantasy.php" style="text-decoration: none; color: white;"><ul style="padding: 0; cursor: pointer;">Fantasy</ul></a>
+                                <a href="../science.php?s=<?= $statusofBook?>&c=Science" style="text-decoration: none; color: white;"><ul style="padding: 0; cursor: pointer;">Science</ul></a>
+                                <a href="../science.php?s=<?= $statusofBook?>&c=Novel" style="text-decoration: none; color: white;"><ul style="padding: 0; cursor: pointer;">Novel</ul></a>
+                                <a href="../science.php?s=<?= $statusofBook?>&c=Mystery" style="text-decoration: none; color: white;"><ul style="padding: 0; cursor: pointer;">Mystery</ul></a>
+                                <a href="../science.php?s=<?= $statusofBook?>&c=Narrative" style="text-decoration: none; color: white;"><ul style="padding: 0; cursor: pointer;">Narrative</ul></a>
+                                <a href="../science.php?s=<?= $statusofBook?>&c=Fiction" style="text-decoration: none; color: white;"><ul style="padding: 0; cursor: pointer;">Fiction</ul></a>
+                                <a href="../science.php?s=<?= $statusofBook?>&c=History" style="text-decoration: none; color: white;"><ul style="padding: 0; cursor: pointer;">History</ul></a>
+                                <a href="../science.php?s=<?= $statusofBook?>&c=Fantasy" style="text-decoration: none; color: white;"><ul style="padding: 0; cursor: pointer;">Fantasy</ul></a>
                              </ol>
 
                              <!-- CATEGORY WHEN THE SCREEN IS SMALL -->
