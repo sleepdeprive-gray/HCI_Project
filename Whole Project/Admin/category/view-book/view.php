@@ -1,5 +1,7 @@
 <?php
     session_start();
+    $statusofBook = $_GET['s'];
+    $category = $_GET['c'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -171,7 +173,7 @@
                                         
                                     ?>
                                     <!-- EXIT -->
-                                    <a href="../<?php echo mb_strtolower($results['genre'])?>.php"><button style="background-color: #3c554c; color:white;border:none;padding:5px; cursor:pointer"><i class="fa-solid fa-arrow-left" style="margin-right: 5px;"></i>   BACK</button></a>
+                                    <a href="../<?php echo "science.php?s=".$statusofBook."&c=".$category?>"><button style="background-color: #3c554c; color:white;border:none;padding:5px; cursor:pointer"><i class="fa-solid fa-arrow-left" style="margin-right: 5px;"></i>   BACK</button></a>
                                     
                                 </div>
 

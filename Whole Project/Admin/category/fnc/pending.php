@@ -2,18 +2,27 @@
     if ($_GET['book']) {
         # code...
         include '../../db/db.php';
-        echo $bookID = $_GET['book'];
-        mysqli_query($conn, "UPDATE books SET status = 'Archive' WHERE book_id = $bookID");
-        $genre = mysqli_query($conn, "SELECT genre FROM books WHERE book_id = $bookID");
+       if ($_GET['s'] == "Rejected") {
+        $status = $_GET['s'];
+        $bookID = $_GET['book'];
+        $category = $_GET['c'];
+       
+       }elseif ($_GET['s'] == "Archive") {
+        $status = $_GET['s'];
+        $bookID = $_GET['book'];
+        $category = $_GET['c'];
+       
+       }
 
-        while ($results = mysqli_fetch_assoc($genre)) {
-            ?>
+        mysqli_query($conn, "UPDATE books SET status = '$status' WHERE book_id = $bookID"); 
+        
+        ?>
             <script>
-                    
-                window.location.href = '../<?php echo mb_strtolower($results['genre'])?>.php';
+                          
+                window.location.href = '../<?php echo "science.php?s=".$status."&c=".$category?>';
             </script>";
         <?php
-        }
+       
         
          
 

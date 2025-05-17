@@ -284,7 +284,7 @@
                                                             <?php
                                                         }else{
                                                             ?>
-                                                            <a href="fnc/pending.php?book=<?= $recent_logs['book_id']; ?>">
+                                                            <a href="../fnc/pending.php?book=<?= $recent_logs['book_id']?>&c=<?= $category?>&s=Rejected">
                                                                 <button style="background-color: maroon; color: white; border: none; padding: 5px; width: 80px;display: flex;
                                                                     justify-content: space-around; align-items: center;cursor: pointer;">
                                                                         <i class="fa-solid fa-circle-xmark"></i>
@@ -317,7 +317,7 @@
                                                             <?php
                                                         }else{
                                                             ?>
-                                                            <a href="fnc/pending.php?book=<?= $recent_logs['book_id']; ?>">
+                                                            <a href="../fnc/pending.php?book=<?= $recent_logs['book_id']?>&c=<?= $category?>&s=Archive">
                                                                 <button style="background-color: red; color: white; border: none; padding: 5px; width: 80px;display: flex;
                                                                     justify-content: space-around; align-items: center;cursor: pointer;">
                                                                         <i class="fa-solid fa-circle-xmark"></i>
@@ -329,7 +329,7 @@
                                                     ?>
 
                                                     <!-- VIEW BUTTON -->
-                                                    <a href="view-book/view.php?book=<?= $recent_logs['book_id']; ?>">
+                                                    <a href="../view-book/view.php?book=<?= $recent_logs['book_id']?>&c=<?= $category?>&s=<?= $statusofBook?>">
                                                         <button style="background-color:rgb(40, 75, 109); color: white; border: none; padding: 5px; width: 30px;display: flex;
                                                             justify-content: space-around; align-items: center;cursor: pointer;">
                                                             <i class="fa-solid fa-eye"></i>
@@ -392,7 +392,7 @@
         
                 
                 
-                <form method="post" action="fnc/approved.php" class="" style="display: flex; flex-direction:column; justify-content:center; align-items:center; width: 35%;height:300px; background-color:white; padding:10px">
+                <form method="post" action="../fnc/approved.php" class="" style="display: flex; flex-direction:column; justify-content:center; align-items:center; width: 35%;height:300px; background-color:white; padding:10px">
                     <div class="" style="display: flex;justify-content:end; width:100%;margin-top:-40px; margin-bottom:20px">
                         <i class="fa-solid fa-circle-xmark" style="font-size: 25px"></i>
                     </div>
@@ -400,6 +400,7 @@
                     <p>Are you sure you want to</p>
                     <p>approved this book ?</p>
                     <input type="hidden" id="ids" name="ids" value="123">
+                     <input type="hidden" name="category" value="<?= $category?>">
                     <div class="" style="display: flex; width: 80%;justify-content:space-around">
                         <button type="submit" name="Cancel" style="border:none; padding:5px; background-color:brown; color:white; width:100px">Cancel</button>
                         <button type="submit" name="Approve" style="border:none; padding:5px; background-color:green; color:white; width:100px">Approve</button>
