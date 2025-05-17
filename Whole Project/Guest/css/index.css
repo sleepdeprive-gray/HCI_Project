@@ -43,7 +43,7 @@ span{
 .needed_content img{
     margin-top: 30px;
     margin-bottom: 30px;
-    width: 275px;
+    width: 200px;
     height: 200px;
 }
 
@@ -52,7 +52,7 @@ span{
 }
 
 .link{
-    margin-top: 60px;
+    margin-top: 30px;
     font-size: 15px;
 }
 
@@ -73,7 +73,7 @@ span{
 
 .forms{
     width: 80%;
-    height: 600px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -84,7 +84,6 @@ span{
     margin-bottom: 50px;
     font-size: 50px;
 }
-
 form{
     display: flex;
     flex-direction: column;
@@ -108,29 +107,19 @@ form .button button{
     box-shadow: 0 10px 10px rgba(0,0,0,0.2);
 }
 
-input[readonly] {
-    user-select: none; /* Prevent text selection */
-    pointer-events: none; /* Prevent cursor and clicking */
-}
-
-input[readonly]::placeholder {
-    color: black; /* Set placeholder color to black */
-}
-
 form .button{
     margin-top: 20px;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    align-self: center;
+    justify-content: space-between;
+    
 }
-
 form .button p{
   color: #8B8383;
 }
 
 .loginButton{
     background-color: #2EA1F3;
-    margin-left: 40px;
 }
 
 .faceRecognitionButton{
@@ -171,13 +160,11 @@ form .button p{
     margin: 10px;
 }
 .logo img{
-    margin-top: 10px;
-    width: 85px;
+    width: 70px;
     height: 70px;
 }
 .logo p{
-    margin-top: 10px;
-    margin-left: 0px;
+    margin-left: 20px;
     margin-right: 20px;
     font-weight: bold;
 }
