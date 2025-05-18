@@ -70,11 +70,11 @@
             <div class="container_for_buttons">
                 <div class="links_button">
                 
-                    <a href="../admin.php"><button><i class="fa-solid fa-house" style="margin-right: 10px;"></i>Dashboard</button></a>
+                    <a href="../../admin.php"><button><i class="fa-solid fa-house" style="margin-right: 10px;"></i>Dashboard</button></a>
                     <button><i class="fa-solid fa-chart-simple" style="margin-right: 10px;"></i>Analytics</button>
-                    <a href="../accounts/accounts_editor.php"><button><i class="fa-solid fa-user" style="margin-right: 10px;"></i>Accounts</button></a>
+                    <a href="../../accounts/accounts_editor.php"><button><i class="fa-solid fa-user" style="margin-right: 10px;"></i>Accounts</button></a>
                     <button class="Active"><i class="fa-solid fa-book" style="margin-right: 10px;"></i>Books</button>
-                    <a href="../activity_log.php"><button><i class="fa-solid fa-file" style="margin-right: 10px;"></i>Activity Log</button></a>
+                    <a href="../../activity_log.php"><button><i class="fa-solid fa-file" style="margin-right: 10px;"></i>Activity Log</button></a>
 
                     
                   
