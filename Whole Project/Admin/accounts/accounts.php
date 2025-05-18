@@ -19,6 +19,7 @@
     <?php
     require '../db/db.php';
     $id = $_SESSION['ID'];
+    $type_account = $_GET['at'];
     $admin_infos = mysqli_query($conn, "SELECT * FROM admin_account WHERE adminID = $id");
 
     while ($results = mysqli_fetch_assoc($admin_infos)) {
@@ -109,15 +110,52 @@
                             <div class="" style="display: flex;">
                                 <p style="font-weight: bold; color: white;">Users</p>
                                
-                               <a href="accounts_editor.php" style="margin-left: 10px;background-color: #3c554c; align-items: center; align-content: center;border-radius: 10px;justify-content:center; width: 60px; display:flex">
-                                <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">Editor</button>
-                               </a>
-                               <a href="accounts_member.php" style="align-self: center;margin-left: 10px;background-color: #3c554c; border-radius: 5px; height: 33px; width: 60px; display:flex;">
-                                <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">Member</button>
-                               </a>
-                                <a href="accounts_admin.php" style="align-self: center;margin-left: 10px;background-color: #3c554c; border-radius: 5px; height: 33px; width: 60px; display:flex;justify-content:center">
-                                <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">Admin</button>
-                               </a>
+                               <?php
+                                    if($type_account == "Editor"){
+                                        ?>
+                                        <a href="accounts.php?at=Editor" style="margin-left: 10px;background-color: #3c554c; align-items: center; align-content: center;border-radius: 10px;justify-content:center; width: 60px; display:flex">
+                                            <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">Editor</button>
+                                        </a>
+                                        <?php
+                                    }else {
+                                         ?>
+                                        <a href="accounts.php?at=Editor" style="align-self: center;margin-left: 10px;background-color: #3c554c; border-radius: 5px; height: 33px; width: 60px; display:flex;justify-content:center;">
+                                            <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">Editor</button>
+                                        </a>
+                                        <?php
+                                    }
+                               ?>
+                              <?php
+                                    if($type_account == "Member"){
+                                        ?>
+                                        <a href="accounts.php?at=Member" style="margin-left: 10px;background-color: #3c554c; align-items: center; align-content: center;border-radius: 10px;justify-content:center; width: 60px; display:flex">
+                                            <button style=" border: none;background-color: transparent; color: white; cursor: pointer;">Member</button>
+                                        </a>
+                                        <?php
+                                    }else {
+                                         ?>
+                                        <a href="accounts.php?at=Member" style="align-self: center;margin-left: 10px;background-color: #3c554c; border-radius: 5px; height: 33px; width: 60px; display:flex;justify-content:center;">
+                                            <button style=" border: none;background-color: transparent; color: white; cursor: pointer;">Member</button>
+                                        </a>
+                                        <?php
+                                    }
+                               ?>
+
+                               <?php
+                                    if($type_account == "Admin"){
+                                        ?>
+                                        <a href="accounts.php?at=Admin" style="margin-left: 10px;background-color: #3c554c; align-items: center; align-content: center;border-radius: 10px;justify-content:center; width: 60px; display:flex">
+                                            <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">Admin</button>
+                                        </a>
+                                        <?php
+                                    }else {
+                                         ?>
+                                        <a href="accounts.php?at=Admin" style="align-self: center;margin-left: 10px;background-color: #3c554c; border-radius: 5px; height: 33px; width: 60px; display:flex;justify-content:center;">
+                                            <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">Admin</button>
+                                        </a>
+                                        <?php
+                                    }
+                               ?>
                             </div>
 
                             <form method="post" class="" style="display: flex;">
@@ -155,21 +193,33 @@
                                 
                                     
                                     <?php
+                                    if ($type_account == "Editor" || $type_account == "Member") {
+                                        $table = "users WHERE user_type = '$type_account'";
+                                        $fname = "first_name";
+                                        $bday = "birthdate";
+                                        $userID = "user_id";
+
+                                    }else{
+                                        $table = 'admin_account';
+                                        $fname = "fname";
+                                        $bday = "birthday";
+                                        $userID = "adminID";
+                                    }
                                     if(isset($_POST['orderBY'])){
                                             if ($_POST['orderBY'] == "Name") {
-                                            $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Editor' ORDER BY first_name");
+                                            $authorACC = mysqli_query($conn, "SELECT * FROM $table ORDER BY $fname");
                                             }elseif ($_POST['orderBY'] == "Email") {
-                                               $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Editor' ORDER BY email");
+                                               $authorACC = mysqli_query($conn, "SELECT * FROM $table ORDER BY email");
                                             }elseif ($_POST['orderBY'] == "Birthdate") {
-                                                $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Editor' ORDER BY birthdate");
+                                                $authorACC = mysqli_query($conn, "SELECT * FROM $table ORDER BY $bday");
                                             }elseif ($_POST['orderBY'] == "ID") {
-                                                $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Editor' ORDER BY user_id");
+                                                $authorACC = mysqli_query($conn, "SELECT * FROM $table ORDER BY $userID");
                                             }
                                             else{
-                                                $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Editor'");
+                                                $authorACC = mysqli_query($conn, "SELECT * FROM $table");
                                             }
                                      }else {
-                                         $authorACC = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'Editor'");
+                                         $authorACC = mysqli_query($conn, "SELECT * FROM $table");
                                      }
                                   
 
@@ -179,17 +229,26 @@
                                     ?>
                                         <tr>
                                         
-                                            <td><?php echo $recent_logs['user_id']; ?></td>
-                                            <td><?php echo $recent_logs['first_name']. " " .$recent_logs['last_name']; ?></td>
+                                            <td><?php echo $recent_logs[$userID]; ?></td>
+                                            <td><?php echo $recent_logs[$fname]. " " .$recent_logs['last_name']; ?></td>
                                             <td><?php echo $recent_logs['email'];?></td>
-                                            <td><?php echo $recent_logs['birthdate'];?></td>
-                                            <td><?php echo $recent_logs['user_type'];?></td>
-                                            <td><button type="submit" onclick="openPOPUP()">view</button></td>
+                                            <td><?php echo $recent_logs[$bday];?></td>
+                                            <td><?php echo $_GET['at'];?></td>
+                                             <td style="display: flex; justify-content:center">
+                                                <!-- VIEW BUTTON -->
+                                                    <a href=""  style="background-color:#3c554c; color:white; border: none; padding: 5px; width: 60px;display: flex;">
+                                                        <button style="background-color: transparent; border:none; display:flex;color: white; text-align:center; width:100%; justify-content:space-between; align-items:center">
+                                                            <i class="fa-solid fa-eye" ></i>
+                                                                Delete
+                                                        </button>
+                                                    </a>
+                                             </td>
 
                                         
                                         </tr>
                                     <?php
                                         }
+                                          include '../function/add_Account.php';
                                     ?>
                                     
                                 </tbody>
@@ -197,77 +256,32 @@
                         </div>
                         <div class="" style="display: flex; justify-content: space-between;">
                             <button style="background-color: #CC6A6C; color: white; border: none;width: 100px; padding: 5px;">Print</button>
-                            <button type="submit" style="background-color: #3999AA; border: none; color: white; padding: 5px;" onclick="Opens()">Add account</button>
-                              <button class="addAccount" id="addAccount" >ADD ACCOUNT</button>
+                            <button type="button" id="addAccount" style="background-color: #3999AA; border: none; color: white; padding: 5px;" onclick="handleClick()">Add account</button>
+                      
                         
                         </div>
                 </div>
 
                  <?php
-                                    include '../function/add_Account.php';
+                                
                                  ?>
-                            <!-- <form action="#" method="post" class="opens" id="opens">
-                                <a href=""><p style="font-size: 20px; font-weight: bolder;">x</p></a>
-                                <div class="user">
-                                    <p>ADD ACCOUNT</p>
-                                </div>
-
-                                <div class="neededInfo">
-                                    <div class="fNmae">
-                                    
-                                        <div class="IDS">
-                                            <p>TYPE</p>
-                                            <select name="user" id="">
-                                                <option value="">SELECT</option>
-                                                <option value="reader">USER</option>
-                                                <option value="admin">ADMIN</option>
-                                                <option value="author">EDITORS</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="fNmae">
-                                        <p>FULL NAME</p>
-                                        <input type="text" name="fname" id="" placeholder="DUMMY NAME" required>
-                                    </div>
-                                    <div class="fNmae">
-                                        <p>EMAIL</p>
-                                        <input type="email" name="email" id="" placeholder="DUMMYEMAIL@EMAIL.COM" required>
-                                    </div>
-                                    <div class="fNmae">
-                                        <p>PASSWORD</p>
-                                        <input type="password" name="pass" id="" placeholder="Password" required>
-                                    </div>
-                                    <div class="fNmae">
-                                        <p>CONFIRM PASSWORD</p>
-                                        <input type="password" name="Repass" id="" placeholder="Confirm Password" required>
-                                    </div>
-                                </div>
-
-                                <div class="buttons">
-                                    <button type="button" class="delete" onclick="removepop()">
-                                        CLOSE
-                                    </button>
-
-                                    <button type="submit" name="edit" class="edit">
-                                        CREATE
-                                    </button>
-                                </div>
-                            </form> -->
+             
 
             
 
         </article>
     </div>
-    <div class="popUP">
+     <div class="popUP" id="popUP">
       
        <div class="open" id="open">
-            <a href="accounts_editor.php"><p style="font-size: 20px; font-weight: bolder;justify-content:end; display:flex">x</p></a>
+            <a href="accounts.php?at=<?= $type_account?>" style="text-decoration: none;font-size: 20px; font-weight: bolder;justify-content:end; text-align:end; color:black">
+                <i class="fa-solid fa-circle-xmark" ></i></a>
             
             <div class="user">
 
                <div class="ids">
                     <p>USER ID</p>
-                    <p class="ID_number">1</p>
+                    <p class="ID_number" id="ID_number">1</p>
                </div>
                 
                 <img src="../../images/logo.jpg" alt="">
@@ -299,15 +313,20 @@
                                 </div>
         </div>
     </div>
+ 
 <?php  
 }
 ?>
 <script>
-    const popup = document.getElementById("popUP");
 
-    function openPOPUP() {
-        popup.classList.add("open_popup");
-    }
+     function handleClick() {
+    document.getElementById("popUP").style.display = "flex";
+
+    
+  
+   
+    // Add your logic here
+  }
 </script>
 </body>
 </html>

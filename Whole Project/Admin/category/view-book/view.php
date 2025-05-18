@@ -70,7 +70,7 @@
                 
                     <a href="../../admin.php"><button><i class="fa-solid fa-house" style="margin-right: 10px;"></i>Dashboard</button></a>
                     <button><i class="fa-solid fa-chart-simple" style="margin-right: 10px;"></i>Analytics</button>
-                    <a href="../../accounts/accounts_editor.php"><button><i class="fa-solid fa-user" style="margin-right: 10px;"></i>Accounts</button></a>
+                    <a href="../../accounts/accounts.php?at=Editor"><button><i class="fa-solid fa-user" style="margin-right: 10px;"></i>Accounts</button></a>
                     <button class="Active"><i class="fa-solid fa-book" style="margin-right: 10px;"></i>Books</button>
                     <a href="../../activity_log.php"><button><i class="fa-solid fa-file" style="margin-right: 10px;"></i>Activity Log</button></a>
 
@@ -121,7 +121,7 @@
 
             $selects_all_info_per_book = mysqli_query($conn, "SELECT * FROM books WHERE book_id= $bookID");
 
-            while ($results = mysqli_fetch_assoc($selects_all_info_per_book)) {
+           while ($results=mysqli_fetch_array($selects_all_info_per_book)) {
                 
             
          ?>
@@ -138,7 +138,7 @@
                     <!-- MAIN CONTENT -->
                         <div class="" style="width: 100%; display:flex; flex-wrap:wrap; justify-content:space-around">
                             <?php
-                                if(empty($results['bookCOVER'])){
+                                if(base64_encode($results['front_cover']) == ""){
                                     ?>
                                     <div class="" style="width: 290px; border:4px dashed white; display:flex; justify-content:center; align-items:center; flex-direction:column; color:white">
                                         <i class="fa-solid fa-face-sad-tear" style="font-size: 60px;"></i>
@@ -149,9 +149,9 @@
                                     </div>
                                     <?php
                                 }else{
-                                    ?>
-                                     <img src="../../../images/<?= $results['bookCOVER']?>" alt="" style="width: 290px; border:4px dashed white">
-                                    <?php
+                                    echo '
+                                     <img src="data:image/jpeg;base64, '.base64_encode($results['front_cover']).'"/>
+                                     ';
                                 }
                             ?>
                            
