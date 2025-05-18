@@ -199,6 +199,7 @@
                                         $bday = "birthdate";
                                         $userID = "user_id";
 
+
                                     }else{
                                         $table = 'admin_account';
                                         $fname = "fname";
@@ -224,7 +225,7 @@
                                   
 
                                         while ($recent_logs = mysqli_fetch_assoc($authorACC)) {
-                                      
+                                       
                                     
                                     ?>
                                         <tr>
@@ -236,19 +237,34 @@
                                             <td><?php echo $_GET['at'];?></td>
                                              <td style="display: flex; justify-content:center">
                                                 <!-- VIEW BUTTON -->
-                                                    <a href=""  style="background-color:#3c554c; color:white; border: none; padding: 5px; width: 60px;display: flex;">
-                                                        <button style="background-color: transparent; border:none; display:flex;color: white; text-align:center; width:100%; justify-content:space-between; align-items:center">
+                                             
+                                                        <button type="button" style="background-color: transparent; border:none; display:flex;color: white; text-align:center; width:100%; justify-content:space-between; align-items:center;background-color:#3c554c; color:white; border: none; padding: 5px; width: 60px;display: flex;" 
+                                                        data-id="<?= $recent_logs[$userID];?>"
+                                                        data-fname="<?= $recent_logs[$fname];?>"
+                                                        data-lname="<?= $recent_logs['last_name'];?>"
+                                                        data-bday="<?= $recent_logs[$bday];?>"
+                                                        data-email="<?= $recent_logs['email'];?>"
+                                                        data-picture="<?= $recent_logs['profile_pic'];?>"
+                                                       
+                                                        onclick="handleClick(
+                                                        this.getAttribute('data-id'),
+                                                        this.getAttribute('data-fname'),
+                                                        this.getAttribute('data-lname'),
+                                                        this.getAttribute('data-bday'),
+                                                        this.getAttribute('data-email'),
+                                                        this.getAttribute('data-picture'),
+                                                        )">
                                                             <i class="fa-solid fa-eye" ></i>
-                                                                Delete
+                                                                View
                                                         </button>
-                                                    </a>
+                                                    
                                              </td>
 
                                         
                                         </tr>
                                     <?php
                                         }
-                                          include '../function/add_Account.php';
+                                         
                                     ?>
                                     
                                 </tbody>
@@ -256,7 +272,7 @@
                         </div>
                         <div class="" style="display: flex; justify-content: space-between;">
                             <button style="background-color: #CC6A6C; color: white; border: none;width: 100px; padding: 5px;">Print</button>
-                            <button type="button" id="addAccount" style="background-color: #3999AA; border: none; color: white; padding: 5px;" onclick="handleClick()">Add account</button>
+                            <button type="button" id="addAccount" style="background-color: #3999AA; border: none; color: white; padding: 5px;" >Add account</button>
                       
                         
                         </div>
@@ -284,18 +300,18 @@
                     <p class="ID_number" id="ID_number">1</p>
                </div>
                 
-                <img src="../../images/logo.jpg" alt="">
+                <img src="../../images/logo.jpg" alt="" id="img">
             </div>
                                         
             <div class="neededInfo">
                 <p id="">FULL NAME</p>
                 <input type="text" name="" id="OPEN_name">
                 <p>EMAIL</p>
-                <input type="email" name="" id="" placeholder="DUMMYEMAIL@EMAIL.COM">
+                <input type="email" name="" id="email" placeholder="DUMMYEMAIL@EMAIL.COM">
                 <p>PHONE NUMBER</p>
                 <input type="number" name="" id="" placeholder="+639389001154">
                 <p>BIRTHDAY</p>
-                <input type="date" name="" id="">
+                <input type="date" name="" id="bday">
             </div>
 
                                 <div class="buttons">
@@ -319,10 +335,19 @@
 ?>
 <script>
 
-     function handleClick() {
+     function handleClick(dataID, fname , lname , bday, email, profilePic) {
     document.getElementById("popUP").style.display = "flex";
-
-    
+    document.getElementById("ID_number").innerHTML = dataID;
+    document.getElementById("OPEN_name").value = fname + lname;
+    document.getElementById("email").value = email;
+    document.getElementById("bday").value = bday;
+    // IF THE USER DOESNT hAVE PROFILE PICTURE 
+    if(profilePic == ""){
+         document.getElementById("img").src = "../../images/" +profilePic;
+    }else{
+        document.getElementById("img").src = "../../images/" +profilePic;
+    }
+   
   
    
     // Add your logic here
