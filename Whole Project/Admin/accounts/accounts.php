@@ -289,7 +289,7 @@
     </div>
      <div class="popUP" id="popUP">
       
-       <div class="open" id="open">
+        <div class="open" id="open">
             <a href="accounts.php?at=<?= $type_account?>" style="text-decoration: none;font-size: 20px; font-weight: bolder;justify-content:end; text-align:end; color:black">
                 <i class="fa-solid fa-circle-xmark" ></i></a>
             
@@ -328,6 +328,36 @@
                                     </button>
                                 </div>
         </div>
+
+       
+    </div>
+    <div class="popUP" id="popUP2">
+        <div class="open" id="open2">
+                <a href="accounts.php?at=<?= $type_account?>" style="text-decoration: none;font-size: 20px; font-weight: bolder;justify-content:end; text-align:end; color:black">
+                    <i class="fa-solid fa-circle-xmark" ></i></a>
+            <p>Change Password</p>
+
+                <div class="neededInfo">
+                    <p id="">Old Password</p>
+                    <input type="text" name="oldPASS" id="OPEN_name" value="">
+                    <p id="">New Password</p>
+                    <input type="text" name="newPASS" id="OPEN_name">
+
+                    <p id="">Confirm new Password</p>
+                    <input type="text" name="confirmPASS" id="OPEN_name">
+
+                </div>
+
+                <form method="post" class="buttons">
+                    <button type="submit" id="changePASS" class="change" onclick="Changes()">
+                            CHANGE PASSWORD
+                    </button>
+
+                     <button type="button" class="change" onclick="cancels()">
+                            Cancel
+                    </button>
+                </form>
+        </div>
     </div>
  
 <?php  
@@ -343,15 +373,44 @@
     document.getElementById("bday").value = bday;
     // IF THE USER DOESNT hAVE PROFILE PICTURE 
     if(profilePic == ""){
-         document.getElementById("img").src = "../../images/" +profilePic;
+     
     }else{
         document.getElementById("img").src = "../../images/" +profilePic;
     }
+
+    
    
   
    
     // Add your logic here
   }
+
+  function ChangePASS(){
+        document.getElementById("popUP").style.display = "none";
+        document.getElementById("popUP2").style.display = "flex";
+
+
+    }
+    function Changes(){
+        const changePASS = document.getElementById("changePASS").submit;
+
+        const oldPass = document.getElementById("oldPASS");
+        
+        if(oldPass === null){
+            alert(oldPass);
+        }else{
+            alert(oldPass);
+        }
+ 
+      
+       
+        
+    }
+
+    function cancels(){
+         document.getElementById("popUP").style.display = "flex";
+        document.getElementById("popUP2").style.display = "none";
+    }
 </script>
 </body>
 </html>
