@@ -1,14 +1,25 @@
 <?php
-session_start();
-include '../process/database_connection.php'; 
+    session_start();
+    include '../process/database_connection.php'; 
 
-// Ensure only logged-in editors can access this page
-if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'Editor') {
-    header("Location: ../Guest/login.php");
-    exit();
-}
+    // Ensure only logged-in editors can access this page
+    if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'Editor') {
+        header("Location: ../Guest/login.php");
+        exit();
+    }
 
+    $editor_id = $_SESSION['user_id']; // Current editor ID
+
+    // Fetch the editor's name
+    $sql_editor_name = "SELECT first_name FROM users WHERE user_id = ?";
+    $stmt = $conn->prepare($sql_editor_name);
+    $stmt->bind_param("i", $editor_id);
+    $stmt->execute();
+    $stmt->bind_result($editor_name);
+    $stmt->fetch();
+    $stmt->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +51,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'Editor') {
         <h1>Book <span style="color: #A1BE95;">Room</span></h1>
         <div class="profile">
             <img src="https://placehold.co/80" alt="Profile Picture">
-            <h2>Gray</h2>
+            <h2><?php echo htmlspecialchars($editor_name ?: 'Editor'); ?></h2>
             <p>Editor</p>
             <hr>
         </div>

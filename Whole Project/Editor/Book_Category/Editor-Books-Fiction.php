@@ -1,10 +1,10 @@
 <?php
     session_start();
-    include '../process/database_connection.php'; 
+    include '../../process/database_connection.php'; 
 
     // Ensure only logged-in editors can access this page
     if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'Editor') {
-        header("Location: ../Guest/login.php");
+        header("Location: ../../Guest/login.php");
         exit();
     }
 
@@ -31,17 +31,17 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
     <!--Web Icon-->
-    <link rel="shortcut icon" href="../images/weblogo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../images/weblogo.png" type="image/x-icon">
 
     <!--CSS Stylesheets-->
-    <link rel="stylesheet" href="css/bg-and-nav.css">
-    <link rel="stylesheet" href="css/books.css">
+    <link rel="stylesheet" href="../css/bg-and-nav.css">
+    <link rel="stylesheet" href="../css/books.css">
 
 </head>
 <body>
     <!--Logo and Title -->
     <header class ="logo-and-title">
-        <img src="../images/weblogo.png" alt="book room logo">
+        <img src="../../images/weblogo.png" alt="book room logo">
         <h2>Book<br><span style="color: #A1BE95;">Room</span></h2>
     </header>
 
@@ -55,13 +55,13 @@
             <hr>
         </div>
         <div class="menu">
-            <a href="Editor-Dashboard.php"><button class="text-btn">Dashboard</button></a>
-            <a href="Editor-Books.php"><button class="chosen-btn">Books</button></a> 
-            <a href="Editor-AddBooks.php"><button class="text-btn">Add Books</button></a> 
-            <a href="Editor-BooksOwned.php"><button class="text-btn">Book Owned</button></a>
+            <a href="../Editor-Dashboard.php"><button class="text-btn">Dashboard</button></a>
+            <a href="../Editor-Books.php"><button class="chosen-btn">Books</button></a> 
+            <a href="../Editor-AddBooks.php"><button class="text-btn">Add Books</button></a> 
+            <a href="../Editor-BooksOwned.php"><button class="text-btn">Book Owned</button></a>
             <br><br><br><br><br><br><br><br><br>
-            <a href="Editor-Accounts.php"><button class="text-btn">Account</button> </a>
-            <a href="../../Guest/login.php"><button class="logout">Logout</button></a>
+            <a href="../Editor-Accounts.php"><button class="text-btn">Account</button> </a>
+            <a href="../../../Guest/login.php"><button class="logout">Logout</button></a>
         </div>
     </div>
 
@@ -99,13 +99,13 @@
             <option value="">A - Z</option>
         </select>
         <ul>
-            <li class="genre-selected"><a href="#">Science</a></li>
-            <li><a href="Book_Category/Editor-Books-Novel.php">Novel</a></li>
-            <li><a href="">Mystery</a></li>
-            <li><a href="">Narrative</a></li>
-            <li><a href="">Fiction</a></li>
-            <li><a href="">History</a></li>
-            <li><a href="">Fantasy</a></li>
+            <li><a href="../Editor-Books.php">Science</a></li>
+            <li><a href="Editor-Books-Novel.php">Novel</a></li>
+            <li><a href="Editor-Books-Mystery.php">Mystery</a></li>
+            <li><a href="Editor-Books-Narrative.php">Narrative</a></li>
+            <li class="genre-selected"><a href="Editor-Books-Fiction.php">Fiction</a></li>
+            <li><a href="Editor-Books-History.php">History</a></li>
+            <li><a href="Editor-Books-Fantasy.php">Fantasy</a></li>
         </ul>
     </div>
 
@@ -126,7 +126,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.php">
+                    <a href="../Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -137,7 +137,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.php">
+                    <a href="../Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -148,7 +148,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.php">
+                    <a href="../Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -159,7 +159,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.php">
+                    <a href="../Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -170,7 +170,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.php">
+                    <a href="../Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -181,7 +181,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.php">
+                    <a href="../Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -192,7 +192,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.php">
+                    <a href="../Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -203,7 +203,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.php">
+                    <a href="../Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -214,7 +214,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.php">
+                    <a href="../Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -225,7 +225,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.php">
+                    <a href="../Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
@@ -236,7 +236,7 @@
                 <td>Lj Monahan</td>
                 <td>7</td>
                 <td>
-                    <a href="Editor-Books-View.php">
+                    <a href="../Editor-Books-View.php">
                         <button class = "view-button">View</button>
                     </a>
                 </td>
