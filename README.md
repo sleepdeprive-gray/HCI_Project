@@ -19,3 +19,8 @@
 <li>Editor Add Books Page Validation</li>
 <li>Editor Add Books Page 100% Complete</li>
 </ul>
+<b>5/20/2025</b>
+<ul>
+<li>Editor Update Books 15%</li>
+<li>Editor Navigation 100% Complete</li>
+</ul>
