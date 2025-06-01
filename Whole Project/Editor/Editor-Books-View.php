@@ -1,4 +1,5 @@
 <?php
+    
     session_start();
     include '../process/database_connection.php'; 
 
@@ -18,8 +19,32 @@
     $stmt->bind_result($editor_name);
     $stmt->fetch();
     $stmt->close();
-?>
 
+    if (!isset($_GET['book_id'])) {
+        header("Location: Editor-Books.php");
+        exit();
+    }
+
+    $book_id = intval($_GET['book_id']);
+
+    $sql_book = "SELECT b.title, a.author_name, b.description, b.language, b.date_published, u.first_name, u.last_name, b.front_cover
+                 FROM books b
+                 LEFT JOIN authors a ON b.author_id = a.author_id
+                 JOIN users u ON b.editor_id = u.user_id
+                 WHERE b.book_id = ?";
+    $stmt = $conn->prepare($sql_book);
+    $stmt->bind_param("i", $book_id);
+    $stmt->execute();
+    $stmt->bind_result($title, $author_name, $description, $language, $date_published, $editor_fname, $editor_lname, $front_cover);
+    $stmt->fetch();
+    $stmt->close();
+
+    $formatted_date = date("F j, Y", strtotime($date_published));
+
+    // ✅ Use a PHP script to serve the BLOB image
+    $cover_path = "../process/Editor/display_cover.php?book_id=" . $book_id;
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +75,7 @@
     <div class="sidebar">
         <h1>Book <span style="color: #A1BE95;">Room</span></h1>
         <div class="profile">
-            <img src="https://placehold.co/80" alt="Profile Picture">
+            <img src="../process/view.php?user_id=<?= $_SESSION['user_id'] ?>" alt="Profile Picture" width="80" height="80" style="object-fit: cover; border-radius: 50%;">
             <h2><?php echo htmlspecialchars($editor_name ?: 'Editor'); ?></h2>
             <p>Editor</p>
             <hr>
@@ -77,10 +102,17 @@
 
     <div class="content-part">
         <div class="upper-content">
-            <img src="../images/book-1.png" alt="The Escapers">
-            <div class="title-and-author">
-                <h1>Les Estremondes</h1>
-                <h4>Ravena Guron</h4>
+            <img class="book-cover" src="<?= $cover_path ?>" alt="<?= htmlspecialchars($title) ?>" style="
+                margin-top: 25px;
+                width: 200px;
+                height: 250px;
+                border-radius: 5px;
+            ">
+            <div class="title-and-author" style=" 
+                margin-top: -75px;
+            ">
+                <h1><?= htmlspecialchars($title) ?></h1>
+                <h4><?= htmlspecialchars($author_name ?? 'Unknown Author') ?></h4>
             </div>
             <a href="Editor-Books.php">
                 <button>Back</button>
@@ -91,25 +123,15 @@
             <div class="details-part">  
                 <div class="left-details">
                     <h4>Description</h4>
-                    <p>The Escapers Books is a digital platform centered  around  the
-                        Alien Investors series, offering fans immersive reading experience. 
-                        It features personalized book recommendations, interactive content,
-                        and secrueaccess uisng face recognition, voice commands, and 
-                        fingerprint autentication. <br><br> The platform allowss users to explore the 
-                        Alien invstors universe, track their reading progress and enggae with other fans in discussions. Specialized platform dedicated to the Alien Investors series, providing 
-                        readers with a seamless, interactive experience. With advanced features 
-                        like face  recognition, voice commands, and fingerprint access, users can
-                        securely dive into the world of AlienInvestors, follow storylines, and connect 
-                        with a community of fellow fans.
-                    </p>
+                    <p><?= nl2br(htmlspecialchars($description)) ?></p>
                 </div>
                 <div class="right-details">
                     <h4>Editor</h4>
-                    <p>Gray Smith</p>
+                    <p><?= htmlspecialchars($editor_fname . ' ' . $editor_lname) ?></p>
                     <h4>Language</h4>
-                    <p>Standard English</p>
+                    <p><?= htmlspecialchars($language) ?></p>
                     <h4>Date Published</h4>
-                    <p>July 15, 1990</p>
+                    <p><?= htmlspecialchars($formatted_date) ?></p>
                 </div>
             </div>
         </div>

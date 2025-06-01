@@ -10,7 +10,7 @@
 
     $editor_id = $_SESSION['user_id']; // Current editor ID
 
-    // Fetch the editor's name
+    // Fetch the editor's first name (original query)
     $sql_editor_name = "SELECT first_name FROM users WHERE user_id = ?";
     $stmt = $conn->prepare($sql_editor_name);
     $stmt->bind_param("i", $editor_id);
@@ -18,7 +18,17 @@
     $stmt->bind_result($editor_name);
     $stmt->fetch();
     $stmt->close();
+
+    // Fetch the editor's last name (new, separate query)
+    $sql_last_name = "SELECT last_name FROM users WHERE user_id = ?";
+    $stmt_last = $conn->prepare($sql_last_name);
+    $stmt_last->bind_param("i", $editor_id);
+    $stmt_last->execute();
+    $stmt_last->bind_result($editor_last_name);
+    $stmt_last->fetch();
+    $stmt_last->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +59,7 @@
     <div class="sidebar">
         <h1>Book <span style="color: #A1BE95;">Room</span></h1>
         <div class="profile">
-            <img src="https://placehold.co/80" alt="Profile Picture">
+           <img src="../process/view.php?user_id=<?= $_SESSION['user_id'] ?>" alt="Profile Picture" width="80" height="80" style="object-fit: cover; border-radius: 50%;">
             <h2><?php echo htmlspecialchars($editor_name ?: 'Editor'); ?></h2>
             <p>Editor</p>
             <hr>
@@ -61,7 +71,7 @@
             <a href="Editor-BooksOwned.php"><button class="text-btn">Book Owned</button></a>
             <br><br><br><br><br><br><br><br><br>
             <a href="Editor-Accounts.php"><button class="chosen-btn">Account</button> </a>
-            <a href="../../Guest/login.php"><button class="logout">Logout</button></a>
+            <a href="../process/Guest/logout.php"><button class="logout">Logout</button></a>
         </div>
     </div>
 
@@ -101,8 +111,8 @@
         
         <div class="right-side-part">
             <div class="picture-name-userid-part">
-                <img src="https://via.placeholder.com/80" alt="Profile Picture">
-                <h1>Gray Smith</h1>
+                <img src="../process/view.php?user_id=<?= $_SESSION['user_id'] ?>" alt="Profile Picture" width="80" height="80" style="object-fit: cover; border-radius: 50%;">
+                <h1><?php echo htmlspecialchars(($editor_name ?? '') . ' ' . ($editor_last_name ?? '')); ?></h1>
                 <div class="user-id">
                     <p>User ID</p>
                     <div class="userid-background">

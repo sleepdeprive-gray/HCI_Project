@@ -91,7 +91,7 @@
     <div class="sidebar">
         <h1>Book <span style="color: #A1BE95;">Room</span></h1>
         <div class="profile">
-            <img src="https://placehold.co/80" alt="Profile Picture">
+            <img src="../process/view.php?user_id=<?= $_SESSION['user_id'] ?>" alt="Profile Picture" width="80" height="80" style="object-fit: cover; border-radius: 50%;">
             <h2><?php echo htmlspecialchars($editor_name ?: 'Editor'); ?></h2>
             <p>Editor</p>
             <hr>
@@ -103,7 +103,7 @@
             <a href="Editor-BooksOwned.php"><button class="text-btn">Book Owned</button></a>
             <br><br><br><br><br><br><br><br><br>
             <a href="Editor-Accounts.php"><button class="text-btn">Account</button> </a>
-            <a href="../../Guest/login.php"><button class="logout">Logout</button></a>
+            <a href="../process/Guest/logout.php"><button class="logout">Logout</button></a>
         </div>
     </div>
 

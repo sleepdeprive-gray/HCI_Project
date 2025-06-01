@@ -23,16 +23,6 @@ body {
     text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
 }
 
-/* Style for the image */
-.upper-content img {
-    width: 180px; /* Adjust the size of the image */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 5px; /* Optional: Add rounded corners */
-}
-
-.title-and-author {
-    margin-top: -150px;
-}
 
 /* Style for title and author */
 .title-and-author h1 {
@@ -49,6 +39,7 @@ body {
     margin: 5px 0 0 25px; /* Add a small margin on top */
     color: #3ac9b6; /* Optional: Change the color */
 }
+
 
 /* Style for the button */
 .upper-content button {
