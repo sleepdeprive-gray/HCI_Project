@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
+
+body {
+    overflow: hidden;
+}
+
+.content-part {
+    margin-left: 300px;
+    width: 975px;
+    height: 1000px;
+}
+
+/* Style for upper-content */
+.upper-content {
+    float: inline-start;
+    margin-top: -200px;
+    margin-left: 100px;
+    display: flex; /* Use Flexbox to align items horizontally */
+    align-items: center; /* Vertically align items in the center */
+    gap: 20px; /* Add spacing between elements */
+    padding: 10px; /* Optional: Add padding around the content */
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Style for the image */
+.upper-content img {
+    width: 180px; /* Adjust the size of the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+.title-and-author {
+    margin-top: -150px;
+}
+
+/* Style for title and author */
+.title-and-author h1 {
+    font-size: 35px;
+    font-family: 'Inria Serif', Arial;
+    font-weight: bolder;
+    margin: 0; /* Remove default margin */
+}
+
+.title-and-author h4 {
+    font-size: 23px;
+    font-weight: 350;
+    font-family: 'Kumbh Sans', 'Times New Roman', Times, serif;
+    margin: 5px 0 0 25px; /* Add a small margin on top */
+    color: #3ac9b6; /* Optional: Change the color */
+}
+
+/* Style for the button */
+.upper-content button {
+    margin: 10px 0 0 250px;
+    background-color: #D9D9D9; /* Optional: Set background color */
+    color: #000000; /* Text color */
+    padding: 7px 20px;
+    border: none;
+    border-radius: 5px; /* Optional: Add rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Button hover effect */
+.upper-content button:hover {
+    background-color: #000000; /* Darker blue on hover */
+    color:#D9D9D9;
+}
+
+.section-bg {
+    margin-top: 175px;
+    width: 975px;
+    height: 1000px;
+    background-color: #6A9C89;
+    border-radius: 15px;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.divider {
+    padding-top: 90px;
+    margin-left: 350px;
+    width: 550px;
+    height: 2px;
+    border-bottom: 3px solid rgb(255, 255, 255);
+}
+
+.details-part {
+    display: flex; /* Use Flexbox to align children horizontally */
+    gap: 20px; /* Add space between left and right details */
+    margin-top: 20px;
+    align-items: flex-start; /* Align items to the top */
+}
+
+/* Style for left-details */
+.left-details {
+    flex: 3; /* Take 3 parts of the available space */
+    max-width: 70%;
+    font-family: 'Inria Sans', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.2;
+    margin-left: 50px;
+    margin-top: -10px;
+}
+
+.left-details p {
+    word-wrap: break-word; /* Wrap words properly */
+    overflow-wrap: break-word; /* Same as above but better compatibility */
+    text-align: justify; /* Justify text for a neat appearance */
+}
+
+/* Style for right-details */
+.right-details {
+    flex: 1; /* Take 1 part of the available space */
+    margin-left: 30px;
+    font-family: 'Inria Sans', Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1;
+}
+
+/* Right-details headings */
+.right-details h4 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.right-details p {
+    padding-bottom: 20px;
+}
+
+/* General Styling */
+.details-part h4 {
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    font-family: 'Inria Sans', Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.details-part p {
+    font-family: 'Inria Sans', Arial, Helvetica, sans-serif;
+    margin: 0 0 15px;
+    color: #000000;
+}
+
+#status-button {
+    margin-left: 15px;
+    background-color: #d37e7e; /* Optional: Set background color */
+    color: #ffffff; /* Text color */
+    padding: 7px 10px;
+    border: none;
+    border-radius: 5px; /* Optional: Add rounded corners */
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#status-button:hover {
+    background-color: rgb(255, 0, 0);
+}
