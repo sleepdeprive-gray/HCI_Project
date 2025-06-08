@@ -15,7 +15,6 @@ $stmt->execute();
 $stmt->store_result();
 
 if ($stmt->num_rows === 0) {
-    // No book found
     $stmt->close();
     header("Content-Type: image/jpeg");
     readfile("../../images/book-1.png");
@@ -27,7 +26,8 @@ $stmt->fetch();
 $stmt->close();
 
 if (!empty($front_cover)) {
-    header("Content-Type: image/jpeg"); // Adjust if you're storing PNGs
+    // If front_cover is binary data
+    header("Content-Type: image/jpeg"); // or image/png
     echo $front_cover;
     exit;
 } else {
@@ -35,4 +35,3 @@ if (!empty($front_cover)) {
     readfile("../../images/book-1.png");
     exit;
 }
-?>

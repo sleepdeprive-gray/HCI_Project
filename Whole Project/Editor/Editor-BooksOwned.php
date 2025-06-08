@@ -18,8 +18,20 @@
     $stmt->bind_result($editor_name);
     $stmt->fetch();
     $stmt->close();
-?>
 
+    // Fetch books uploaded by this editor
+    $sql_books = "SELECT book_id, title, date_published, upload_date, status FROM books WHERE editor_id = ?";
+    $stmt_books = $conn->prepare($sql_books);
+
+    if (!$stmt_books) {
+        die("Prepare failed: (" . $conn->errno . ") " . $conn->error);
+    }
+
+    $stmt_books->bind_param("i", $editor_id);
+    $stmt_books->execute();
+    $result_books = $stmt_books->get_result();
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -81,9 +93,9 @@
 
             <div class="sorting-dropdown">
                 <select name="sorting-type" id="sorting-dropdown">
-                    <option value="">Date Added</option>
-                    <option value="">A - Z</option>
-                    <option value="">Date Published</option>
+                    <option value="upload_date">Date Added</option>
+                    <option value="az">A - Z</option>
+                    <option value="date_published">Date Published</option>
                 </select>
             </div>
 
@@ -92,7 +104,7 @@
                 <a href="">
                     <i id="mic-icon" class="fa-solid fa-microphone"></i>
                 </a>
-                <input type="search" name="searchbar" id="searchbar-field" placeholder="Search book name, author...">
+                <input type="search" name="searchbar" id="searchbar-field" placeholder="Search book name, status...">
                 <a href="">
                     <i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
                 </a>
@@ -113,107 +125,36 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Example rows -->
-                        <tr>
-                            <td>The Escapers</td>
-                            <td>July 15, 1990</td>
-                            <td>January 1, 2025</td>
-                            <td>Archived</td>
-                            <td>
-                                <a href="Editor-BooksOwned-Archived.php">
-                                    <button>View</button>
-                                </a>
-                            </td>
-                        </tr>
-                        <!-- Add 10+ more rows to test the scrolling -->
-                        <tr>
-                            <td>The Escapers</td>
-                            <td>July 15, 1990</td>
-                            <td>January 1, 2025</td>
-                            <td>Available</td>
-                            <td>
-                                <a href="Editor-BooksOwned-Available.php">
-                                    <button>View</button>
-                                </a>
-                            </td>
-                        </tr>
-                        <!-- Repeat rows for demonstration -->
-                        <tr>
-                            <td>The Escapers</td>
-                            <td>July 15, 1990</td>
-                            <td>January 1, 2025</td>
-                            <td>Available</td>
-                            <td>
-                                <button onclick="viewBook()">View</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>The Escapers</td>
-                            <td>July 15, 1990</td>
-                            <td>January 1, 2025</td>
-                            <td>For Approval</td>
-                            <td>
-                                <button onclick="viewBook()">View</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>The Escapers</td>
-                            <td>July 15, 1990</td>
-                            <td>January 1, 2025</td>
-                            <td>Available</td>
-                            <td>
-                                <button onclick="viewBook()">View</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>The Escapers</td>
-                            <td>July 15, 1990</td>
-                            <td>January 1, 2025</td>
-                            <td>Available</td>
-                            <td>
-                                <button onclick="viewBook()">View</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>The Escapers</td>
-                            <td>July 15, 1990</td>
-                            <td>January 1, 2025</td>
-                            <td>Available</td>
-                            <td>
-                                <button onclick="viewBook()">View</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>The Escapers</td>
-                            <td>July 15, 1990</td>
-                            <td>January 1, 2025</td>
-                            <td>Available</td>
-                            <td>
-                                <button onclick="viewBook()">View</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>The Escapers</td>
-                            <td>July 15, 1990</td>
-                            <td>January 1, 2025</td>
-                            <td>Available</td>
-                            <td>
-                                <button onclick="viewBook()">View</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>The Escapers</td>
-                            <td>July 15, 1990</td>
-                            <td>January 1, 2025</td>
-                            <td>Available</td>
-                            <td>
-                                <button onclick="viewBook()">View</button>
-                            </td>
-                        </tr>
+                        <?php if ($result_books->num_rows > 0): ?>
+                            <?php while ($row = $result_books->fetch_assoc()): ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($row['title']) ?></td>
+                                    <td><?= htmlspecialchars(date("F j, Y", strtotime($row['date_published']))) ?></td>
+                                    <td><?= htmlspecialchars(date("F j, Y", strtotime($row['upload_date']))) ?></td>
+                                    <td><?= htmlspecialchars($row['status']) ?></td>
+                                    <td>
+                                        <a href="Editor-BooksOwned-View.php?book_id=<?= $row['book_id'] ?>">
+                                            <button>View</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endwhile; ?>
+                             <tr id="no-results" style="display: none;">
+                                <td colspan="5" style="text-align: center; font-style: italic;">No Books Added</td>
+                            </tr>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="5" style="text-align: center; font-style: italic;">No books found.</td>
+                                </tr>
+                        <?php endif; ?>
                     </tbody>
+
                 </table>
             </div>
         </div>
     </div>
+
+    <script src="js/editor-books-owned.js"></script>
+
 </body>
 </html>

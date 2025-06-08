@@ -50,7 +50,7 @@
                   FROM books b
                   LEFT JOIN authors a ON b.author_id = a.author_id
                   WHERE b.editor_id = ?
-                  AND b.genre = 'Science'
+                  AND b.genre = 'Fantasy'
                   AND (b.title LIKE ? OR a.author_name LIKE ?)";
     $stmt_total = $conn->prepare($sql_total);
     $stmt_total->bind_param("iss", $editor_id, $search, $search);

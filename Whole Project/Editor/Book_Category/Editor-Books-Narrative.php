@@ -69,7 +69,7 @@
             FROM books b
             LEFT JOIN authors a ON b.author_id = a.author_id
             WHERE b.editor_id = ?
-              AND b.genre = 'Science'
+              AND b.genre = 'Narrative'
               AND (b.title LIKE ? OR a.author_name LIKE ?)
             ORDER BY $orderBy $order
             LIMIT ?, ?";

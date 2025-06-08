@@ -18,8 +18,64 @@
     $stmt->bind_result($editor_name);
     $stmt->fetch();
     $stmt->close();
-?>
 
+    
+    if (!isset($_GET['book_id'])) {
+        echo "No book selected.";
+        exit();
+    }
+
+    $book_id = intval($_GET['book_id']);
+
+    $sql = "SELECT front_cover FROM books WHERE book_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $book_id);
+    $stmt->execute();
+    $stmt->bind_result($imageData);
+    $stmt->fetch();
+    $stmt->close();
+
+    if (!$imageData) {
+        http_response_code(404);
+        exit("Image not found");
+    }
+
+    header("Content-Type: image/jpeg"); // or image/png based on your data
+    echo $imageData;
+    exit;
+
+    $sql = "SELECT 
+                b.*, 
+                u.first_name AS editor_fname, 
+                u.last_name AS editor_lname, 
+                a.author_name 
+            FROM books b
+            JOIN users u ON b.editor_id = u.user_id
+            JOIN authors a ON b.author_id = a.author_id
+            WHERE b.book_id = ? AND b.editor_id = ?";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $book_id, $editor_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 0) {
+        echo "Book not found or access denied.";
+        exit();
+    }
+
+    $book = $result->fetch_assoc();
+
+    $title = $book['title'];
+    $description = $book['description'];
+    $language = $book['language'];
+    $cover_path = $book['front_cover'];
+    $formatted_date = date("F j, Y", strtotime($book['date_published']));
+    $editor_fname = $book['editor_fname'];
+    $editor_lname = $book['editor_lname'];
+    $author_name = $book['author_name']; // ✅ Get only author_name
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -76,13 +132,18 @@
                     -->
 
     <div class="content-part">
-        <div class="upper-content">
-            <img src="../images/book-1.png" alt="The Escapers">
-            <div class="title-and-author">
-                <h1>Les Estremondes</h1>
-                <h4>Ravena Guron</h4>
+         <div class="upper-content">
+            <img src="../process/editor/display_cover.php?book_id=1" alt="Book Cover" style="
+                margin-top: 25px;
+                width: 200px;
+                height: 250px;
+                border-radius: 5px;
+            "/>
+            <div class="title-and-author" style="margin-top: -75px;">
+                <h1><?= htmlspecialchars($title) ?></h1>
+                <h4><?= htmlspecialchars($author_name ?? 'Unknown Author') ?></h4>
             </div>
-            <a href="Editor-BooksOwned.php">
+            <a href="Editor-Books.php">
                 <button>Back</button>
             </a>
         </div>
@@ -91,27 +152,17 @@
             <div class="details-part">  
                 <div class="left-details">
                     <h4>Description</h4>
-                    <p>The Escapers Books is a digital platform centered  around  the
-                        Alien Investors series, offering fans immersive reading experience. 
-                        It features personalized book recommendations, interactive content,
-                        and secrueaccess uisng face recognition, voice commands, and 
-                        fingerprint autentication. <br><br> The platform allowss users to explore the 
-                        Alien invstors universe, track their reading progress and enggae with other fans in discussions. Specialized platform dedicated to the Alien Investors series, providing 
-                        readers with a seamless, interactive experience. With advanced features 
-                        like face  recognition, voice commands, and fingerprint access, users can
-                        securely dive into the world of AlienInvestors, follow storylines, and connect 
-                        with a community of fellow fans.
-                    </p>
+                    <p><?= nl2br(htmlspecialchars($description)) ?></p>
                 </div>
                 <div class="right-details">
                     <h4>Editor</h4>
-                    <p>Gray Smith</p>
+                    <p><?= htmlspecialchars($editor_fname . ' ' . $editor_lname) ?></p>
                     <h4>Language</h4>
-                    <p>Standard English</p>
+                    <p><?= htmlspecialchars($language) ?></p>
                     <h4>Date Published</h4>
-                    <p>July 15, 1990</p>
+                    <p><?= htmlspecialchars($formatted_date) ?></p>
                     <a href="Editor-BooksOwned.php">
-                        <button id="status-button">Set Book Archive</button>
+                        <button id="status-button">Set Book Available</button>
                     </a>
                 </div>
             </div>
