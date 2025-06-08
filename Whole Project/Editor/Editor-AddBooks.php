@@ -139,7 +139,7 @@
                     <div class="file-upload-right">
                         <div class="file-upload-item">
                             <label for="author-upload">Author Photo</label>
-                            <input type="file" name="author-upload" id="author-upload" accept="image/*" require>
+                            <input type="file" name="author-upload" id="author-upload" accept="image/*">
                         </div>
                         
                         <div class="submit-item">

@@ -133,6 +133,10 @@
             placeholder="Search book name, author..." 
             value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>" 
         />
+        <!-- Hidden inputs to carry dropdown values when submitting search -->
+        <input type="hidden" name="order" id="order-hidden" value="<?= htmlspecialchars($_GET['order'] ?? 'Descending') ?>">
+        <input type="hidden" name="sort" id="sort-hidden" value="<?= htmlspecialchars($_GET['sort'] ?? '') ?>">
+
         <a href="#" id="search-icon" type="button">
             <i class="fa-solid fa-magnifying-glass"></i>
         </a>
@@ -159,7 +163,6 @@
             <li><a href="Book_Category/Editor-Books-Fantasy.php">Fantasy</a></li>
         </ul>
     </div>
-
 
     <!-- Table -->
     <table>
@@ -225,58 +228,7 @@
         </ul>
     </div>
 
-
-    <script>
-        const micIcon = document.getElementById('mic-icon');
-        const searchField = document.getElementById('searchbar-field');
-        const searchForm = document.getElementById('search-form');
-        const searchIcon = document.getElementById('search-icon');
-        const orderDropdown = document.getElementById('order-dropdown');
-        const sortDropdown = document.getElementById('sort-type-dropdown');
-
-        // Voice Typing
-        if ('webkitSpeechRecognition' in window) {
-            const recognition = new webkitSpeechRecognition();
-            recognition.continuous = false;
-            recognition.interimResults = false;
-            recognition.lang = 'en-US';
-
-            micIcon.addEventListener('click', () => recognition.start());
-
-            recognition.onresult = function (event) {
-                const transcript = event.results[0][0].transcript;
-                searchField.value = transcript;
-                searchForm.submit();
-            };
-        } else {
-            micIcon.style.display = "none";
-        }
-
-        // Manual Search Icon Click
-        searchIcon.addEventListener('click', () => searchForm.submit());
-
-        // Update URL on dropdown change
-        function updateSortParams() {
-            const order = orderDropdown.value;
-            const sort = sortDropdown.value;
-            const search = searchField.value;
-            const params = new URLSearchParams(window.location.search);
-
-            if (order) params.set('order', order);
-            else params.delete('order');
-
-            if (sort) params.set('sort', sort);
-            else params.delete('sort');
-
-            if (search) params.set('search', search);
-            else params.delete('search');
-
-            window.location.search = params.toString();
-        }
-
-        orderDropdown.addEventListener('change', updateSortParams);
-        sortDropdown.addEventListener('change', updateSortParams);
-    </script>
+    <script src="js/search-sort.js"></script>
 
 
 </body>
