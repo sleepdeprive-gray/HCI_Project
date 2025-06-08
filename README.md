@@ -24,3 +24,16 @@
 <li>Editor Update Books 15%</li>
 <li>Editor Navigation 100% Complete</li>
 </ul>
+<b>6/1/2025</b>
+<ul>
+<li>Editor Update Books 75% Complete</li>
+</ul>
+<b>6/1/2025</b>
+<ul>
+<li>Editor Update Books 75% Complete</li>
+</ul>
+<b>6/9/2025</b>
+<ul>
+<li>Editor Books 100% Complete</li>
+<li>Editor Books Owned 75% Complete</li>
+</ul>
