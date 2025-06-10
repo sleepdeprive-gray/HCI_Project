@@ -17,10 +17,13 @@
     $stmt->fetch();
     $stmt->close();
 
-    $query = "SELECT COUNT(*) AS total FROM books WHERE status = 'approved'";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result);
-    $total_books = $row['total'] ?? 0;
+    $query = "SELECT COUNT(*) AS total FROM books WHERE status = 'approved' AND editor_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $editor_id);
+    $stmt->execute();
+    $stmt->bind_result($total_books);
+    $stmt->fetch();
+    $stmt->close();
 
     $sql_total_downloads = "SELECT SUM(downloads) FROM books WHERE editor_id = ?";
     $stmt = $conn->prepare($sql_total_downloads);

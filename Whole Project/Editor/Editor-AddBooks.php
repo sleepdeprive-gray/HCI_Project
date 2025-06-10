@@ -78,7 +78,7 @@
 
     <div class="form-background">
         <div class="form-container">
-            <form id="addBookForm" action="../process/Editor/add-book.php" method="POST" enctype="multipart/form-data" require>
+            <form id="addBookForm" action="../process/Editor/add-book.php" method="POST" enctype="multipart/form-data">
                 <h3>Add a Book</h3>
                 <div class="form-group-title">
                     <label for="title">Title</label><br>

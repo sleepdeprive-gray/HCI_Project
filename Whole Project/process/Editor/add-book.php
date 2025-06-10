@@ -17,22 +17,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Error: No valid editor or user ID.");
     }
 
-    // Get BLOB contents
     $frontCoverBlob = fileToBlob($_FILES['front-upload']);
     $backCoverBlob = fileToBlob($_FILES['back-upload']);
     $bookFileBlob = fileToBlob($_FILES['book-file-upload']);
     $authorPhotoBlob = fileToBlob($_FILES['author-upload']);
 
-    // Debugging file uploads
-    echo '<pre>';
-    print_r($_FILES);
-    echo '</pre>';
-
-    // Start transaction
     $conn->begin_transaction();
 
     try {
-        // Check for duplicate book
+
         $stmt = $conn->prepare("SELECT book_id FROM books b JOIN authors a ON b.author_id = a.author_id WHERE LOWER(b.title) = LOWER(?) AND LOWER(a.author_name) = LOWER(?)");
         $stmt->bind_param("ss", $title, $authorName);
         $stmt->execute();
@@ -43,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         $stmt->close();
 
-        // Check if author exists
         $stmt = $conn->prepare("SELECT author_id FROM authors WHERE author_name = ?");
         $stmt->bind_param("s", $authorName);
         $stmt->execute();
@@ -53,11 +45,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->fetch();
             $stmt->close();
         } else {
-            // Insert new author with LONGBLOB photo
+
             $stmt = $conn->prepare("INSERT INTO authors (author_name, author_photo) VALUES (?, ?)");
             $null = NULL;
-            $stmt->bind_param("sb", $authorName, $null);  // Bind BLOB field as NULL first
-            $stmt->send_long_data(1, $authorPhotoBlob);   // Send actual BLOB data here
+            $stmt->bind_param("sb", $authorName, $null);
+            $stmt->send_long_data(1, $authorPhotoBlob);
             $stmt->execute();
             $authorId = $stmt->insert_id;
             $stmt->close();
@@ -74,7 +66,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $null = NULL;
 
-        // Bind all parameters first with placeholders for blobs
         $stmt->bind_param(
             "sssssbbbiii",
             $title,
@@ -82,20 +73,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $description,
             $language,
             $datePublished,
-            $null,  // front_cover
-            $null,  // back_cover
-            $null,  // book_file
+            $null, 
+            $null,
+            $null,
             $authorId,
             $editorId,
             $userId
         );
 
-        // Now send the real blob data
-        $stmt->send_long_data(5, $frontCoverBlob);  // 0-based index: front_cover
-        $stmt->send_long_data(6, $backCoverBlob);   // back_cover
-        $stmt->send_long_data(7, $bookFileBlob);    // book_file
+        $stmt->send_long_data(5, $frontCoverBlob);
+        $stmt->send_long_data(6, $backCoverBlob);
+        $stmt->send_long_data(7, $bookFileBlob);
 
-        // Execute and check for errors
         if (!$stmt->execute()) {
             throw new Exception("Book insert failed: " . $stmt->error);
         }

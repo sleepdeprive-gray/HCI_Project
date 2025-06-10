@@ -17,7 +17,34 @@ document.addEventListener('DOMContentLoaded', () => {
         micIcon.addEventListener('click', () => recognition.start());
 
         recognition.onresult = function (event) {
-            const transcript = event.results[0][0].transcript;
+            const transcript = event.results[0][0].transcript.toLowerCase().trim();
+
+            // Handle voice genre navigation
+            if (transcript.startsWith("go to ")) {
+                const genre = transcript.replace("go to ", "").trim();
+
+                const genreRoutes = {
+                    "science": "Editor-Books-Science.php",
+                    "novel": "Book_Category/Editor-Books-Novel.php",
+                    "mystery": "Book_Category/Editor-Books-Mystery.php",
+                    "narrative": "Book_Category/Editor-Books-Narrative.php",
+                    "fiction": "Book_Category/Editor-Books-Fiction.php",
+                    "fantasy": "Book_Category/Editor-Books-Fantasy.php",
+                    "horror": "Book_Category/Editor-Books-Horror.php",
+                    "history": "Book_Category/Editor-Books-History.php"
+                    // Add more if needed
+                };
+
+                if (genre in genreRoutes) {
+                    window.location.href = genreRoutes[genre];
+                    return; // Stop further execution
+                } else {
+                    alert(`Genre "${genre}" not found.`);
+                    return;
+                }
+            }
+
+            // Otherwise, treat as a search
             searchField.value = transcript;
             orderHidden.value = orderDropdown.value;
             sortHidden.value = sortDropdown.value;

@@ -286,10 +286,12 @@ select{
     align-items: center;
     font-weight: bold;
 }
+
 .choose{
     display: flex;
     margin-top: 40px;
 }
+
 .choose button{
     margin-left: 60px;
     border-radius: 10px;

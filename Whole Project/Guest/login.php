@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
     <title> BR | Login</title>
+        <!--Web Icon-->
+    <link rel="shortcut icon" href="../images/weblogo.png" type="image/x-icon">
 </head>
 <body>
     <div class="container">
@@ -15,7 +17,7 @@
                 <img src="../images/weblogo.png">
                 <p class="text">Share, Discover, and Dive into</p>
                 <p class="text">Stories Across Many Genres!</p>
-                <p class="link">Forgot Account? <a href="forgot.html">Click Here</a>.</p>
+                <p class="link">Forgot Password? <a href="Forgot/forgot.php">Click Here</a>.</p>
             </div>
         </div>
 

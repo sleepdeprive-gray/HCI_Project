@@ -49,11 +49,11 @@
     $sql_total = "SELECT COUNT(*) 
                   FROM books b
                   LEFT JOIN authors a ON b.author_id = a.author_id
-                  WHERE b.editor_id = ?
+                  WHERE b.status = 'Approved'
                   AND b.genre = 'Novel'
                   AND (b.title LIKE ? OR a.author_name LIKE ?)";
     $stmt_total = $conn->prepare($sql_total);
-    $stmt_total->bind_param("iss", $editor_id, $search, $search);
+    $stmt_total->bind_param("ss", $search, $search);
     $stmt_total->execute();
     $stmt_total->bind_result($total_books);
     $stmt_total->fetch();
@@ -68,14 +68,14 @@
                 a.author_name
             FROM books b
             LEFT JOIN authors a ON b.author_id = a.author_id
-            WHERE b.editor_id = ?
+            WHERE b.status = 'Approved'
               AND b.genre = 'Novel'
               AND (b.title LIKE ? OR a.author_name LIKE ?)
             ORDER BY $orderBy $order
             LIMIT ?, ?";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("issii", $editor_id, $search, $search, $offset, $books_per_page);
+    $stmt->bind_param("ssii", $search, $search, $offset, $books_per_page);
     $stmt->execute();
     $result_books = $stmt->get_result();
 ?>
