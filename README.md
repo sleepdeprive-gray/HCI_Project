@@ -39,5 +39,7 @@
 </ul>
 <b>6/10/2025</b>
 <ul>
-<li>Editor Module 90% Complete</li>
+<li>Editor Module 100% Complete (Without Validation)</li>
+<li>Signup Page Complete 100%</li>
+<li>Login Page Complete (With Validation and Verification)</li>
 </ul>

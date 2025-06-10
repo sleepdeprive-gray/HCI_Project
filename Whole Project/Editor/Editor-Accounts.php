@@ -21,6 +21,11 @@
     $stmt->bind_result($first_name, $last_name, $email, $phone, $secondary_email, $gender, $location, $birthdate, $security_question, $sq_answer);
     $stmt->fetch();
     $stmt->close();
+
+    if (isset($_GET['update']) && $_GET['update'] === 'success') {
+        echo "<script>alert('Account information successfully updated!');</script>";
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -107,7 +112,7 @@
         <div class="modal-content">
             <span class="close" id="closeModal1">&times;</span>
             <h2>Update Profile Info</h2>
-            <form action="../process/update_account.php" method="post" enctype="multipart/form-data">
+            <form action="../process/Editor/update_account.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="profile">
                 <div class="section">
                     <div class="left-side">
@@ -115,8 +120,10 @@
                         Last Name<br><input type="text" name="last_name" value="<?= $last_name ?>"><br>
                         Gender<br>
                         <select name="gender">
-                            <option <?= $gender == "Cis Male" ? "selected" : "" ?>>Cis Male</option>
-                            <option <?= $gender == "Lesbian" ? "selected" : "" ?>>Lesbian</option>
+                            <option <?= $gender == "Man" ? "selected" : "" ?>>Man</option>
+                            <option <?= $gender == "Woman" ? "selected" : "" ?>>Woman</option>
+                            <option <?= $gender == "Gay" ? "selected" : "" ?>>Gay</option>
+                            <option <?= $gender == "Bisexual" ? "selected" : "" ?>>Bisexual</option>
                             <option <?= $gender == "Others" ? "selected" : "" ?>>Others</option>
                         </select><br>
                         Location<br>
@@ -129,7 +136,7 @@
                         Birthdate<br><input type="date" name="birthdate" value="<?= $birthdate ?>"><br>
                     </div>
                     <div class="right-side-1">
-                        Upload New Profile Picture<br><input type="file" name="profile_picture">
+                        Upload New Profile Picture<br><input type="file" name="profile_pic">
                     </div>
                 </div><br><br>
                 <div class="button-container">
@@ -145,7 +152,7 @@
         <div class="modal-content">
             <span class="close" id="closeModal2">&times;</span>
             <h2>Update Credentials</h2>
-            <form action="../process/update_account.php" method="post">
+            <form action="../process/Editor/update_account.php" method="post">
                 <input type="hidden" name="action" value="credentials">
                 <div class="section">
                     <div class="left-side">
@@ -177,7 +184,7 @@
         <div class="modal-content-1">
             <span class="close" id="closeModal3">&times;</span>
             <h2>Update Password</h2>
-            <form action="../process/update_account.php" method="post">
+            <form action="../process/Editor/update_account.php" method="post">
                 <input type="hidden" name="action" value="password">
                 <div class="change-password">
                     Old Password<br><input type="password" name="old_password"><br>
