@@ -1,193 +1,83 @@
 <?php
   session_start();
+  require 'db.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Room</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/newrelease.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Room - New Releases</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/newrelease.css" />
 </head>
 <body>
-<?php
-         require 'db.php';
-     
-        //  $id = $_SESSION['user_id'];
-        //  $admin_infos = mysqli_query($conn, "SELECT * FROM member_account WHERE memberID = $id");
- 
-        //  while ($results = mysqli_fetch_assoc($admin_infos)) {
-             
-?>
-    <div class="sidebar">
-        <h1>Book Room</h1>
-
-        <div class="menu">
-            <a href="discover.php"><button class="text-btn">Discover</button></a>
-            <a href="popular.php"><button class="text-btn">Popular</button> </a> 
-            <button class="newrelease-btn">New Release</button>
-        </div>
+  <div class="sidebar">
+    <h1>Book Room</h1>
+    <div class="menu">
+      <a href="discover.php"><button class="text-btn">Discover</button></a>
+      <a href="popular.php"><button class="text-btn">Popular</button></a> 
+      <button class="newrelease-btn">New Release</button>
     </div>
+  </div>
 
-    <!-- Main Content Area -->
-    <div class="main-content">
-        <div class="search-bar">
-            <input type="text" placeholder="Search book name, author..." />
-            <button>🔍</button>
-        </div>
-        <br> 
-        <br>    
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <form method="GET" class="search-bar">
+      <img id="mic" src="../icons/microphone-icon.png" alt="Voice Search" height="25px" style="cursor: pointer;">
+      <input type="text" id="searchInput" name="search" placeholder="Search book name, author..." value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
+      <button type="submit">🔍</button>
+    </form>
+    
+    <br><br>
 
-        
-       
-        <div class="container">
-          <!-- Book 1 -->
-          <?php
-          $dateOFpublished = mysqli_query($conn, "SELECT *, YEAR(date_published) AS year
-          , MONTH(date_published) AS month
-          FROM books;");
-         //echo "Number of BOOKS  :".mysqli_num_rows($dateOFpublished)."<br>";
-          while ($dates = mysqli_fetch_assoc($dateOFpublished)) {
-            $currentMONTH = date('m');
-            $currentYEAR = date('Y');
-      
-            $month = '0'.$dates['month'];
-            $year = $dates['year'];
-          
+    <div class="container">
+      <?php
+        $search = isset($_GET['search']) ? trim($_GET['search']) : '';
+        $currentMonth = date('n'); // 1-12 (no leading zero)
+        $currentYear = date('Y');
 
-            
+        $sql = "SELECT books.*, authors.author_name, 
+                YEAR(books.date_published) AS year, 
+                MONTH(books.date_published) AS month 
+                FROM books 
+                JOIN authors ON books.author_id = authors.author_id 
+                WHERE books.status = 'Approved' 
+                AND YEAR(books.date_published) = $currentYear 
+                AND MONTH(books.date_published) = $currentMonth";
 
+        if (!empty($search)) {
+          $safeSearch = mysqli_real_escape_string($conn, $search);
+          $sql .= " AND (books.title LIKE '%$safeSearch%' OR authors.author_name LIKE '%$safeSearch%')";
+        }
 
-            if($currentMONTH == $month && $currentYEAR == $year){
-              // echo "ITO LANG UNG LALABAS"."<br>";
-              // echo $dates['Title']."  YEAR : ".$dates['year']." MONTH : ".$dates['month']."<br>";
-           
-          // echo "Current Month : ".date('m')."<br>";
-          // echo "Current Year  : ".date('Y')."<br>";
-          // echo "Curent DAY   : ".date('d');
+        $sql .= " ORDER BY books.date_published DESC";
 
-         
-        ?>
-           <a href="view.php?bookID=<?=$dates['book_id']?>&p=3">
-            <div class="book">
-              <img src="data:image/jpeg;base64, <?=base64_encode($dates['front_cover'])?>" />
-              <div class="book-content">
-                <h3><?= $dates['title'];?></h3>
-            
-                <p><?php
-                // $authorID = $dates['authorID'];
-                //  $selectBook = mysqli_query($conn, "SELECT fname FROM author_account WHERE authorID = $authorID");
+        $result = mysqli_query($conn, $sql);
 
-                //  while ($names = mysqli_fetch_assoc($selectBook)) {
-                //   echo $names['fname'];
-                //  }
-                ?></p>
-              
-                <p><?= $dates['description'];?></p>
-                
-              </div>
-                </div>
-                </a>
-           <?php
-            }
-            }
-           ?>
-      
-          <!-- Book 2 -->
-          <!-- <div class="book">
-            <img src="images/thefury.jpg" alt="Walk into the Shadow">
-            <div class="book-content">
-              <h3>The Fury</h3>
-              <p>By Alex Michaelides</p>
-              <p>A masterfully paced thriller about a reclusive ex–movie star and her famous friends whose spontaneous trip to a private Greek island is upended by a murder ― from the #1 New York Times bestselling author of The Silent Patient.</p>
-            </div>
-          </div> -->
-      
-          <!-- Book 3 -->
-          <!-- <div class="book">
-            <img src="images/daydream.jpg" alt="Harry Potter and the Cursed Child">
-            <div class="book-content">
-              <h3>Daydream</h3>
-              <p>By Hannah Grace</p>
-              <p>When his procrastination lands him in a difficult class with his least favorite professor, Henry Turner knows he’s going to have to work extra hard to survive his junior year of college. And now with his new title of captain for the hockey team—which he didn’t even want—Henry absolutely cannot fail. Enter Halle Jacobs, a fellow junior who finds herself befriended by Henry when he accidentally crashes her book club.</p>
-            </div>
-          </div> -->
-      
-          <!-- Book 4 -->
-          <!-- <div class="book">
-            <img src="images/ladymacbeth.jpg" alt="Hide and Seek">
-            <div class="book-content">
-              <h3>Lady Macbeth</h3>
-              <p>By Ava Reid</p>
-              <p>From #1 New York Times bestselling author Ava Reid comes a reimagining of Lady Macbeth, Shakespeare’s most famous villainess, giving her a voice, a past, and a power that transforms the story men have written for her.</p>
+        if (mysqli_num_rows($result) > 0):
+          while ($book = mysqli_fetch_assoc($result)):
+      ?>
+        <a href="view.php?bookID=<?= $book['book_id'] ?>&p=3" class="text-decoration-none text-dark">
+          <div class="book mb-4 d-flex">
+            <img src="data:image/jpeg;base64,<?= base64_encode($book['front_cover']) ?>" alt="Book Cover" style="height: 150px; width: auto;">
+            <div class="book-content ms-3">
+              <h3><?= htmlspecialchars($book['title']) ?></h3>
+              <p><strong>By:</strong> <?= htmlspecialchars($book['author_name']) ?></p>
+              <p><?= htmlspecialchars(mb_strimwidth($book['description'], 0, 250, '...')) ?></p>
             </div>
           </div>
-       -->
-          <!-- Book 5 -->
-          <!-- <div class="book">
-            <img src="images/wildlove.jpg" alt="A Million to One">
-            <div class="book-content">
-              <h3>Wild Love</h3>
-              <p>By Elsie Silver</p>
-              <p>Forbes may have labeled Ford Grant the World's Hottest Billionaire, but all he cares about is escaping the press and opening a recording studio in gorgeous small town Rose Hill. Something that comes to a screeching halt when he ends up face-to-face with a young girl who claims he's her biological father. </p>
-            </div>
-          </div> -->
-      
-          <!-- Book 6 -->
-          <!-- <div class="book">
-            <img src="images/thespellshop.jpg" alt="Don't Look Back">
-            <div class="book-content">
-              <h3>The Spell Shop</h3>
-              <p>By Sarah Beth Durst</p>
-              <p>Kiela has always had trouble dealing with people. Thankfully, as a librarian at the Great Library of Alyssium, she and her assistant, Caz—a magically sentient spider plant—have spent the last decade sequestered among the empire’s most precious spellbooks, preserving their magic for the city’s elite.</p>
-            </div>
-          </div> -->
-
-           <!-- Book 7 -->
-           <!-- <div class="book">
-            <img src="images/reckless.jpg" alt="Don't Look Back">
-            <div class="book-content">
-              <h3>Reckless</h3>
-              <p>By Lauren Roberts</p>
-              <p>After surviving the Purging Trials, Ordinary-born Paedyn Gray has killed the King, and kickstarted a Resistance throughout the land. Now she’s running from the one person she had wanted to run to.Kai Azer is now Ilya’s Enforcer, loyal to his brother Kitt, the new King. He has vowed to find Paedyn and bring her to justice.</p>
-            </div>
-          </div> -->
-
-          <!-- Book 8 -->
-          <!-- <div class="book">
-            <img src="images/faebound.jpg" alt="Don't Look Back">
-            <div class="book-content">
-              <h3>Faebound</h3>
-              <p>By Saara El-Arifi</p>
-              <p>Yeeran is a warrior in the elven army and has known nothing but violence her whole life. Her sister, Lettle, is trying to make a living as a diviner, seeking prophecies of a better future.When a fatal mistake leads to Yeeran’s exile from the Elven lands, they are both forced into the terrifying wilderness beyond their borders. There they encounter the the fae court.</p>
-            </div>
-          </div> -->
-
-           <!-- Book 9 -->
-           <!-- <div class="book">
-            <img src="images/therulebook.jpg" alt="Don't Look Back">
-            <div class="book-content">
-              <h3>The Rule Book</h3>
-              <p>By Sarah Adams</p>
-              <p>Nora Mackenzie’s entire career lies in the hands of famous NFL tight end Derek Pender, who happens to be her extremely hot college ex-boyfriend. Nora didn’t end things as gracefully as she could have back then, and now it has come back to haunt her. Derek is her first client as an official full-time sports agent, and he’s holding a grudge.</p>
-            </div>
-          </div> -->
-
-           <!-- Book 10 -->
-           <!-- <div class="book">
-            <img src="images/thebookofdoors.jpg" alt="Don't Look Back">
-            <div class="book-content">
-              <h3>The Book of Doors</h3>
-              <p>By Gareth Brown</p>
-              <p>In New York City, bookseller Cassie Andrews is living an unassuming life when she is given a gift by a favourite customer. It's a book - an unusual book, full of strange writing and mysterious drawings. And at the very front there is a handwritten message to Cassie, telling her that this is the Book of Doors, and that any door is every door.</p>
-            </div>
-          </div> -->
-      </div>
-        
+        </a>
+      <?php
+          endwhile;
+        else:
+          echo "<p>No books found for this month's release.</p>";
+        endif;
+      ?>
     </div>
-    <?php
-        //  }
-    ?>
+  </div>
+
+<script src="js/voice-search.js"></script>
+  
 </body>
 </html>

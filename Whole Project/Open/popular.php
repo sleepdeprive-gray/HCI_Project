@@ -26,7 +26,8 @@ $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 <div class="main-content">
   <!-- Search bar -->
   <form method="GET" class="search-bar">
-    <input type="text" name="search" placeholder="Search book name, author..." value="<?= htmlspecialchars($search) ?>">
+    <img id="mic" src="../icons/microphone-icon.png" alt="Voice Search" height="25px" style="cursor: pointer;">
+    <input type="text" id="searchInput" name="search" placeholder="Search book name, author..." value="<?= htmlspecialchars($search) ?>">
     <button type="submit">🔍</button>
   </form>
   <br>
@@ -34,18 +35,23 @@ $search = isset($_GET['search']) ? trim($_GET['search']) : '';
   <div class="container">
     <?php
     // Prepare search query
-   $sql = "SELECT books.*, authors_name.name AS author_name 
-        FROM books 
-        JOIN authors_name ON books.author_id = authors_name.id 
-        WHERE books.status = 'Approved' 
-        ORDER BY books.downloads DESC";
+    $sql = "SELECT books.*, authors.author_name 
+            FROM books 
+            JOIN authors ON books.author_id = authors.author_id 
+            WHERE books.status = 'Approved'";
+
     if (!empty($search)) {
         $searchSafe = mysqli_real_escape_string($conn, $search);
-        $sql .= " AND (title LIKE '%$searchSafe%' OR author_id LIKE '%$searchSafe%')";
+        $sql .= " AND (books.title LIKE '%$searchSafe%' OR authors.author_name LIKE '%$searchSafe%')";
     }
-    $sql .= " ORDER BY downloads DESC";
+
+    $sql .= " ORDER BY books.downloads DESC";
 
     $result = mysqli_query($conn, $sql);
+
+    if (!$result) {
+        die("SQL Error: " . mysqli_error($conn));
+    }
 
     if (mysqli_num_rows($result) > 0):
         while ($book = mysqli_fetch_assoc($result)):
@@ -56,7 +62,7 @@ $search = isset($_GET['search']) ? trim($_GET['search']) : '';
           <div class="book-content ms-3">
             <h3><?= htmlspecialchars($book['title']) ?></h3>
             <p><strong>By:</strong> <?= htmlspecialchars($book['author_name']) ?></p>
-            <p><?= htmlspecialchars($book['description']) ?></p>
+            <p><?= htmlspecialchars(mb_strimwidth($book['description'], 0, 200, '...')) ?></p>
           </div>
         </div>
       </a>
@@ -68,6 +74,7 @@ $search = isset($_GET['search']) ? trim($_GET['search']) : '';
     ?>
   </div>
 </div>
+<script src="js/voice-search.js"></script>
 
 </body>
 </html>
