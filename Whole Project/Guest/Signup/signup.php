@@ -1,10 +1,5 @@
 <?php
-session_start();
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-
-}
+    session_start();
 ?>
 
 
@@ -14,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/signup.css">
-    <title>Document</title>
+    <title>Sign Up | Book Room</title>
 </head>
 <body>
     <div class="container">
@@ -57,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <script>
-        document.getElementById('signup1').addEventListener('submit', function(event) {
+        document.getElementById(    'signup1').addEventListener('submit', function(event) {
             const email = document.getElementById('email').value;
             if (!validateEmail(email)) {
                 event.preventDefault();

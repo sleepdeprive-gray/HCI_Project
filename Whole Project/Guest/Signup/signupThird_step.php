@@ -1,13 +1,17 @@
 <?php
-    session_start(); // Start the session to store data
+    session_start();
 
-    // Save first name, last name, and birthdate from the previous step into the session
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['firstname'] = $_POST['firstname'];
         $_SESSION['lastname'] = $_POST['lastname'];
         $_SESSION['birthdate'] = $_POST['birthdate'];
+    } elseif (!isset($_SESSION['firstname']) || !isset($_SESSION['lastname']) || !isset($_SESSION['birthdate'])) {
+        // If user hasn't gone through the second step, redirect
+        header("Location: signupSecond_step.php");
+        exit();
     }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

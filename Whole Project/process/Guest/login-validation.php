@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             } elseif ($db_user_type == 'Member') {
 
-                header("Location: ../../Member/discover.html");
+                header("Location: ../../Member/discover.html"   );
                 exit();
 
             } else {

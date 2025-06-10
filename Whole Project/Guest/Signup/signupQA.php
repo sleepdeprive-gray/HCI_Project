@@ -1,7 +1,19 @@
 <?php
-session_start();
+    session_start();
 
-
+    if (
+        empty($_SESSION['email']) || 
+        empty($_SESSION['password']) || 
+        empty($_SESSION['firstname']) || 
+        empty($_SESSION['lastname']) || 
+        empty($_SESSION['birthdate']) || 
+        empty($_SESSION['gender']) || 
+        empty($_SESSION['location'])
+    ) {
+        header("Location: signup.php");
+        exit();
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +37,6 @@ session_start();
                     <p>All Rights Reserved</p>
                     <p>2024-2025</p>
                 </div>
-                
             </div>
         </div>
 
@@ -40,19 +51,21 @@ session_start();
                     <h2>Add security to</h2>
                     <h2> your account</h2>
                 </div>
-                <form action="" method="post">
+
+                <form action="../../process/Guest/sign-up.php" method="post">
                     <select name="security_question" id="security_question" required>
-                        <option value="Who is you best friend?">Who is you best friend?</option>
-                        <option value="Where did you graduated in elementary school?">Where did you graduated in elementary school?</option>
+                        <option value="Who is your best friend?">Who is your best friend?</option>
+                        <option value="Where did you graduate in elementary school?">Where did you graduate in elementary school?</option>
                     </select>
-                    <input type="text" name="" id="" placeholder="Answer">
+                    
+                    <input type="text" name="security_answer" placeholder="Answer" required>
                     
                     <br>
                     <div class="prev_sub">
-                        <a href="signupForth_step.php" ><p>GO BACK</p></a>
-                        <a href="successful.html"><p>SUBMIT</p></a>
+                        <a href="signupForth_step.php"><p>GO BACK</p></a>
+                        <button type="submit"><p>SUBMIT</p></button>
                     </div>
-                    
+
                     <div class="signs">
                         <p>Something went wrong?</p>
                         <a href="../administrator.html"><p>Contact administrator here.</p></a>
@@ -60,7 +73,7 @@ session_start();
                 </form>
             </div>
         </div>
-        
+
     </div>
 </body>
 </html>

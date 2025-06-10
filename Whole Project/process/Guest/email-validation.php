@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include '../database_connection.php';
 
@@ -24,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['email'] = $email;
     $_SESSION['password'] = $password;
 
-    header("Location: signupSecond_step.php");
+    header("Location: ../../Guest/Signup/signupSecond_step.php");
     exit();
 }
 ?>

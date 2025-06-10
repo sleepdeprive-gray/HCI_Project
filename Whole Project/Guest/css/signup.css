@@ -66,7 +66,6 @@ span{
     color: #FF0000;
 }
 
-
 .form{
     width: 50%;
     height: 100vh;
@@ -173,7 +172,6 @@ form .button{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
 }
 form .button p{
   color: #8B8383;

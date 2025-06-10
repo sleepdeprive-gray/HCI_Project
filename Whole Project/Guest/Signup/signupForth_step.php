@@ -6,6 +6,19 @@
         $_SESSION['location'] = $_POST['location'];
     }
 
+    if (
+        !isset($_SESSION['gender']) || 
+        !isset($_SESSION['location']) ||
+        !isset($_SESSION['firstname']) || 
+        !isset($_SESSION['lastname']) || 
+        !isset($_SESSION['birthdate']) ||
+        !isset($_SESSION['email']) || 
+        !isset($_SESSION['password'])
+    ) {
+        header("Location: signup.php");
+        exit();
+    }
+
     if (isset($_POST['skip_security'])) {
         header("Location: ../../process/Guest/sign-up.php");
         exit();
@@ -58,7 +71,7 @@
 
                     <div class="prev_next">
                         <a href="signupThird_step.php" ><p>GO BACK</p></a>
-                        <button type="Submit" name="skip_security"><p>SIGN UP</p></a> 
+                        <button type="submit" name="skip_security"><p>SIGN UP</p></a> 
                     </div>
                     <div class="sign">
                         <p>Already have an account? <a href="../login.php">Login</a></p>
@@ -68,14 +81,5 @@
         </div>
         
     </div>
-
-    <script>
-    // Convert PHP session data to JavaScript object
-    var sessionData = <?php echo json_encode($_SESSION); ?>;
-    
-    // Log session data to the browser console
-    console.log("User Session Data:", sessionData);
-    </script>
-
 </body>
 </html>

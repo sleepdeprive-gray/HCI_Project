@@ -2,15 +2,13 @@
     session_start();
     include '../process/database_connection.php'; 
 
-    // Ensure only logged-in editors can access this page
     if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'Editor') {
         header("Location: ../Guest/login.php");
         exit();
     }
 
-    $editor_id = $_SESSION['user_id']; // Current editor ID
+    $editor_id = $_SESSION['user_id'];
 
-    // Fetch the editor's name
     $sql_editor_name = "SELECT first_name FROM users WHERE user_id = ?";
     $stmt = $conn->prepare($sql_editor_name);
     $stmt->bind_param("i", $editor_id);
@@ -19,13 +17,11 @@
     $stmt->fetch();
     $stmt->close();
 
-    // Fetch total approved books
     $query = "SELECT COUNT(*) AS total FROM books WHERE status = 'approved'";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
     $total_books = $row['total'] ?? 0;
 
-    // Fetch the total downloads of all books by this editor
     $sql_total_downloads = "SELECT SUM(downloads) FROM books WHERE editor_id = ?";
     $stmt = $conn->prepare($sql_total_downloads);
     $stmt->bind_param("i", $editor_id);
@@ -38,7 +34,6 @@
         return strlen($description) > $limit ? substr($description, 0, $limit) . '...' : $description;
     }
 
-    // Fetch the most downloaded book
     $sql_most_downloaded = "SELECT title, downloads, front_cover, description FROM books WHERE editor_id = ? ORDER BY downloads DESC LIMIT 1";
     $stmt = $conn->prepare($sql_most_downloaded);
     $stmt->bind_param("i", $editor_id);
@@ -47,7 +42,6 @@
     $stmt->fetch();
     $stmt->close();
 
-    // Fetch the least downloaded book
     $sql_least_downloaded = "SELECT title, downloads, front_cover, description FROM books WHERE editor_id = ? ORDER BY downloads ASC LIMIT 1";
     $stmt = $conn->prepare($sql_least_downloaded);
     $stmt->bind_param("i", $editor_id);

@@ -1,10 +1,11 @@
 <?php
     session_start();
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $_SESSION['email'] = $_POST['email'];
-        $_SESSION['password'] = $_POST['password'];
+    if (!isset($_SESSION['email']) || !isset($_SESSION['password'])) {
+        header("Location: signup.php");
+        exit();
     }
+    
 ?>
 
 <!DOCTYPE html>

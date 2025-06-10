@@ -117,7 +117,7 @@
             <a href="Editor-BooksOwned.php"><button class="text-btn">Book Owned</button></a>
             <br /><br /><br /><br /><br /><br /><br /><br /><br />
             <a href="Editor-Accounts.php"><button class="text-btn">Account</button></a>
-            <a href="../../Guest/login.php"><button class="logout">Logout</button></a>
+            <a href="../process/Guest/logout.php"><button class="logout">Logout</button></a>
         </div>
     </div>
 

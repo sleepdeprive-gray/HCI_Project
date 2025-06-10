@@ -13,7 +13,7 @@
             <div class="needed_content">
                 <h1>BOOK <span>ROOM</span></h1>
                 <img src="../images/weblogo.png">
-                <p class="text">Discover, Download, and Dive into</p>
+                <p class="text">Share, Discover, and Dive into</p>
                 <p class="text">Stories Across Many Genres!</p>
                 <p class="link">Forgot Account? <a href="forgot.html">Click Here</a>.</p>
             </div>
@@ -31,9 +31,10 @@
                     <input type="email" name="email" id="email" placeholder="Email" required>
                     <input type="password" name="password" id="password" placeholder="Password" required>
                     <div class="button">
-                        <button type="submit"class="loginButton">Login</button></a>
+                        <button type="submit" class="loginButton">Login</button>
+                    </div>
                     <div class="sign">
-                        <p>Didn’t have an account? <a href="Signup/signup.php">Sign Up.</a></p>
+                        <p>Didn't have an account? <a href="Signup/signup.php">Sign Up.</a></p>
                     </div>
                 </form>
             </div>

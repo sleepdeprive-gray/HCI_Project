@@ -69,7 +69,7 @@
             FROM books b
             LEFT JOIN authors a ON b.author_id = a.author_id
             WHERE b.editor_id = ?
-              AND b.genre = 'Science'
+              AND b.genre = 'Fantasy'
               AND (b.title LIKE ? OR a.author_name LIKE ?)
             ORDER BY $orderBy $order
             LIMIT ?, ?";
@@ -120,7 +120,7 @@
             <a href="../Editor-BooksOwned.php"><button class="text-btn">Book Owned</button></a>
             <br><br><br><br><br><br><br><br><br>
             <a href="../Editor-Accounts.php"><button class="text-btn">Account</button> </a>
-            <a href="../../../Guest/login.php"><button class="logout">Logout</button></a>
+            <a href="../../process/Guest/logout.php"><button class="logout">Logout</button></a>
         </div>
     </div>
 
