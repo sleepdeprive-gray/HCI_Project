@@ -2,11 +2,6 @@
 session_start();
 require '../process/database_connection.php';
 
-// Check user is logged in as Editor
-if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'Editor') {
-    die("Access denied. You must be logged in as Editor.");
-}
-
 // Fetch all users for dropdown
 $users = [];
 $result = $conn->query("SELECT user_id, first_name, last_name FROM users ORDER BY first_name");

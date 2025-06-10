@@ -22,28 +22,11 @@
 ?>
     <div class="sidebar">
         <h1>Book Room</h1>
-        <div class="profile">
-        <img src="images/sarahduterte.jpeg" alt="Profile Picture">
-            <!-- <img src="images/<?= $results['profile_pic']?>" alt="Profile Picture"> -->
-            <h2>Sarah duterte</h2>
-            <!-- <h2><?= $results['fname']?></h2> -->
-            <p><?php 
-                if(empty($results['lname'])){
-                    echo " Not provided";
-                }else{
-                    echo $results['lname'];
-                }
-            ?></p>
-            <hr>
-        </div>
+
         <div class="menu">
             <a href="discover.php"><button class="text-btn">Discover</button></a>
             <a href="popular.php"><button class="text-btn">Popular</button> </a> 
             <button class="newrelease-btn">New Release</button>
-            <a href="savedbook.php"><button class="text-btn">Saved Books</button> </a>
-            <br><br><br><br>
-            <a href="account.php"><button class="text-btn">Account</button> </a>
-            <a href="logout.php"><button class="logout">Logout</button></a>
         </div>
     </div>
 

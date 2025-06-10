@@ -1,128 +1,109 @@
+<?php
+    require 'db.php';
+    require 'includes/get_book_of_the_day.php';
+    require 'includes/get_new_releases.php';
+    require 'includes/get_famous_authors.php';
 
+    $bookOfTheDay = getBookOfTheDay($conn);
+    $newReleases = getNewReleases($conn);
+    $famousAuthors = getFamousAuthors($conn);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Room</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Discover | Book Room</title>
+    <link rel="shortcut icon" href="../images/weblogo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/discover.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<?php
-         require 'db.php';
-             
-    ?>
     <div class="sidebar">
         <h1>Book Room</h1>
-        <img src="../images/weblogo.png" alt="Website Logo" height="100px" wi>
+        <img src="../images/weblogo.png" alt="Website Logo" height="100px" width="100px">
         <div class="menu">
             <button class="discover-btn">Discover</button>
-            <a href="popular.php"><button class="text-btn">Popular</button> </a> 
-            <a href="newrelease.php"><button class="text-btn">New Release</button> </a> 
+            <a href="popular.php"><button class="text-btn">Popular</button></a>
+            <a href="newrelease.php"><button class="text-btn">New Release</button></a>
         </div>
     </div>
 
-    
     <div class="main-content"> 
-       <div class="categories-container">
-        <div class="categories d-flex flex-wrap justify-content-center gap-3 mt-4">
-            <a href="category/pages/books.php?genre=Science"> <button type="button" class="btn btn-link">Science</button> </a>
-            <a href="category/pages/books.php?genre=Novel"> <button class="btn btn-link">Novel</button> </a>
-            <a href="category/pages/books.php?genre=Mystery"> <button type="button" class="btn btn-link">Mystery</button> </a>
-            <a href="category/pages/books.php?genre=Narrative"> <button type="button" class="btn btn-link">Narrative</button> </a>
-            <a href="category/pages/books.php?genre=Fiction"> <button type="button" class="btn btn-link">Fiction</button> </a>
-            <a href="category/pages/books.php?genre=History"> <button type="button" class="btn btn-link">History</button> </a>
-            <a href="category/pages/books.php?genre=Fantasy"> <button type="button" class="btn btn-link">Fantasy</button> </a>
+        <div class="categories-container">
+            <div class="categories d-flex flex-wrap justify-content-center gap-3 mt-4">
+                <?php
+                    $genres = ["Science", "Novel", "Mystery", "Narrative", "Fiction", "History", "Fantasy"];
+                    foreach ($genres as $genre):
+                ?>
+                    <a href="category/pages/books.php?genre=<?= urlencode($genre) ?>">
+                        <button class="btn btn-link"><?= htmlspecialchars($genre) ?></button>
+                    </a>
+                <?php endforeach; ?>
+            </div>
         </div>
-       </div>
-       <h1 style="color: black; font-size: 35px;">Book of the Day</h1>
 
-
-       <div class="BOOKoftheDay">
-            <div class="TwoBook">
-                <img src="images/backcover.png" alt="" class="Pic1">
-                <img src="images/frontcover.png" alt="" class="Pic2">
-            </div>
-
-            <div class="sCon">
-                <div class="texts">
-                    <h1 style="font-size: 30px;">IT ENDS WITH US</h1>
-                    <p style="padding: 2px; margin-top: -10px;">Novel by Colleen Hoover</p>
-                    <p style="font-size: 13px; padding: 2px;">
-                        It Ends with Us is a book that follows a girl named Lily who has just moved and is 
-                        ready to start her life after college. Lily then meets a guy named Ryle and she falls for 
-                        him. As she is developing feelings for Ryle, Atlas, her first love, reappears and challenges 
-                        the relationship between Lily and Ryle.
-                    </p>
+        <h1 class="mt-4" style="color: black; font-size: 35px;">Book of the Day</h1>
+        <?php if ($bookOfTheDay): ?>
+            <div class="BOOKoftheDay d-flex">
+                <div class="TwoBook">
+                    <img src="data:image/jpeg;base64,<?= base64_encode($bookOfTheDay['back_cover']) ?>" class="Pic1" alt="Back Cover">
+                    <img src="data:image/jpeg;base64,<?= base64_encode($bookOfTheDay['front_cover']) ?>" class="Pic2" alt="Front Cover">
                 </div>
-                <div class="foot">
-                    Genre: Romance Novel
-                    
+
+                <div class="sCon">
+                    <div class="texts">
+                        <h2>
+                            <a href="view.php?bookID=<?= $bookOfTheDay['book_id'] ?>&p=1" style="text-decoration: none; color: black;">
+                                <?= htmlspecialchars($bookOfTheDay['title']) ?>
+                            </a>
+                        </h2>
+                        <p><?= htmlspecialchars($bookOfTheDay['author_name']) ?></p>
+                        <p style="font-size: 13px;">
+                            <?= htmlspecialchars(mb_substr($bookOfTheDay['description'], 0, 150)) ?>
+                            <?= strlen($bookOfTheDay['description']) > 150 ? '...' : '' ?>
+                        </p>
+                    </div>
+                    <div class="foot">Genre: <?= htmlspecialchars($bookOfTheDay['genre']) ?></div>
                 </div>
             </div>
-       </div>
+        <?php else: ?>
+            <p>No books found.</p>
+        <?php endif; ?>
 
-       <h2 style="color: black; font-size: 19px; ">New Release</h2>  <br>
-       <div class="newCon">
-        <div class="booksCon">
-            <div class="imgs">
-                <img src="images/demoninthewood.jpg" alt="">
-                <p class="title">Demon in the Hood</p>
-                <p class="author">Leigh Bardugo</p>
-            </div>
-            <div class="imgs">
-                <img src="images/ifweweregiants.jpg" alt="">
-                <p class="title">If We Were Giants</p>
-                <p class="author">Dave Matthews</p>
-            </div>
-            <div class="imgs">
-                <img src="images/thebrigdehome.jpg" alt="">
-                <p class="title">The Bridge Home</p>
-                <p class="author">Padma Venkatraman</p>
-            </div>
-            <div class="imgs">
-                <img src="images/thelostedruid.jpg" alt="">
-                <p class="title">The Lost Druid</p>
-                <p class="author">Aetherra</p>
-            </div>
-            <div class="imgs">
-                <img src="images/imagineme.jpg" alt="">
-                <p class="title">Imagine Me</p>
-                <p class="author">Tahereh Mafi</p>
-            </div>
-           
-           
-        </div>
+        <h2 style="color: black; font-size: 19px;">New Release</h2>
         <br>
-        <div class="famous">
-            <h3>Famous Authors</h3>
-            <div class="imgFam">
-                <img src="images/fam1.jpg" alt="">
-                <div class="det">
-                    <p class="name">Rico Yan</p>
-                    <p>100 books</p>
-                </div>
+
+        <div class="newCon">
+            <div class="booksCon">
+                <?php foreach (array_slice($newReleases, 0, 5) as $book): ?>
+                    <a href="view.php?bookID=<?= $book['book_id'] ?>&p=1" style="text-decoration: none; color: inherit;">
+                        <div class="imgs">
+                            <img src="data:image/jpeg;base64,<?= base64_encode($book['front_cover']) ?>" alt="<?= htmlspecialchars($book['title']) ?>">
+                            <p class="title"><?= htmlspecialchars($book['title']) ?></p>
+                            <p class="author"><?= htmlspecialchars($book['author_name']) ?></p>
+                        </div>
+                    </a>
+                <?php endforeach; ?>
             </div>
-            <div class="imgFam">
-                <img src="images/fam2.jpg" alt="">
-                <div class="det">
-                    <p class="name">Jam Villanueva</p>
-                    <p>100 books</p>
-                </div>
-            </div>
-            <div class="imgFam">
-                <img src="images/fam3.jpg" alt="">
-                <div class="det">
-                    <p class="name">Maris Racal</p>
-                    <p>100 books</p>
-                </div>
+            <div class="famous">
+                <h3>Famous Authors</h3>
+                <?php foreach ($famousAuthors as $author): ?>
+                    <div class="imgFam">
+                        <?php if (!empty($author['author_photo'])): ?>
+                            <img src="data:image/jpeg;base64,<?= base64_encode($author['author_photo']) ?>" alt="<?= htmlspecialchars($author['author_name']) ?>">
+                        <?php else: ?>
+                            <img src="../images/default.jpg" alt="Default Author Photo">
+                        <?php endif; ?>
+                        <div class="det">
+                            <p class="name"><?= htmlspecialchars($author['author_name']) ?></p>
+                            <p><?= $author['book_count'] ?> books</p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
-       </div>
+
     </div>
-    <?php
-        //  }
-    ?>
 </body>
 </html>
