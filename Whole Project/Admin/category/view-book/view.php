@@ -47,13 +47,19 @@
     
     ?>
     <div class="mainContainer">
-        <!-- NAVIGATION 1 -->
+       
         <nav class="nav1">
-            <div class="" style="display: flex; justify-self: center;margin-top: 10px;margin-bottom: 10px;">
-                <img src="../../../images/weblogo.png" alt="" style="width: 40px;height: 40px; border-radius: 0; border: none;">
-                <p style="font-size: 15px;margin-left: 4px;font-weight: bold;">BOOK <span style="color: #A1BE95;">ROOM</span></p>
+            <div class="logo_TOP_LEFT">
+                <img src="../../../images/weblogo.png" alt="">
+                <p>BOOK <span>ROOM</span></p>
             </div>
-            <img src="../../../images/<?php echo $results['profile_pic'] ?>" alt="">
+             <?php
+                if(!empty($results['profile_pic'])){
+                    ?><img src="../../images/<?php echo $results['profile_pic'] ?>" alt=""><?php
+                }else{
+                    ?><img src="../../images/Admin.png" alt=""><?php
+                }
+            ?>
             <p style="font-weight: bold;">
                 <?php
                     if(strlen($results['fname']) < 6){
@@ -68,34 +74,34 @@
             <div class="container_for_buttons">
                 <div class="links_button">
                 
-                    <a href="../../admin.php"><button><i class="fa-solid fa-house" style="margin-right: 10px;"></i>Dashboard</button></a>
-                    <button><i class="fa-solid fa-chart-simple" style="margin-right: 10px;"></i>Analytics</button>
-                    <a href="../../accounts/accounts.php?at=Editor"><button><i class="fa-solid fa-user" style="margin-right: 10px;"></i>Accounts</button></a>
-                    <button class="Active"><i class="fa-solid fa-book" style="margin-right: 10px;"></i>Books</button>
-                    <a href="../../activity_log.php"><button><i class="fa-solid fa-file" style="margin-right: 10px;"></i>Activity Log</button></a>
+                    <a href="../../admin.php"><button><i class="fa-solid fa-house"></i>Dashboard</button></a>
+                    < <a href="../../analytics.php">button><i class="fa-solid fa-chart-simple"></i>Analytics</button></a>
+                    <a href="../../accounts/accounts.php?at=Editor"><button><i class="fa-solid fa-user"></i>Accounts</button></a>
+                    <button class="Active"><i class="fa-solid fa-book"></i>Books</button>
+                    <a href="../../activity_log.php"><button><i class="fa-solid fa-file"></i>Activity Log</button></a>
 
                     
                   
                 </div>
-                <div class="LOGOUT_CONTAINER">
-                    <button>LOGOUT</button>
-                </div>
+                <form action="../../../process/Admin/logput.php?id=<?= $id;?>" method="post" class="LOGOUT_CONTAINER">
+                    <button type="submit" name="LOGOUT">LOGOUT</button>
+                </form>
             </div>
         </nav>
-        <!-- END OF NAVIGATION 1 -->
+    
 
 
-        <!-- NAVIGATION 2 -->
+  
         <nav class="nav2">
                 <div class="logo">
-                    <!-- LOGO -->
+                 
                     <img src="apate.png" alt="">
 
-                    <!-- LOGO NAME -->
+                   
                     <p>BOOK <span>ROOM</span></p>
                 </div>
 
-                <!-- LINKS FOR PAGES -->
+            
                 <div class="links_button">
                 
                     <button>SULAT HERE</button>
@@ -105,17 +111,17 @@
                   
                 </div>
 
-                <!-- LOGOUT AND PROFILE PICTURE -->
+             
                 <div class="LOGOUT_AND_PIC_CONTAINER">
                     <button>LOGOUT</button>
                     <img src="mytyping test.png" alt="" >
                 </div>
 
         </nav>
-        <!-- END OF NAVIGATION 2 -->
+      
 
 
-        <!-- ARTICLE -->
+       
          <?php
             $bookID = $_GET['book'];
 
@@ -131,17 +137,16 @@
                     <p>VIEW BOOKS</p>
                 </div>
             </div>
-                <!-- MAIN CONTAINER -->
-                <div class="" style="width: 90%; height:600px;position: relative;background-color: #6A9C89; display: flex;margin: 5px;justify-self: center; padding: 10px;  flex-direction: column;
-                flex-wrap: wrap; ">
+            
+                <div class="viewbookcon">
                     <p style="font-weight: bold; color:white;">SCIENCE BOOK</p>   
-                    <!-- MAIN CONTENT -->
-                        <div class="" style="width: 100%; display:flex; flex-wrap:wrap; justify-content:space-around">
+                   
+                        <div class="viewbook">
                             <?php
                                 if(base64_encode($results['front_cover']) == ""){
                                     ?>
-                                    <div class="" style="width: 290px; border:4px dashed white; display:flex; justify-content:center; align-items:center; flex-direction:column; color:white">
-                                        <i class="fa-solid fa-face-sad-tear" style="font-size: 60px;"></i>
+                                    <div class="ifIMAGE_notAVAILABLE">
+                                        <i class="fa-solid fa-face-sad-tear"></i>
 
                                         <p>We're sorry but</p>
                                         <p style="margin-top:-18px;">this book doesnt have</p>
@@ -156,10 +161,10 @@
                             ?>
                            
                                         
-                            <div class="" style="width:70%;">
-                                <h1 style="background-color:white;padding:10px "><?= $results['title']?></h1>
+                            <div class="rightcontent">
+                                <h1><?= $results['title']?></h1>
 
-                                <div class="" style="display: flex; justify-content: space-between; background-color:white;align-items:center;margin-top:5px; margin-bottom:5px; padding-left:10px; padding-right:10px">
+                                <div class="topcon">
                                     <p>
                                         <?php
                                             $authorID = $results['author_id'];
@@ -172,20 +177,24 @@
                                     <?php
                                         
                                     ?>
-                                    <!-- EXIT -->
-                                    <a href="../<?php echo "science.php?s=".$statusofBook."&c=".$category?>"><button style="background-color: #3c554c; color:white;border:none;padding:5px; cursor:pointer"><i class="fa-solid fa-arrow-left" style="margin-right: 5px;"></i>   BACK</button></a>
+                                
+                                    <a href="../<?php echo "science.php?s=".$statusofBook."&c=".$category?>">
+                                        <button>
+                                            <i class="fa-solid fa-arrow-left"></i>   BACK
+                                        </button>
+                                    </a>
                                     
                                 </div>
 
-                                <div class="" style="width: 100%;display:flex; gap: 10px;">
-                                    <!-- DESCRIPTION  -->
-                                        <div class="" style="width:70%; background-color:white;padding:10px ">
+                                <div class="bottomleft">
+                         
+                                        <div class="descriptioncon">
                                             <p>Description</p>
                                             <p><?= $results['description']?></p>
                                         </div>
                                         
-                                    <!-- AUTHOR, LANGUAGE AND DATE PUBLISED -->
-                                        <div class="" style="width:30%;background-color:white;padding:10px ">
+                                
+                                        <div class="bottomright" >
                                             <p>Editor</p>
                                             <p>Name HERe</p>
 
@@ -199,21 +208,7 @@
                             </div>
                         </div>
 
-                        <?php
-                            if($results['status'] == "Pending"){
-                        ?>
-                            <div class="" style="background-color: white; margin-top:20px; display:flex;justify-content:center; border:2px dashed red">
-                                <p style="color: red; font-weight:bold;margin-top:3px;margin-bottom:3px">The Book is Pending</p>
-                            </div>
-                        <?php
-                            }else{
-                                    ?>
-                                    <div class="" style="background-color: white; margin-top:20px; display:flex;justify-content:center; border:2px dashed green;">
-                                        <p style="color: green; font-weight:bold;margin-top:3px;margin-bottom:3px">The Book Approved</p>
-                                    </div>
-                                    <?php
-                                }
-                        ?>
+                        <?php include '../fnc/view_status.php' ?>
                 </div>
 
             
@@ -228,7 +223,7 @@
       const select = document.getElementById('linkSelect');
       const url = select.value;
       if (url) {
-        window.location.href = url; // Redirects to the selected URL
+        window.location.href = url;
       }
     }
   </script>
