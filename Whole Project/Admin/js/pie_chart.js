@@ -2,13 +2,39 @@ document.addEventListener("DOMContentLoaded", showPieChart);
 
 function showPieChart() {
     console.log("pie-chart");
+    const science = document.getElementById('scienceVALUES').value;
+    const scinceval = parseInt(science,10);
+ const fantasy = document.getElementById('fantasyVALUES').value;
+    const fantasyval = parseInt(fantasy,10);
+     
+     const narrative = document.getElementById('narrativeVALUES').value;
+    const narrativeval = parseInt(narrative,10);
+
+     const novel = document.getElementById('novelVALUES').value;
+    const novelval = parseInt(novel,10);
+
+    const mystery = document.getElementById('mysteryVALUES').value;
+    const mysteryval = parseInt(mystery,10);
+
+    const fictional = document.getElementById('fictionalVALUES').value;
+    const fictionalval = parseInt(fictional,10);
+
+    const history = document.getElementById('historyVALUES').value;
+    const historyval = parseInt(history,10);
+
+    
+    console.log(scinceval,fantasyval,narrativeval,novelval,mysteryval,fictionalval,historyval);
+    
+    
 
     let slices = [
-        { size: 100, color: '#5d8878', label: 'Science' },
-        { size: 100, color: '#567c6e', label: 'Fantasy' },
-        { size: 100, color: '#47665b', label: 'Fantasy' },
-        { size: 100, color: '#3c554c', label: 'Fantasy' },
-        { size: 100, color: '#31463e', label: 'Fictional' }
+        { size: scinceval, color: '#7fb8a3', label: 'Science' },
+        { size: fantasyval, color: '#72a592', label: 'Fantasy' },
+        { size: novelval, color: '#659282', label: 'Novel' },
+        { size: narrativeval, color: '#598072', label: 'Narrative' },
+        { size: historyval, color: '#4d6d61', label: 'History' },
+        { size: mysteryval, color: '#415c52', label: 'Mystery' },
+        { size: fictionalval, color: '#31463e', label: 'Fictional' }
     ];
 
     const total = slices.reduce((acc, slice) => acc + slice.size, 0);
@@ -55,7 +81,7 @@ function showPieChart() {
     legend.innerHTML = slices.map(slice => {
         const percentage = ((slice.size / total) * 100).toFixed(2);
         return `
-            <div class="legend-item" style="display:flex; align-items: center;margin-bottom:10px;margin-left:-20px">
+            <div class="legend-item" style="display:flex; align-items: center;margin-bottom:5px;margin-left:-20px">
                 <div class="legend-color" style="background-color: ${slice.color}; width:20px; height:20px; border: 1px solid black"></div>
                 <span style="margin-left:10px; color:white; font-weight:bold">${slice.label}: ${percentage}%</span>
             </div>
