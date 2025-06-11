@@ -27,15 +27,21 @@
     
     ?>
     <div class="mainContainer">
-        <!-- NAVIGATION 1 -->
+       
         <nav class="nav1">
-            <div class="" style="display: flex; justify-self: center;margin-top: 10px;margin-bottom: 10px;">
-              <img src="../../images/weblogo.png" alt="" style="width: 40px;height: 40px; border-radius: 0; border: none;">
-                <p style="font-size: 15px;margin-left: 4px;font-weight: bold;">BOOK <span style="color: #A1BE95;">ROOM</span></p>
+             <div class="logo_TOP_LEFT">
+                <img src="../../images/weblogo.png" alt="">
+                <p>BOOK <span>ROOM</span></p>
             </div>
-             <!-- PROFILE PICTURE -->
-             <img src="../images/<?php echo $results['profile_pic'] ?>" alt="">
-            <!-- NAME OF THE USER -->
+            
+            <?php
+                if(!empty($results['profile_pic'])){
+                    ?><img src="../images/<?php echo $results['profile_pic'] ?>" alt=""><?php
+                }else{
+                    ?><img src="../images/Admin.png" alt=""><?php
+                }
+            ?>
+           
           <p style="font-weight: bold;">
                 <?php
                     if(strlen($results['fname']) < 6){
@@ -50,61 +56,59 @@
             <div class="container_for_buttons">
                 <div class="links_button">
                 
-                    <a href="../admin.php"><button><i class="fa-solid fa-house" style="margin-right: 10px;"></i>Dashboard</button></a>
-                    <button><i class="fa-solid fa-chart-simple" style="margin-right: 10px;"></i>Analytics</button>
-                    <button class="Active"><i class="fa-solid fa-user" style="margin-right: 10px;"></i>Accounts</button>
-                    <a href="../category/science.php?s=Pending&c=Science"><button><i class="fa-solid fa-book" style="margin-right: 10px;"></i>Books</button></a>
-                    <a href="../activity_log.php"><button><i class="fa-solid fa-file" style="margin-right: 10px;"></i>Activity Log</button></a>
+                    <a href="../admin.php"><button><i class="fa-solid fa-house"></i>Dashboard</button></a>
+                     <a href="../analytics.php"><button><i class="fa-solid fa-chart-simple"></i>Analytics</button></a>
+                    <button class="Active"><i class="fa-solid fa-user"></i>Accounts</button>
+                    <a href="../category/science.php?s=Pending&c=Science"><button><i class="fa-solid fa-book"></i>Books</button></a>
+                    <a href="../activity_log.php"><button><i class="fa-solid fa-file"></i>Activity Log</button></a>
 
                   
                 </div>
-                <div class="LOGOUT_CONTAINER">
-                    <button>LOGOUT</button>
-                </div>
+                 <form action="../../process/Admin/logput.php?id=<?= $id;?>" method="post" class="LOGOUT_CONTAINER">
+                    <button type="submit" name="LOGOUT">LOGOUT</button>
+                </form>
             </div>
         </nav>
-        <!-- END OF NAVIGATION 1 -->
+   
 
 
-        <!-- NAVIGATION 2 -->
+     
         <nav class="nav2">
                 <div class="logo">
-                    <!-- LOGO -->
+                
                     <img src="apate.png" alt="">
 
-                    <!-- LOGO NAME -->
+                   
                     <p>BOOK <span>ROOM</span></p>
                 </div>
 
-                <!-- LINKS FOR PAGES -->
-                <div class="links_button">
+               
+                <div class="links_button" style="gap: 90px;">
                 
-                    <button>SULAT HERE</button>
-                    <button>SULAT HERE</button>
-                    <button>SULAT HERE</button>
-                    <button>SULAT HERE</button>
+                    <a href="../admin.php" style="justify-content: center;display:flex"><button><i class="fa-solid fa-house"></i></button></a>
+                    <a href="../accounts/accounts.php?at=Editor"  style="justify-content: center;display:flex"><button class="Active"><i class="fa-solid fa-user"></i></button></a>
+                    <a href="../category/science.php?s=Pending&c=Science"  style="justify-content: center;display:flex"><button><i class="fa-solid fa-book" ></i></button></a>
+                    <a href="../activity_log.php"  style="justify-content: center;display:flex"><button><i class="fa-solid fa-file"></i></button></a>
                   
                 </div>
 
-                <!-- LOGOUT AND PROFILE PICTURE -->
                 <div class="LOGOUT_AND_PIC_CONTAINER">
                     <button>LOGOUT</button>
                     <img src="mytyping test.png" alt="" >
                 </div>
 
         </nav>
-        <!-- END OF NAVIGATION 2 -->
+ 
 
 
-        <!-- ARTICLE -->
+      
         <article>
             <div class="time">
                 <div class="times">
                     <p>ACCOUNTS</p>
                 </div>
             </div>
-                <div class="" style="width: 90%; height: 500px;position: relative;background-color: #6A9C89; display: flex;margin: 5px;justify-self: center; padding: 10px; display: flex; flex-direction: column;
-                flex-wrap: wrap; ">
+                <div class="bookcon">
                         <p style="font-weight: bold; color:white">ACCOUNTS</p>
                         <div class="" style="display: flex; justify-content: space-between;">
                             <div class="" style="display: flex;">
@@ -125,21 +129,7 @@
                                         <?php
                                     }
                                ?>
-                              <?php
-                                    if($type_account == "Member"){
-                                        ?>
-                                        <a href="accounts.php?at=Member" style="margin-left: 10px;background-color: #3c554c; align-items: center; align-content: center;border-radius: 10px;justify-content:center; width: 60px; display:flex">
-                                            <button style=" border: none;background-color: transparent; color: white; cursor: pointer;">Member</button>
-                                        </a>
-                                        <?php
-                                    }else {
-                                         ?>
-                                        <a href="accounts.php?at=Member" style="align-self: center;margin-left: 10px;background-color: #3c554c; border-radius: 5px; height: 33px; width: 60px; display:flex;justify-content:center;">
-                                            <button style=" border: none;background-color: transparent; color: white; cursor: pointer;">Member</button>
-                                        </a>
-                                        <?php
-                                    }
-                               ?>
+                              
 
                                <?php
                                     if($type_account == "Admin"){
@@ -170,10 +160,7 @@
                                 </select>
                             </form>
 
-                            <div class="" style="display: flex;">
-                                <i class="fa-solid fa-microphone" style="display: flex; align-items: center;"></i>
-                                <input type="text" style="height: 20px;align-self: center; width: 180px; margin-left: 10px;">
-                            </div>
+                            
                         </div>
 
 
@@ -193,7 +180,7 @@
                                 
                                     
                                     <?php
-                                    if ($type_account == "Editor" || $type_account == "Member") {
+                                    if ($type_account == "Editor") {
                                         $table = "users WHERE user_type = '$type_account'";
                                         $fname = "first_name";
                                         $bday = "birthdate";
@@ -240,18 +227,22 @@
                                              
                                                         <button type="button" style="background-color: transparent; border:none; display:flex;color: white; text-align:center; width:100%; justify-content:space-between; align-items:center;background-color:#3c554c; color:white; border: none; padding: 5px; width: 60px;display: flex;" 
                                                         data-id="<?= $recent_logs[$userID];?>"
+                                                        data-user="<?= $_GET['at']?>"
                                                         data-fname="<?= $recent_logs[$fname];?>"
                                                         data-lname="<?= $recent_logs['last_name'];?>"
                                                         data-bday="<?= $recent_logs[$bday];?>"
                                                         data-email="<?= $recent_logs['email'];?>"
+                                                        data-pass="<?= $recent_logs['password'];?>"
                                                         data-picture="<?= $recent_logs['profile_pic'];?>"
                                                        
                                                         onclick="handleClick(
                                                         this.getAttribute('data-id'),
+                                                        this.getAttribute('data-user'),
                                                         this.getAttribute('data-fname'),
                                                         this.getAttribute('data-lname'),
                                                         this.getAttribute('data-bday'),
                                                         this.getAttribute('data-email'),
+                                                        this.getAttribute('data-pass'),
                                                         this.getAttribute('data-picture'),
                                                         )">
                                                             <i class="fa-solid fa-eye" ></i>
@@ -264,6 +255,7 @@
                                         </tr>
                                     <?php
                                         }
+                                        
                                          
                                     ?>
                                     
@@ -271,8 +263,14 @@
                              </table>
                         </div>
                         <div class="" style="display: flex; justify-content: space-between;">
-                            <button style="background-color: #CC6A6C; color: white; border: none;width: 100px; padding: 5px;">Print</button>
-                            <button type="button" id="addAccount" style="background-color: #3999AA; border: none; color: white; padding: 5px;" >Add account</button>
+                           
+                            <?php
+                            if($_GET['at'] == "Admin"){
+                                ?>
+                                <button type="button" id="addAccount" style="background-color: #3999AA; border: none; color: white; padding: 5px;" onclick="document.getElementById('asd').style.display = 'flex'">Add account</button>
+                                <?php
+                            }
+                            ?>
                       
                         
                         </div>
@@ -300,117 +298,202 @@
                     <p class="ID_number" id="ID_number">1</p>
                </div>
                 
-                <img src="../../images/logo.jpg" alt="" id="img">
+                <img src="../images/Admin.png" alt="" id="img">
             </div>
-                                        
+                                       
             <div class="neededInfo">
+                <input type="hidden" name="" id="idVALUE">
                 <p id="">FULL NAME</p>
-                <input type="text" name="" id="OPEN_name">
+                <input type="text" name="OPEN_name" id="OPEN_name">
                 <p>EMAIL</p>
-                <input type="email" name="" id="email" placeholder="DUMMYEMAIL@EMAIL.COM">
+                <input type="email" name="email" id="email" placeholder="DUMMYEMAIL@EMAIL.COM">
                 <p>PHONE NUMBER</p>
-                <input type="number" name="" id="" placeholder="+639389001154">
+                <input type="number" name="phone" id="phone" placeholder="+639389001154">
                 <p>BIRTHDAY</p>
                 <input type="date" name="" id="bday">
+               
+                
             </div>
 
-                                <div class="buttons">
+                                <form method="post" class="buttons">
                                     <button type="button" class="change" onclick="ChangePASS()">
                                         CHANGE PASSWORD
                                     </button>
-
-                                    <button type="button" class="delete" onclick="deleting()">
+                                    <a id="my_link" href="#">
+                                    <button type="button" class="delete" >
                                         DELETE
                                     </button>
+                                    </a>
 
-                                    <button type="button" class="edit" onclick="saves()">
+                                    <button type="button" class="edit" onclick="saving(
+                                        document.getElementById('OPEN_name').value,
+                                        document.getElementById('user_IDS').value,
+                                        document.getElementById('email').value,
+                                        document.getElementById('user_types').value,
+                                        document.getElementById('phone').value
+                                        )">
                                         SAVE
                                     </button>
-                                </div>
+                                    </form>
         </div>
 
        
     </div>
+
     <div class="popUP" id="popUP2">
         <div class="open" id="open2">
                 <a href="accounts.php?at=<?= $type_account?>" style="text-decoration: none;font-size: 20px; font-weight: bolder;justify-content:end; text-align:end; color:black">
                     <i class="fa-solid fa-circle-xmark" ></i></a>
             <p>Change Password</p>
+            <input type="hidden" id="currentPass"> 
+            <input type="hidden" id="user_IDS"> 
+            <input type="hidden" id="user_types"> 
+            <?php
+            if(isset($_GET['cha'])){
+                
+                    echo '
+                    <input type="hidden" id="passIScorrect" value="'.$_GET['cha'].'"> 
+                    ';
+                
+            }else{
+                 echo '
+                    <input type="hidden" id="passIScorrect" value=""> 
+                    ';
+            }
+            ?>
 
                 <div class="neededInfo">
-                    <p id="">Old Password</p>
-                    <input type="text" name="oldPASS" id="OPEN_name" value="">
-                    <p id="">New Password</p>
-                    <input type="text" name="newPASS" id="OPEN_name">
+                    <p id="oldpassp">Old Password</p>
+                    <input type="password" name="oldPASS" id="oldpass">
+                    <p id="newpassp">New Password</p>
+                    <input type="password" name="newPASS" id="newpass">
 
-                    <p id="">Confirm new Password</p>
-                    <input type="text" name="confirmPASS" id="OPEN_name">
+                    <p id="confirmpassp">Confirm new Password</p>
+                    <input type="password" name="confirmPASS" id="confirmpass">
 
                 </div>
 
-                <form method="post" class="buttons">
-                    <button type="submit" id="changePASS" class="change" onclick="Changes()">
+                <div class="buttons">
+                    <button type="button" id="verify" class="change" onclick="Verifies()">
+                            Verify
+                    </button>
+
+                    <button type="button" id="changePASS" class="change" onclick="Changes()">
                             CHANGE PASSWORD
                     </button>
 
                      <button type="button" class="change" onclick="cancels()">
                             Cancel
                     </button>
-                </form>
+                </div>
         </div>
+    </div>
+
+    <div class="popUP" id="asd">
+        <form method="post" class="open" id="open2">
+            <div class="neededInfo">
+            <p>First name</p>
+               <input type="text" name="createFname" id="" required>
+               <p>Email</p>
+               <input type="email" name="createEmail" id="" required>
+              <p>Password</p>
+               <input type="password" name="createPassword" id="" required>
+              <button type="submit" name="submitnewaccount"></button>
+            </div>
+        </form>
+       <?php
+        if(isset($_POST['submitnewaccount'])){
+            if(isset($_POST['createFname']) && isset($_POST['createEmail']) && isset($_POST['createPassword'])){
+            echo $fname = $_POST['createFname'];
+            $email = $_POST['createEmail'];
+            $pass = $_POST['createPassword'];
+            $GETexisting = mysqli_query($conn, "SELECT email FROM admin_account WHERE email ='$email'");
+                echo mysqli_num_rows($GETexisting);
+            if (mysqli_num_rows($GETexisting) > 0) {
+                   echo ' <script>
+                alert("Email is already used!");
+                
+                 </script>
+                  ';
+             }else{
+                $insert = mysqli_query($conn, "INSERT INTO admin_account(fname, email, password) VALUES ('$fname', '$email', '$pass')");
+                    echo '
+                        <script>
+                        alert("Successfully added");
+                        window.location.href = "accounts.php?at=Admin";
+                        </script>
+                    ';
+             }
+     
+            
+          
+             
+            
+            
+            
+            }
+            
+        }
+       ?>
     </div>
  
 <?php  
 }
+
 ?>
 <script>
 
-     function handleClick(dataID, fname , lname , bday, email, profilePic) {
+    function handleClick(dataID,users, fname , lname , bday, email,pass, profilePic) {
     document.getElementById("popUP").style.display = "flex";
     document.getElementById("ID_number").innerHTML = dataID;
+
+    document.getElementById("user_IDS").value = dataID;
+    document.getElementById("user_types").value = users;
     document.getElementById("OPEN_name").value = fname + lname;
     document.getElementById("email").value = email;
+    document.getElementById("currentPass").value = pass;
     document.getElementById("bday").value = bday;
-    // IF THE USER DOESNT hAVE PROFILE PICTURE 
+    
+
     if(profilePic == ""){
      
     }else{
-        document.getElementById("img").src = "../../images/" +profilePic;
+        document.getElementById("img").src = "../images/" +profilePic;
     }
 
-    
    
+     const link = document.getElementById('my_link');
+
+    link.addEventListener('click', function (event) {
+ 
+      event.preventDefault();
+
+      const userConfirmed = confirm('Do you want to proceed?');
+
+
+      if (userConfirmed) {
+        
+       window.location.href = 'deleting.php?id='+dataID+'&at='+users;
+      } else {
+       
+      }
+    });
   
    
-    // Add your logic here
+   
   }
+function  saving(names, ID, email,users, phone) {
+   let userResponse = confirm('Do you want to proceed?');
 
-  function ChangePASS(){
-        document.getElementById("popUP").style.display = "none";
-        document.getElementById("popUP2").style.display = "flex";
-
-
+   
+    if (userResponse) {
+        window.location.href = "changeinfo.php?name="+names+"&id="+ID+"&email="+email+"&phone="+phone+"&at="+users;
+    } else {
+        console.log('User clicked Cancel!');
     }
-    function Changes(){
-        const changePASS = document.getElementById("changePASS").submit;
-
-        const oldPass = document.getElementById("oldPASS");
-        
-        if(oldPass === null){
-            alert(oldPass);
-        }else{
-            alert(oldPass);
-        }
- 
-      
-       
-        
-    }
-
-    function cancels(){
-         document.getElementById("popUP").style.display = "flex";
-        document.getElementById("popUP2").style.display = "none";
-    }
+}
+  
 </script>
+<script src="change.js"></script>
 </body>
 </html>

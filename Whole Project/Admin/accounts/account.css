@@ -103,3 +103,49 @@
     background-color: #16AE6C;
 }
 
+.nav1 .links_button{
+    display: flex; flex-direction: column; margin-left: 10px;
+
+
+}
+.nav1 .links_button i{
+    margin-right: 10px;
+}
+
+.nav1 .links_button button{
+    font-size: 15px;
+    width: 152px; 
+    background-color: transparent; 
+    border: none; 
+    color: white; 
+    font-weight: bold; 
+    margin-top: 10px;
+    padding: 10px;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    cursor: pointer;
+
+    display: flex;
+}
+.nav1 .links_button a button{
+    color: white;
+}
+
+.nav1 .links_button button.Active{
+    padding: 10px;border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;background-color: #6A9C89; color: white;
+}
+.nav1 .links_button button:hover{
+    border-top-left-radius: 30px;background-color: #6A9C89; color: white;
+}
+.bookcon{
+    width: 90%; height: 500px;position: relative;background-color: #6A9C89; display: flex;margin: 5px;justify-self: center; padding: 10px; display: flex; flex-direction: column;
+                flex-wrap: wrap; 
+}
+.bookconState{
+    display: flex; justify-content: space-between;
+}
+
+.bookSORTcon{
+    display: flex; justify-content: space-between;
+}
