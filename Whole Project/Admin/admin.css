@@ -24,7 +24,7 @@ a{
     color: white;
 }
 .nav1 img{
-    border-radius: 100%; width: 100px; height: 100px; justify-self: center; display: flex;border: 1px solid black;
+    border-radius: 100%; width: 100px; height: 100px; justify-self: center; display: flex;
 }
 
 .nav1 .container_for_buttons{
@@ -34,6 +34,10 @@ a{
 .nav1 .links_button{
     display: flex; flex-direction: column; margin-left: 10px;
 
+
+}
+.nav1 .links_button i{
+    margin-right: 10px;
 }
 
 .nav1 .links_button button{
@@ -73,10 +77,65 @@ a{
                     justify-self: center; justify-content: center; justify-items: center;margin-top: 200px; cursor: pointer;
 }
 
+.nav1 .logo_TOP_LEFT{
+    display: flex; justify-self: center;margin-top: 10px;margin-bottom: 10px;
+}
+.nav1 .logo_TOP_LEFT img{
+width: 40px;height: 40px; border-radius: 0; border: none;
+}
+.nav1 .logo_TOP_LEFT p{
+
+font-size: 15px;margin-left: 4px;font-weight: bold;
+}
+.nav1 .logo_TOP_LEFT span{
+color: #A1BE95;
+}
+
+
+
 .nav2{
     display: none !important;
 }
-
+.mainARTICLE_container{
+    display: flex; flex-direction: column; justify-self: center; position: relative; margin-bottom: 10px; margin-top: 10px;
+}
+.mainARTICLE{
+    display: flex; flex-wrap: wrap; gap: 20px;
+}
+.totalACCOUNT_con, .totalBOOK_con{
+     display: flex;
+}
+.totalACCOUNT_icon,.totalBOOK_icon{
+    background-color: #C4DAD2; width: 150px; height: 150px; border-radius: 50% 50% 0 50%; display: flex; 
+                        justify-content: center; align-items: center;
+}
+.totalACCOUNT_icon i , .totalBOOK_icon i{
+    font-size: 70px;
+}
+.totalACCOUNT_rightside, .totalBOOK_rightside{
+background-color: #C4DAD2; width: 200px; height: 110px; margin-top: 40px; margin-left: -20px;
+                        border-top-right-radius: 25px;
+}
+.space{
+    margin-left: 15px;display: flex; flex-direction: column;
+}
+.spaceT{
+    display: flex;  margin-top: -35px;
+}
+.Circle{
+    width: 25px; height: 25px; background-color: #6A9C89; border-radius: 100%;
+}
+.ViewButton{
+    width: 140px; height: 25px; background-color: #6A9C89; border-radius: 15px;
+                                    margin-left: 10px;align-items: center; justify-content: center; display: flex; color: white;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.insideTHEcard p{
+border-bottom: 2px solid #6A9C89; width: 160px;font-weight: bold;
+                                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; cursor: default;
+}
+.insideTHEcard h1{
+font-size: 50px; margin-top: -10px;cursor: default;
+}
 article{
     width: calc(100%); overflow-y: auto;
   
@@ -165,6 +224,7 @@ article .time .times p{
     justify-items: center;
     padding: 5px;
 
+
 }
 .top_left_cards p{
     font-weight: bold;
@@ -204,6 +264,10 @@ article .time .times p{
     box-shadow: 0 10px 10px rgba(0, 0, 0, .7);
     padding: 10px;
 }
+.TOP3AUTHOR{
+    display: flex; align-items: center; flex-wrap: wrap; justify-content: center;gap: 10px;margin-top: -25px;
+}
+
 /* END TOP CENTER CARDS */
 .visible{
     visibility: visible;
@@ -283,6 +347,144 @@ article .time .times p{
 .right_cards h1{
     color: white;
     justify-self: center;
+}
+
+.activitycon{
+    width: 90%; height: 500px;position: relative;background-color: #6A9C89; display: flex;margin: 5px;justify-self: center; padding: 10px; display: flex; flex-direction: column;
+                flex-wrap: wrap;
+}
+.activityPage{
+    display: flex; justify-content: space-between;
+}
+
+.activityPage p, .bookPage p{
+  font-weight: bold; color:white
+}
+
+.activitySORTcon form, .bookSORTcon form{
+    display: flex;
+}
+.activitySORTcon form p, .bookSORTcon form p{
+font-weight: bold; color: white;
+}
+
+.activitySORTcon form select ,.bookSORTcon form select{
+color: white; margin-left: 10px; height: 30px; background-color: #3c554c; border: none;
+                                display: flex;align-self: center;width: 100px;
+}
+.bookSORTcon form select{
+    width: 200px;
+}
+.DeleteAll{
+    display: flex; justify-content: end; margin-right: 10px;
+}
+.DeleteAll button{
+    background-color: #CC6A6C; border: none; color: white;padding: 5px;width: 80px;
+}
+
+.bookcon{
+    width: 90%; height: 500px;position: relative;background-color: #6A9C89; display: flex;margin: 5px;justify-self: center; padding: 10px; display: flex; flex-direction: column;
+                flex-wrap: wrap; 
+}
+.bookconState{
+    display: flex; justify-content: space-between;
+}
+
+.bookSORTcon{
+    display: flex; justify-content: space-between;
+}
+.bookSORTcon ol{
+    display: flex; color: white; font-weight: bold; gap: 40px;margin-right: 10px;
+}
+.bookSORTcon ol a{
+    text-decoration: none; color: white;
+}
+
+.bookSORTcon ol a ul{
+    padding: 0; cursor: pointer;
+}
+.confirmPOPUP{
+    width:100%;height:100vh; top:0; left:0;
+         position:absolute; display:none; justify-content:center;align-items:center;
+          font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; background-color:rgba(0, 0, 0, 0.7);
+}
+.confirmPOPUP form{
+    display: flex; flex-direction:column; justify-content:center; align-items:center; width: 35%;height:300px; background-color:white; padding:10px
+}
+.confirmPOPUP form .exsBUTTON{
+display: flex;justify-content:end; width:100%;margin-top:-40px; margin-bottom:20px;
+background-color: #415c52;
+} 
+.confirmPOPUP form .exsBUTTON a{
+    display: flex;justify-content:end;text-decoration: none;
+    color: black;
+}
+.confirmPOPUP form i{
+    font-size: 70px;
+}
+.confirmPOPUP form .button{
+display: flex; width: 80%;justify-content:space-around;
+}
+.confirmPOPUP form .Cancel, .confirmPOPUP form .Approved{
+border:none; padding:5px; background-color:brown; color:white; width:100px
+}
+.confirmPOPUP form .Approved{
+background-color:green
+}
+
+.bookstatuscon{
+    display: flex; justify-content:end; align-items:center
+}
+
+.bookstatuscon p{
+    margin-right:10px; font-weight:bold
+}
+.bookstatuscon a{
+margin-left: 10px;background-color: #3c554c; align-items: center; border-radius: 10px; display:flex; justify-content:center;box-shadow:5px 5px 5px rgba(0,0,0,0.8)
+}
+
+.bookstatuscon a button{
+    width: 100%; border: none;background-color: transparent; color: white; cursor: pointer; padding:10px;
+}
+
+.viewbookcon{
+    width: 90%; height:600px;position: relative;background-color: #6A9C89; display: flex;margin: 5px;justify-self: center; padding: 10px;  flex-direction: column;
+                flex-wrap: wrap; 
+}
+
+.viewbook{
+    width: 100%; display:flex; flex-wrap:wrap; justify-content:space-around
+}
+.viewbook .ifIMAGE_notAVAILABLE{
+width: 290px; border:4px dashed white; display:flex; justify-content:center; align-items:center; flex-direction:column; color:white
+}
+.viewbook .ifIMAGE_notAVAILABLE i{
+font-size: 60px;
+}
+.viewbook .rightcontent{
+    width:70%;
+}
+
+.viewbook .rightcontent h1{
+    background-color:white;padding:10px 
+}
+.viewbook .rightcontent .topcon{
+    display: flex; justify-content: space-between; background-color:white;align-items:center;margin-top:5px; margin-bottom:5px; padding-left:10px; padding-right:10px
+}
+.viewbook .rightcontent .topcon a button{
+background-color: #3c554c; color:white;border:none;padding:5px; cursor:pointer
+}
+.viewbook .rightcontent .topcon a button i{
+margin-right: 5px;
+}
+.viewbook .rightcontent .bottomleft{
+width: 100%;display:flex; gap: 10px;
+}
+.viewbook .rightcontent .bottomleft .descriptioncon{
+    width:70%; background-color:white;padding:10px
+}
+.viewbook .rightcontent .bottomright{
+width:30%;background-color:white;padding:10px 
 }
 @media (max-width: 1100px) {
     ol{
