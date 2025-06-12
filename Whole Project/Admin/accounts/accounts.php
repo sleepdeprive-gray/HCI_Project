@@ -73,32 +73,38 @@
 
 
      
-        <nav class="nav2">
+       <nav class="nav2">
                 <div class="logo">
-                
-                    <img src="apate.png" alt="">
+                    
+                    <img src="../../images/weblogo.png" alt="">
 
-                   
                     <p>BOOK <span>ROOM</span></p>
                 </div>
 
                
-                <div class="links_button" style="gap: 90px;">
+                <div class="links_button">
                 
-                    <a href="../admin.php" style="justify-content: center;display:flex"><button><i class="fa-solid fa-house"></i></button></a>
-                    <a href="../accounts/accounts.php?at=Editor"  style="justify-content: center;display:flex"><button class="Active"><i class="fa-solid fa-user"></i></button></a>
-                    <a href="../category/science.php?s=Pending&c=Science"  style="justify-content: center;display:flex"><button><i class="fa-solid fa-book" ></i></button></a>
-                    <a href="../activity_log.php"  style="justify-content: center;display:flex"><button><i class="fa-solid fa-file"></i></button></a>
+                    <a href="../admin.php"><button class="Active"><i class="fa-solid fa-house"></i><p>Dashboard</p></button></a>
+                    <a href="../analytics.php"><button><i class="fa-solid fa-chart-simple"></i><p>Analytics</p></button></a>
+                    <a href="../accounts/accounts.php?at=Editor"><button><i class="fa-solid fa-user"></i><p>Accounts</p></button></a>
+                    <a href="../category/science.php?s=Pending&c=Science"><button><i class="fa-solid fa-book"></i><p>Books</p></button></a>
+                    <a href="../activity_log.php"><button><i class="fa-solid fa-file"></i><p>Activity Log</p></button></a>
                   
                 </div>
 
-                <div class="LOGOUT_AND_PIC_CONTAINER">
-                    <button>LOGOUT</button>
-                    <img src="mytyping test.png" alt="" >
-                </div>
+              
+                <form method="post"  action="../../process/Admin/logput.php?id=<?= $id;?>" class="LOGOUT_AND_PIC_CONTAINER">
+                    <button type="submit" name="LOGOUT">LOGOUT</button>
+                     <?php
+                        if(!empty($results['profile_pic'])){
+                            ?><img src="../images/<?php echo $results['profile_pic'] ?>" alt=""><?php
+                        }else{
+                            ?><img src="../images/Admin.png" alt=""><?php
+                        }
+                    ?>
+                </form>
 
         </nav>
- 
 
 
       
@@ -348,6 +354,7 @@
             <input type="hidden" id="currentPass"> 
             <input type="hidden" id="user_IDS"> 
             <input type="hidden" id="user_types"> 
+            <input type="hidden" id="cha" value="<?php if(isset($_GET['cha'])){echo$_GET['cha'];}?>">
             <?php
             if(isset($_GET['cha'])){
                 
@@ -439,6 +446,12 @@
  
 <?php  
 }
+   if(isset($_GET['id'])){
+     ?><input type="hidden" id="newID" value="<?=$_GET['id']?>"><?php
+    ?><input type="hidden" id="newUser" value="<?=$_GET['at']?>"><?php
+    ?><input type="hidden" id="cpass" value="<?=$_GET['c']?>"><?php
+   }
+
 
 ?>
 <script>
@@ -490,6 +503,87 @@ function  saving(names, ID, email,users, phone) {
         window.location.href = "changeinfo.php?name="+names+"&id="+ID+"&email="+email+"&phone="+phone+"&at="+users;
     } else {
         console.log('User clicked Cancel!');
+    }
+}
+
+const cha = document.getElementById('cha').value;
+
+if (cha == 2) {
+
+    document.getElementById("verify").style.display = "none";
+    const popup = document.getElementById("popUP2").style.display = "flex";
+    document.getElementById("oldpassp").style.display = "none";
+    document.getElementById("oldpass").style.display = "none";
+    document.getElementById("changePASS").style.display = "flex";
+    document.getElementById("newpassp").style.display = "flex";
+    document.getElementById("confirmpassp").style.display = "flex";
+  
+   
+  
+                
+  
+   function Changes(){
+    
+        const newpass = document.getElementById("newpass").value;
+        const confirmpass = document.getElementById("confirmpass").value;
+
+    
+   
+        if (newpass == "" || confirmpass == "") {
+            alert("Please Enter all inputs");
+        }else{
+            if (newpass != confirmpass) {
+                alert("Passwords did not Match!");
+            }else{
+                let userResponse = confirm('Are tou sure you want to change your Password?');
+
+                // Check the user's response
+                if (userResponse) {
+                    const newIDElement = document.getElementById("newID");
+                    const newUserElement = document.getElementById("newUser");
+
+                    const user_id = newIDElement.value;
+                    const user_type = newUserElement.value;
+                    
+                    window.location.href = "changepass.php?id="+user_id+"&user="+user_type+"&n="+newpass;
+                } else {
+                    console.log('User clicked Cancel!');
+                }
+            
+            }
+        }
+    }
+}else if(cha == 1){
+    const popup = document.getElementById("popUP2").style.display = "flex";
+    document.getElementById("changePASS").style.display = "none";
+    document.getElementById("newpassp").style.display = "none";
+    document.getElementById("confirmpassp").style.display = "none";
+    document.getElementById("newpass").style.display = "none";
+    document.getElementById("confirmpass").style.display = "none";
+
+     function Verifies(){
+        const oldpass = document.getElementById("oldpass").value;
+
+
+        if(oldpass == ""){
+            alert("Please Enter your Current Password");
+        }else{
+            const user_type = document.getElementById("user_types").value;
+            const currentPass = document.getElementById("currentPass").value;
+
+           if(user_type != "Admin"){
+               const newIDElement = document.getElementById("newID");
+                    const newUserElement = document.getElementById("newUser");
+                    const cpass = document.getElementById("cpass");
+
+                    const user_id = newIDElement.value;
+                    const user_type = newUserElement.value;
+                    const user_pass = cpass.value;
+                    window.location.href = "verifyHash.php?o="+oldpass+"&c="+user_pass+"&id="+user_id+"&at="+user_type;
+           }
+ 
+        }     
+        
     }
 }
   

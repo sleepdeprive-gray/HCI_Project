@@ -1,3 +1,4 @@
+if(!cha){
 
     function ChangePASS(){
         document.getElementById("popUP").style.display = "none";
@@ -24,7 +25,8 @@
             const currentPass = document.getElementById("currentPass").value;
 
            if(user_type != "Admin"){
-             window.location.href = "verifyHash.php?o="+oldpass+"&c="+currentPass;
+                const user_id = document.getElementById("user_IDS").value;
+             window.location.href = "verifyHash.php?o="+oldpass+"&c="+currentPass+"&id="+user_id+"&at="+user_type+"&p="+currentPass;
            }else{
             if(currentPass != oldpass){
                 alert("Incorrect current password");
@@ -70,7 +72,7 @@
                 const user_id = document.getElementById("user_IDS").value;
                 const user_type = document.getElementById("user_types").value;
 
-                window.location.href = "changepass.php?id="+user_id+"&user="+user_type+"&n="+newpass;
+                window.location.href = "changepass.php?id="+user_id+"&user="+user_type+"&n="+newpass+"&user="+user_type;
             } else {
                 console.log('User clicked Cancel!');
             }
@@ -83,3 +85,4 @@
          document.getElementById("popUP").style.display = "flex";
         document.getElementById("popUP2").style.display = "none";
     }
+}
