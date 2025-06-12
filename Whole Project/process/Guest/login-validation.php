@@ -42,6 +42,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             switch ($user_type) {
                 case 'Editor':
+                     $currentDAY = date('Y-m-d H:i');
+
+                     mysqli_query($conn, "INSERT INTO recent_logs (`timestamp`, ID, `ACTION`, user_type)
+                    VALUES('$currentDAY',$IDS , 'LOGIN', 'Editor')");
+
                     header("Location: ../../Editor/Editor-Dashboard.php");
                     break;
                 case 'Member':
