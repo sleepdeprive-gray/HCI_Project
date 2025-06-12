@@ -4,7 +4,7 @@
         "
         SELECT 
     genre.name,
-    COALESCE(SUM(CASE WHEN books.genre IS NULL THEN 0 ELSE books.downloads END), 0) AS total_amount
+    COALESCE(COUNT(CASE WHEN books.genre IS NOT NULL THEN books.genre END), 0) AS total_amount
 FROM 
     genre
 LEFT JOIN 
@@ -30,7 +30,7 @@ GROUP BY
         "
         SELECT 
     genre.name,
-    COALESCE(SUM(CASE WHEN books.genre IS NULL THEN 0 ELSE books.downloads END), 0) AS total_amount
+    COALESCE(COUNT(CASE WHEN books.genre IS NOT NULL THEN books.genre END), 0) AS total_amount
 FROM 
     genre
 LEFT JOIN 
@@ -55,7 +55,7 @@ GROUP BY
         "
         SELECT 
     genre.name,
-    COALESCE(SUM(CASE WHEN books.genre IS NULL THEN 0 ELSE books.downloads END), 0) AS total_amount
+    COALESCE(COUNT(CASE WHEN books.genre IS NOT NULL THEN books.genre END), 0) AS total_amount
 FROM 
     genre
 LEFT JOIN 
@@ -80,7 +80,7 @@ GROUP BY
         "
         SELECT 
     genre.name,
-    COALESCE(SUM(CASE WHEN books.genre IS NULL THEN 0 ELSE books.downloads END), 0) AS total_amount
+    COALESCE(COUNT(CASE WHEN books.genre IS NOT NULL THEN books.genre END), 0) AS total_amount
 FROM 
     genre
 LEFT JOIN 
@@ -105,7 +105,7 @@ GROUP BY
         "
         SELECT 
     genre.name,
-    COALESCE(SUM(CASE WHEN books.genre IS NULL THEN 0 ELSE books.downloads END), 0) AS total_amount
+    COALESCE(COUNT(CASE WHEN books.genre IS NOT NULL THEN books.genre END), 0) AS total_amount
 FROM 
     genre
 LEFT JOIN 
@@ -130,7 +130,7 @@ GROUP BY
         "
         SELECT 
     genre.name,
-    COALESCE(SUM(CASE WHEN books.genre IS NULL THEN 0 ELSE books.downloads END), 0) AS total_amount
+    COALESCE(COUNT(CASE WHEN books.genre IS NOT NULL THEN books.genre END), 0) AS total_amount
 FROM 
     genre
 LEFT JOIN 
@@ -154,7 +154,7 @@ GROUP BY
         "
         SELECT 
     genre.name,
-    COALESCE(SUM(CASE WHEN books.genre IS NULL THEN 0 ELSE books.downloads END), 0) AS total_amount
+    COALESCE(COUNT(CASE WHEN books.genre IS NOT NULL THEN books.genre END), 0) AS total_amount
 FROM 
     genre
 LEFT JOIN 
