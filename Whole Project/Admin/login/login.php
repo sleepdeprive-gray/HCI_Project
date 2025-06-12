@@ -33,9 +33,7 @@
                     <div class="button">
                         <button type="submit"class="loginButton">Login</button></a>
                     </div>
-                       <div class="sign">
-                         <p>Didn’t have an account? <a href="Signup/signup.php">Sign Up.</a></p>
-                       </div>
+                       
                     
                 </form>
             </div>
