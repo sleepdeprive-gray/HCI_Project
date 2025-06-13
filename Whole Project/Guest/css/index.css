@@ -6,10 +6,11 @@
 .container{
     display: flex;
 }
+
 .picture{
     width: 50%;
     height: 100vh;
-    background-image: url(../images/background.jpg);
+    background-image: url(../../images/background.jpg);
     background-size: cover;
     position: relative;
 }
@@ -22,20 +23,6 @@
     height: 100%;
     background: rgba(0,0,0,0.6);
 }
-/* .LOGIN_SIGNUP{
-    display: flex;
-    margin: 20px;
-    width: 150px;
-    justify-content: space-around;
-}
-.LOGIN_SIGNUP a{
-    text-decoration: none;
-}
-.LOGIN_SIGNUP a p{
-    position: relative;
-    
-    color: white;
-} */
 
 .needed_content{
     margin-top: 100px;
@@ -50,14 +37,14 @@
 .needed_content h1{
     font-size: 60px;
 }
+
 span{
     color: #A1BE95;
 }
 
 .needed_content img{
-    margin-top: 30px;
-    margin-bottom: 30px;
-    width: 200px;
+    margin: 30px 0;
+    width: 275px;
     height: 200px;
 }
 
@@ -87,11 +74,12 @@ span{
 
 .forms{
     width: 80%;
-    height: 200px;
+    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 25px;
 }
 
 .forms h1{
@@ -105,13 +93,68 @@ form{
 
 form input{
     width: 350px;
-    height: 40px;
+    height: 45px;
     padding-left: 10px;
     margin: 10px;
-    border-radius: 10px;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
     border: 1px solid black;
+    color: rgb(0, 0, 0);
     box-shadow: 0 10px 10px rgba(0,0,0,0.2);
 }
+::-webkit-input-placeholder{
+    color: rgb(0, 0, 0);
+}
+
+.next {
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    margin-top: 25px;
+    margin-right: 10px;
+    width: fit-content;
+    margin-left: 325px;
+    border: none;
+    color: black;
+    font-size: 15px;
+}
+
+.next:hover {
+    cursor: pointerv;
+}
+
+
+
+.prev_next{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+label{
+    font-weight: bold;
+}
+
+.prev_next button{
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    border: none;
+    background-color: none;
+    color: black;
+    font-size: 15px;
+}
+
+.prev_sub{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.prev_sub button{
+    cursor: pointer;
+}
+
+.prev_sub p{
+    color: black;
+}
+
 form .button button{
     cursor: pointer;
     width: 160px;
@@ -124,10 +167,9 @@ form .button button{
 form .button{
     margin-top: 20px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
+    justify-content: center; /* centers the button horizontally */
 }
+        
 form .button p{
   color: #8B8383;
 }
@@ -135,7 +177,6 @@ form .button p{
 .loginButton{
     background-color: #2EA1F3;
 }
-
 .faceRecognitionButton{
     background-color: #F06565;
 }

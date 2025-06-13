@@ -14,8 +14,10 @@
         <div class="picture">
             <div class="needed_content">
                 <h1>BOOK <span>ROOM</span></h1>
-                <img src="../images/weblogo.png">
-                <p class="text">Share, Discover, and Dive into</p>
+                <a href="../Website/Guest.php">
+                    <img src="../images/weblogo.png">
+                </a>
+                <p class="text">Discover, Download, and Dive into</p>
                 <p class="text">Stories Across Many Genres!</p>
                 <p class="link">Forgot Password? <a href="Forgot/forgot.php">Click Here</a>.</p>
             </div>

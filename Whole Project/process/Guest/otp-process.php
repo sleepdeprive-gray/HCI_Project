@@ -1,65 +1,46 @@
 <?php
 session_start();
-include '../database_connection.php';
 require '../../PHPMailer/vendor/autoload.php';
+include '../database_connection.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = trim($_POST['email']);
+if (!isset($_SESSION['recovery_email'])) {
+    echo "<script>alert('Session expired. Please try again.'); window.location.href = '../../Guest/Forgot/forgot.php';</script>";
+    exit();
+}
 
-    // Prepare and check SQL statement
-    $stmt = $conn->prepare("SELECT user_id FROM users WHERE email = ?");
-    if (!$stmt) {
-        die("Prepare failed: " . $conn->error);
+$email = $_SESSION['recovery_email'];
+$otp = strval(rand(100000, 999999));
+
+$stmt = $conn->prepare("UPDATE users SET otp = ? WHERE email = ?");
+$stmt->bind_param("ss", $otp, $email);
+if ($stmt->execute()) {
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'ivan.gml097@gmail.com';
+        $mail->Password = 'zpvu ucxx aupc rlnq';
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
+
+        $mail->setFrom('ivan.gml097@gmail.com', 'Book Room');
+        $mail->addAddress($email);
+        $mail->Subject = 'Your OTP Code';
+        $mail->Body = "Your OTP code is: $otp";
+
+        $mail->send();
+
+        // Redirect to OTP input page
+        header("Location: ../../Guest/Forgot/otp.php");
+        exit();
+    } catch (Exception $e) {
+        echo "<script>alert('Failed to send email.'); window.location.href = '../../Guest/Forgot/forgot.php';</script>";
     }
-
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->store_result();
-
-    if ($stmt->num_rows > 0) {
-        $otp = rand(100000, 999999); // Generate OTP
-
-        $stmt->close(); // Close previous statement
-
-        $stmt = $conn->prepare("UPDATE users SET otp = ? WHERE email = ?");
-        if (!$stmt) {
-            die("Prepare failed (update): " . $conn->error);
-        }
-
-        $stmt->bind_param("ss", $otp, $email);
-        $stmt->execute();
-
-        // Send OTP via PHPMailer
-        $mail = new PHPMailer(true);
-        try {
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = 'ivan.gml097@gmail.com';
-            $mail->Password = 'zpvu ucxx aupc rlnq';
-            $mail->SMTPSecure = 'tls';
-            $mail->Port = 587;
-
-            $mail->setFrom('ivan.gml097@gmail.com', 'Book Room');
-            $mail->addAddress($email);
-            $mail->Subject = 'Your Book Room OTP Code';
-            $mail->Body = "Your OTP code is: $otp";
-
-            $mail->send();
-
-            $_SESSION['recovery_email'] = $email;
-            header("Location: ../../Guest/Forgot/otp.php");
-            exit();
-        } catch (Exception $e) {
-            echo "Mailer Error: " . $mail->ErrorInfo;
-        }
-    } else {
-        echo "<script>alert('Email not found.'); window.location='../../Guest/Forgot/forgot.php';</script>";
-    }
-
-    $stmt->close();
+} else {
+    echo "<script>alert('Failed to save OTP.'); window.location.href = '../../Guest/Forgot/forgot.php';</script>";
 }
 ?>

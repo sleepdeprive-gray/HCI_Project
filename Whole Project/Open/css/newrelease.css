@@ -1,40 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
+
 /* General body styles */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
     padding: 0;
     display: flex;
-    background-image: url('../images/background.jpg');
-    background-size: cover; /* Ensures full coverage of the background */
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url('../images/background.jpg');
+    background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Keeps the background fixed during scrolling */
-    
+    background-attachment: fixed;
 }
-a{
+
+/* Reset anchor style */
+a {
     text-decoration: none;
+}
+
+.logo-and-title {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: transparent; /* Optional: Add background to prevent content overlap */
+    padding: 10px;
+    z-index: 1000; /* Ensure it stays on top of other elements */
+    align-items: center;
+}
+
+.logo-and-title h2 {
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+.logo-and-title img {
+    height: 75px;
+    width: 95px;
 }
 
 /* Sidebar styles */
 .sidebar {
-    position: fixed; /* Sidebar stays in place */
-    top: 0;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
     left: 0;
     width: 170px;
-    height: 100vh; /* Full viewport height */
-    background-color: #7BA391; /* Sidebar background color */
+    height: 500px;
     padding: 20px;
     color: white;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
 }
 
+/* Sidebar Heading */
 .sidebar h1 {
     font-size: 24px;
     margin-bottom: 20px;
 }
 
+/* Profile section (from second CSS) */
 .profile {
     text-align: center;
     margin-bottom: 30px;
@@ -58,6 +91,7 @@ a{
     color: #eeeeee;
 }
 
+/* Menu Buttons */
 .menu button {
     width: 100%;
     padding: 5px;
@@ -65,17 +99,20 @@ a{
     font-size: 16px;
     border: none;
     cursor: pointer;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .menu .newrelease-btn {
     border-radius: 25px;
     background-color: #ffffff;
     font-weight: bold;
-    color: #333;
+    color: #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .menu .newrelease-btn:hover {
-    background-color: #cce4db;
+    background-color: #3f8f70;
+    color: #fff;
 }
 
 .menu .text-btn {
@@ -86,29 +123,17 @@ a{
     cursor: pointer;
 }
 
+.menu button:hover {
+    color: #42bdac;
+}
+
 .menu .text-btn:hover {
     text-decoration: underline;
 }
 
-.menu .logout {
-    background-color: #D76767;
-    color: white;
-    font-weight: bold;
-}
-
-.menu .logout:hover {
-    background-color: #C45555;
-}
-
-hr {
-    width: 100%;
-    border: 1px solid #ffffff;
-    margin: 20px 0;
-}
-
 /* Search bar styling */
 .search-bar {
-    position: fixed; /* Place search bar fixed to the top */
+    position: fixed;
     top: 20px;
     right: 20px;
     display: flex;
@@ -137,13 +162,13 @@ hr {
     color: #333;
 }
 
-/* Categories styling */
+/* Categories section */
 .categories {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 40px;
-    margin-top: 50px; /* Adjust this value as needed to create space below the search bar */
+    margin-top: 50px;
 }
 
 .categories button {
@@ -154,17 +179,74 @@ hr {
     font-size: 14px;
     cursor: pointer;
     transition: 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .categories button:hover {
-    color: #fff4f4;
+    color: #3f8f70;
     text-decoration: underline;
+}
+
+/* Main content section */
+.main-content {
+    margin-left: 190px;
+    padding: 20px;
+    width: calc(100% - 190px);
+    box-sizing: border-box;
+    overflow-y: auto;
+    color: white;
+}
+
+/* Book layout */
+.book {
+    background-color: #3f8f70;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    align-items: center;
+    margin: 20px 0;
+    color: white;
+}
+
+.book img {
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 8px 0 0 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.book-content {
+    flex: 1;
+    padding: 15px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.book-content h3 {
+    font-size: 1.2em;
+    color: white;
+    font-weight: bold;
+    margin: 0 0 10px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.book-content p {
+    font-size: medium;
+    color: white;
+    line-height: 1.5;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .search-bar input {
         width: 200px;
+    }
+
+    .book {
+        width: 90%;
     }
 }
 
@@ -176,70 +258,5 @@ hr {
 
     .categories button {
         width: 100%;
-    }
-}
-
-/* Main Content Styles */
-.main-content {
-    margin-left: 190px; /* Add space for the fixed sidebar */
-    padding: 20px;
-    width: calc(100% - 190px); /* Prevent overflow */
-    box-sizing: border-box; /* Include padding in width calculation */
-    overflow-y: auto; /* Enable scrolling for the main content */
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 20px;
-    display: flex; /* Enable flexbox for easy layout */
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
-    justify-content: center; /* Center the content horizontally */
-}
-
-.book {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    display: grid; /* Use grid inside book for image and text */
-    grid-template-columns: 150px 1fr; /* Image 150px, text takes remaining space */
-    align-items: center; /* Vertically align items */
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-
-.book img {
-    width: 150px;
-    height: auto;
-    margin-right: 20px; /* Add margin between image and text */
-    border-radius: 8px 0 0 8px; /* Rounded corners for the image */
-}
-
-.book-content {
-    flex: 1; /* Allow text to take up remaining space */
-    padding: 15px;
-}
-
-.book-content h3 {
-    font-size: 1.2em;
-    color: #333;
-    margin: 0 0 10px;
-    color: black;
-    font-weight: 700;
-}
-
-.book-content p {
-    font-size:medium;
-    color: #666;
-    color: black;
-    line-height: 1.5; /* Added line height for better readability */
-}
-
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-    .book {
-        width: 90%; /* Adjust width for smaller screens */
     }
 }

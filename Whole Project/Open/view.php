@@ -2,6 +2,9 @@
 session_start();
 require 'db.php';
 
+$page = $_GET['p'] ?? 1;
+$genre = $_GET['genre'] ?? '';
+
 $bookID = isset($_GET['bookID']) ? intval($_GET['bookID']) : 0;
 $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 
@@ -23,6 +26,23 @@ $editorID = $book['editor_id'];
 $editorQuery = mysqli_query($conn, "SELECT first_name, last_name FROM users WHERE user_id = $editorID");
 $editor = mysqli_fetch_assoc($editorQuery);
 $editorName = $editor ? $editor['first_name'] . ' ' . $editor['last_name'] : "Unknown Editor";
+
+$genre = isset($_GET['genre']) ? urldecode(trim($_GET['genre'])) : '';
+switch ($page) {
+    case 2:
+        $backUrl = 'popular.php';
+        break;
+    case 3:
+        $backUrl = 'newrelease.php';
+        break;
+    case 4:
+        $backUrl = 'category/pages/books.php?genre=' . urlencode($genre);
+        break;
+    default:
+        $backUrl = 'discover.php';
+        break;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -35,22 +55,21 @@ $editorName = $editor ? $editor['first_name'] . ' ' . $editor['last_name'] : "Un
     <!-- Favicon and Icons -->
     <link rel="shortcut icon" href="../images/weblogo.png" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/bg-and-nav.css">
     <link rel="stylesheet" href="css/book-view.css">
 </head>
 <body>
 
 <!-- Header -->
 <header class="logo-and-title">
-    <img src="../images/weblogo.png" alt="book room logo">
     <h2>Book<br><span style="color: #A1BE95;">Room</span></h2>
+    <img src="../images/weblogo.png" alt="book room logo">
 </header>
 
 <!-- Sidebar -->
 <div class="sidebar">
-    <h1>Book Room</h1>
     <div class="menu">
         <a href="discover.php"><button class="<?= ($page === 1) ? 'discover-btn' : 'text-btn' ?>">Discover</button></a>
         <a href="popular.php"><button class="<?= ($page === 2) ? 'discover-btn' : 'text-btn' ?>">Popular</button></a>
@@ -58,23 +77,25 @@ $editorName = $editor ? $editor['first_name'] . ' ' . $editor['last_name'] : "Un
     </div>
 </div>
 
+    <div class="space">
+        <!-- for space -->
+    </div>
+
 <!-- Book Content -->
 <div class="content-part">
     <div class="upper-content">
-        <img src="data:image/jpeg;base64,<?= base64_encode($book['front_cover']) ?>" alt="Book Cover">
+        <img src="data:image/jpeg;base64,<?= base64_encode($book['front_cover']) ?>" alt="Book Cover" width="150px">
         <div class="title-and-author">
             <h1><?= htmlspecialchars($book['title']) ?></h1>
             <h4><?= htmlspecialchars($book['author_name']) ?></h4>
         </div>
-        <a href="<?php
-            switch ($page) {
-                case 2: echo 'popular.php'; break;
-                case 3: echo 'newrelease.php'; break;
-                default: echo 'discover.php'; break;
-            }
-        ?>">
-            <button>Back</button>
-        </a>
+           <div class="button-group-aligned">
+                <div class="button-group">
+                    <a href="download.php?bookID=<?= $bookID ?>">Download</a>
+                    <a href="<?= $backUrl ?>" class="back-btn">Back</a>
+                    </a>
+                </div>
+            </div>
     </div>
 
     <div class="section-bg">
@@ -94,9 +115,6 @@ $editorName = $editor ? $editor['first_name'] . ' ' . $editor['last_name'] : "Un
                 <h4>Date Published</h4>
                 <p><?= htmlspecialchars($book['date_published']) ?></p>
 
-                <a href="download.php?bookID=<?= $bookID ?>">
-                    <button style="background-color: #A1BE95; width:200px; height:50px; color:aliceblue; font-weight:bold">DOWNLOAD</button>
-                </a>
             </div>
         </div>
     </div>

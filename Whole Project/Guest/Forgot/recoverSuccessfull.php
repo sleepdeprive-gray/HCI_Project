@@ -17,8 +17,6 @@
                 <img src="../../images/weblogo.png">
                 <p class="text">Discover, Download, and Dive into</p>
                 <p class="text">Stories Across Many Genres!</p>
-                <p class="link">Already know the password? <a href="login.html">Click Here</a>.</p>
-                
             </div>
         </div>
 

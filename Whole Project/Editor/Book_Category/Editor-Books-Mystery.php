@@ -196,7 +196,7 @@
                     echo "<td>" . htmlspecialchars($row['author_name'] ?? 'Unknown') . "</td>";
                     echo "<td>" . intval($row['downloads']) . "</td>";
                     echo "<td>
-                            <a href='Editor-Books-View.php?book_id=" . intval($row['book_id']) . "'>
+                            <a href='../Editor-Books-View.php?book_id=" . intval($row['book_id']) . "'>
                                 <button class='view-button'>View</button>
                             </a>
                           </td>";

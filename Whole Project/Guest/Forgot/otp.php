@@ -1,10 +1,9 @@
 <?php
 session_start();
 if (!isset($_SESSION['recovery_email'])) {
-    header("Location: forgot.php");
+    echo "<script>alert('Session expired.'); window.location.href = 'forgot.php';</script>";
     exit();
 }
-
 include '../../process/database_connection.php';
 
 $otp_error = "";
@@ -49,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <img src="../../images/weblogo.png">
                 <p class="text">Discover, Download, and Dive into</p>
                 <p class="text">Stories Across Many Genres!</p>
-                <p class="link">Already know the password? <a href="login.php">Click Here</a>.</p>
+                <p class="link">Already know the password? <a href="../login.php">Click Here</a>.</p>
             </div>
         </div>
 

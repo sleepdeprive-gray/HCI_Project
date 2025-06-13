@@ -11,17 +11,7 @@
   $editorsData = mysqli_fetch_assoc($editorsResult);
   $totalEditors = $editorsData['totalEditors'];
 
-  // Fetch top editors (based on number of approved books uploaded)
-  $topEditorsQuery = "
-    SELECT u.id, u.name, u.profile_image, COUNT(b.id) AS bookCount
-    FROM users u
-    LEFT JOIN books b ON u.id = b.editor_id AND b.status = 'Approved'
-    WHERE u.user_type = 'Editor'
-    GROUP BY u.id
-    ORDER BY bookCount DESC
-    LIMIT 6
-  ";
-  $topEditorsResult = mysqli_query($conn, $topEditorsQuery);
+
 ?>
 
 <!DOCTYPE html>

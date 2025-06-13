@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Book Room - Popular</title>
+  <title>Book Room | Popular</title>
+  <link rel="shortcut icon" href="../images/weblogo.png" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/popular.css">
 </head>
@@ -14,14 +15,21 @@ require 'db.php';
 $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 ?>
 
-<div class="sidebar">
-  <h1>Book Room</h1>
-  <div class="menu">
-    <a href="discover.php"><button class="text-btn">Discover</button></a>
-    <button class="popular-btn">Popular</button>
-    <a href="newrelease.php"><button class="text-btn">New Release</button></a>
-  </div>
-</div>
+    <header class="logo-and-title">
+      <a href="../Website/guest.php" style ="text-decoration: none;">
+        <h2>Book<br><span style="color: #A1BE95;">Room</span></h2>
+      </a>
+        <img src="../images/weblogo.png" alt="book room logo">
+    </header>
+
+
+    <div class="sidebar">
+        <div class="menu">
+            <a href="discover.php"><button class="text-btn">Discover</button></a>
+             <button class="discover-btn">Popular</button>
+            <a href="newrelease.php"><button class="text-btn">New Release</button></a>
+        </div>
+    </div>
 
 <div class="main-content">
   <!-- Search bar -->
@@ -30,8 +38,7 @@ $search = isset($_GET['search']) ? trim($_GET['search']) : '';
     <input type="text" id="searchInput" name="search" placeholder="Search book name, author..." value="<?= htmlspecialchars($search) ?>">
     <button type="submit">🔍</button>
   </form>
-  <br>
-
+  <br> <br>
   <div class="container">
     <?php
     // Prepare search query

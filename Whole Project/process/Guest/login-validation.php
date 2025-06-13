@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                      $currentDAY = date('Y-m-d H:i');
 
                      mysqli_query($conn, "INSERT INTO recent_logs (`timestamp`, ID, `ACTION`, user_type)
-                    VALUES('$currentDAY',$IDS , 'LOGIN', 'Editor')");
+                    VALUES('$currentDAY',$user_id , 'LOGIN', 'Editor')");
 
                     header("Location: ../../Editor/Editor-Dashboard.php");
                     break;

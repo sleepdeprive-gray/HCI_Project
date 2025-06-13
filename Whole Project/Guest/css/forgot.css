@@ -1,15 +1,15 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
 }
 
-.container{
+.container {
     display: flex;
 }
 
-.picture{
+.picture {
     width: 50%;
     height: 100vh;
     background-image: url(../../images/background.jpg);
@@ -17,16 +17,16 @@
     position: relative;
 }
 
-.picture::before{
+.picture::before {
     content: "";
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
 }
 
-.needed_content{
+.needed_content {
     margin-top: 100px;
     position: relative;
     color: white;
@@ -36,46 +36,41 @@
     align-items: center;
 }
 
-.needed_content h1{
+.needed_content h1 {
     font-size: 60px;
 }
-span{
+span {
     color: #A1BE95;
 }
 
-.needed_content img{
-    margin-top: 30px;
-    margin-bottom: 30px;
+.needed_content img {
+    margin: 30px 0;
     width: 275px;
     height: 200px;
 }
 
-.text{
+.text {
     font-size: 30px;
 }
 
-.link{
+.link, .links {
     margin-top: 60px;
     font-size: 12px;
     font-weight: lighter;
+    text-align: center;
 }
 
-.links{
-    margin-top: 60px;
-    font-size: 12px;
-    font-weight: lighter;
+.links {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.needed_content a{
-    text-decoration: none;
+.needed_content a {
     color: #2EA1F3;
 }
 
-
-.form{
+.form {
     width: 50%;
     height: 100vh;
     display: flex;
@@ -83,7 +78,7 @@ span{
     align-items: center;
 }
 
-.forms{
+.forms {
     width: 80%;
     height: 600px;
     display: flex;
@@ -92,60 +87,49 @@ span{
     align-items: center;
 }
 
-.forms h1{
+.forms h1 {
     margin-bottom: 50px;
     font-size: 50px;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-form input{
-    width: 350px;
+form input {
+    width: 360px;
     height: 45px;
     padding-left: 10px;
-    margin: 10px;
+    margin: 10px 0;
     border-radius: 15px;
     border: 1px solid black;
-    box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
-.next{
+form .button {
+    margin-top: 20px;
     display: flex;
-    margin-right: 10px;
-    justify-content: flex-end;
-    color: black;
-    /* font-weight: bold; */
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
-
-form .button button{
+form .button button {
     cursor: pointer;
     width: 160px;
     height: 40px;
     border-radius: 15px;
     border: none;
-    box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
-form .button{
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-form .button p{
-  color: #8B8383;
-}
-
-.loginButton{
+.loginButton {
     background-color: #2EA1F3;
 }
 
-.faceRecognitionButton{
+.faceRecognitionButton {
     background-color: #F06565;
     border: none;
     width: 100px;
@@ -153,21 +137,21 @@ form .button p{
     border-radius: 10px;
 }
 
-
-.signs{
+.signs {
     margin-top: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     font-weight: bold;
+    text-align: center;
 }
 
-.signs a{
+.signs a {
     color: #FF0000;
 }
 
-.logo{
+.logo {
     display: flex;
     width: 100%;
     align-items: center;
@@ -175,24 +159,21 @@ form .button p{
     margin: 10px;
 }
 
-.logo img{
+.logo img {
     margin-top: 10px;
     width: 85px;
     height: 70px;
 }
 
-.logo p{
+.logo p {
     margin-top: 10px;
-    margin-left: 0px;
     margin-right: 20px;
     font-weight: bold;
 }
 
-
-.takeAphoto{
-    margin-left: 10px;
+.takeAphoto {
+    margin: 30px auto;
     border-radius: 10px;
-    margin-bottom: 30px;
     width: 363px;
     height: 100px;
     background-color: #000000c0;
@@ -202,42 +183,42 @@ form .button p{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
-.takeAphoto img{
+.takeAphoto img {
     width: 35px;
     height: 35px;
 }
 
-select{
+select {
     width: 363px;
     height: 45px;
     padding-left: 10px;
-    margin: 10px;
+    margin: 10px 0;
     border-radius: 15px;
     border: 1px solid black;
-    box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
-.info{
+.info {
     display: flex;
-    margin-top: -20px;
     flex-direction: column;
     align-items: center;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .choose {
-    margin-left: 500px;
+    width: 100%;
     display: flex;
-    align-items: stretch; /* Ensures both buttons match in height */
     justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
 }
 
 .choose button {
-    flex: 1;
-    max-width: 180px;
+    width: 170px;
     height: 100px;
     background-color: #000000c0;
     color: white;
@@ -247,27 +228,26 @@ select{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
+.choose button img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
 
 input[readonly] {
-    user-select: none; /* Prevent text selection */
-    pointer-events: none; /* Prevent cursor and clicking */
+    user-select: none;
+    pointer-events: none;
 }
 
 input[readonly]::placeholder {
-    color: black; /* Set placeholder color to black */
+    color: black;
 }
 
-.choose img{
-    width: 35px;
-    height: 35px;
-    padding-bottom: 10px;
-}
-
-.head{
+.head {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -275,40 +255,56 @@ input[readonly]::placeholder {
     margin-bottom: 40px;
 }
 
-
-.last{
+.last {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.last a{
+.last a {
     color: black;
 }
 
-.last span{
-    color:
-     #2EA1F3;
+.last span {
+    color: #2EA1F3;
 }
 
-.last label{
+.last label {
     margin-top: 30px;
 }
 
-.last input{
+.last input {
     background-color: white;
     margin-bottom: 80px;
 }
 
-.last ::-webkit-input-placeholder{
+.last ::-webkit-input-placeholder {
     color: #6B6B6B;
 }
 
-.prev_sub{
+.prev_next{
     margin-top: 25px;
     display: flex;
     justify-content: space-between;
+}
+
+label{
+    font-weight: bold;
+}
+
+.prev_next button{
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    border: none;
+    background-color: none;
+    color: black;
+    font-size: 15px;
+}
+
+.prev_sub {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    gap: 20px; /* Add this line to create spacing */
 }
 
 .prev_sub button{
@@ -319,7 +315,17 @@ input[readonly]::placeholder {
     color: black;
 }
 
-.cons{
+.link-button {
+    background: none;
+    border: none;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0 10px;
+}
+
+.cons {
     display: flex;
     flex-direction: column;
     margin-top: -30px;
@@ -331,10 +337,10 @@ textarea {
     padding: 20px;
     border-radius: 15px;
     border: 1px solid black;
-    box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
-.center{
+.center {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -342,14 +348,11 @@ textarea {
     margin-bottom: 50px;
 }
 
-
-.centers h2{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.centers h2 {
     font-size: 40px;
+    text-align: center;
 }
 
-.centers{
+.centers {
     margin-bottom: 50px;
 }

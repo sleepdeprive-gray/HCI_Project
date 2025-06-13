@@ -15,13 +15,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discover | Book Room</title>
     <link rel="shortcut icon" href="../images/weblogo.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/discover.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/discover.css">
 </head>
 <body>
+
+    <header class="logo-and-title">
+      <a href="../Website/guest.php" style ="text-decoration: none;">
+        <h2>Book<br><span style="color: #A1BE95;">Room</span></h2>
+      </a>
+        <img src="../images/weblogo.png" alt="book room logo">
+    </header>
+
+
     <div class="sidebar">
-        <h1>Book Room</h1>
-        <img src="../images/weblogo.png" alt="Website Logo" height="100px" width="100px">
         <div class="menu">
             <button class="discover-btn">Discover</button>
             <a href="popular.php"><button class="text-btn">Popular</button></a>
@@ -43,7 +50,7 @@
             </div>
         </div>
 
-        <h1 class="mt-4" style="color: black; font-size: 35px;">Book of the Day</h1>
+        <h1 class="mt-4" style="font-size: 35px;">Recommendations</h1>
         <?php if ($bookOfTheDay): ?>
             <div class="BOOKoftheDay d-flex">
                 <div class="TwoBook">
@@ -60,7 +67,7 @@
                         </h2>
                         <p><?= htmlspecialchars($bookOfTheDay['author_name']) ?></p>
                         <p style="font-size: 13px;">
-                            <?= htmlspecialchars(mb_substr($bookOfTheDay['description'], 0, 150)) ?>
+                            <?= htmlspecialchars(mb_substr($bookOfTheDay['description'], 0, 350)) ?>
                             <?= strlen($bookOfTheDay['description']) > 150 ? '...' : '' ?>
                         </p>
                     </div>
@@ -71,7 +78,8 @@
             <p>No books found.</p>
         <?php endif; ?>
 
-        <h2 style="color: black; font-size: 19px;">New Release</h2>
+        <br>
+            <h2 style="font-size: 19px;">New Release</h2>
         <br>
 
         <div class="newCon">
@@ -80,7 +88,10 @@
                     <a href="view.php?bookID=<?= $book['book_id'] ?>&p=1" style="text-decoration: none; color: inherit;">
                         <div class="imgs">
                             <img src="data:image/jpeg;base64,<?= base64_encode($book['front_cover']) ?>" alt="<?= htmlspecialchars($book['title']) ?>">
-                            <p class="title"><?= htmlspecialchars($book['title']) ?></p>
+                            <p class="title">
+                                <?= htmlspecialchars(mb_substr($book['title'], 0, 15)) ?>
+                                <?= htmlspecialchars ($book['title'] > 5 ? '...' : '' ) ?>
+                            </p>
                             <p class="author"><?= htmlspecialchars($book['author_name']) ?></p>
                         </div>
                     </a>

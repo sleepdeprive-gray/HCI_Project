@@ -12,8 +12,15 @@
   <link rel="stylesheet" href="css/newrelease.css" />
 </head>
 <body>
+
+    <header class="logo-and-title">
+      <a href="../Website/guest.php" style ="text-decoration: none;">
+        <h2>Book<br><span style="color: #A1BE95;">Room</span></h2>
+      </a>
+        <img src="../images/weblogo.png" alt="book room logo">
+    </header>
+
   <div class="sidebar">
-    <h1>Book Room</h1>
     <div class="menu">
       <a href="discover.php"><button class="text-btn">Discover</button></a>
       <a href="popular.php"><button class="text-btn">Popular</button></a> 

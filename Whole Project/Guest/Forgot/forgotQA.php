@@ -72,7 +72,7 @@ $question = $result->num_rows === 1 ? $result->fetch_assoc()['security_question'
                 <img src="../../images/weblogo.png">
                 <p class="text">Discover, Download, and Dive into</p>
                 <p class="text">Stories Across Many Genres!</p>
-                <p class="link">Already know the password? <a href="login.php">Click Here</a>.</p>
+                <p class="link">Already know the password? <a href="../login.php">Click Here</a>.</p>
             </div>
         </div>
 
@@ -91,13 +91,12 @@ $question = $result->num_rows === 1 ? $result->fetch_assoc()['security_question'
                     <input type="text" name="security_question" id="security_question" 
                            value="<?php echo htmlspecialchars($question); ?>" readonly>
                     <input type="text" name="security_answer" id="security_answer" 
-                           placeholder="Your answer" required>
-                    
+                           placeholder="Your answer" required> <br>
                     <div class="prev_sub">
-                        <a href="forgot.php"><p>GO BACK</p></a>
-                        <button type="submit">SUBMIT</button>
+                        <a href="forgot.php" class="link-button">GO BACK</a>
+                        <button type="submit" class="link-button">SUBMIT</button>
                     </div>
-                    
+                    <br>  <br>
                     <div class="signs">
                         <p>Something went wrong?</p>
                         <a href="../administrator.php"><p>Contact administrator here.</p></a>

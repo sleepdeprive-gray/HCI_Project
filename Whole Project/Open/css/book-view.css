@@ -5,67 +5,180 @@ body {
     overflow: hidden;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 125px;
+    height: 500px;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.sidebar h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Menu styles */
+.menu button {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.menu button:hover {
+    color: #42bdac;
+}
+
+.menu .discover-btn {
+    border-radius: 25px;
+    background-color: #ffffff;
+    font-weight: bold;
+    color: #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.menu .discover-btn:hover {
+    background-color: #3f8f70;
+    color: #fff;
+}
+
+.menu .text-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.menu .text-btn:hover {
+    text-decoration: underline;
+}
+
 .content-part {
-    margin-left: 300px;
+    margin-left: 250px;
     width: 975px;
     height: 1000px;
 }
 
+.space {
+    height: 50px;
+    width: auto;
+}
+
+.logo-and-title {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: transparent; /* Optional: Add background to prevent content overlap */
+    padding: 10px;
+    z-index: 1000; /* Ensure it stays on top of other elements */
+    align-items: center;
+}
+
+.logo-and-title h2 {
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+.logo-and-title img {
+    height: 75px;
+    width: 95px;
+}
+
 /* Style for upper-content */
 .upper-content {
+    margin-top: -175px;
     float: inline-start;
-    margin-top: -200px;
     margin-left: 100px;
     display: flex; /* Use Flexbox to align items horizontally */
     align-items: center; /* Vertically align items in the center */
     gap: 20px; /* Add spacing between elements */
     padding: 10px; /* Optional: Add padding around the content */
     text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    margin-bottom: -50px; /* Replace -200px with positive spacing */
 }
 
-/* Style for the image */
-.upper-content img {
-    width: 180px; /* Adjust the size of the image */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 5px; /* Optional: Add rounded corners */
-}
-
-.title-and-author {
-    margin-top: -150px;
-}
 
 /* Style for title and author */
 .title-and-author h1 {
-    font-size: 35px;
+    font-size: 28px;
     font-family: 'Inria Serif', Arial;
     font-weight: bolder;
     margin: 0; /* Remove default margin */
+    width: 250px;
 }
 
 .title-and-author h4 {
     font-size: 23px;
     font-weight: 350;
     font-family: 'Kumbh Sans', 'Times New Roman', Times, serif;
-    margin: 5px 0 0 25px; /* Add a small margin on top */
+    margin: 5px 0 0 5px; /* Add a small margin on top */
     color: #3ac9b6; /* Optional: Change the color */
 }
 
-/* Style for the button */
-.upper-content button {
-    margin: 10px 0 0 250px;
-    background-color: #D9D9D9; /* Optional: Set background color */
-    color: #000000; /* Text color */
-    padding: 7px 20px;
-    border: none;
-    border-radius: 5px; /* Optional: Add rounded corners */
+/* Common style for both Download and Back buttons */
+.button-group a {
+    background-color: #D9D9D9;
+    color: #000000;                         
+    padding: 5px 25px;
+    border: none;   
+    border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    font-family: 'Kumbh Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
 
-/* Button hover effect */
-.upper-content button:hover {
-    background-color: #000000; /* Darker blue on hover */
-    color:#D9D9D9;
+/* Hover effect for both */
+.button-group button:hover,
+.button-group a:hover {
+    background-color: #000000;
+    color: #D9D9D9;
+    text-decoration: none;
+}
+
+/* Container for aligned buttons */
+.button-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+.button-group button {
+    border: none;
+    background-color: transparent;
 }
 
 .section-bg {
@@ -75,11 +188,11 @@ body {
     background-color: #6A9C89;
     border-radius: 15px;
     text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 0 5px rgba(94, 81, 81, 0.2);
 }
 
 .divider {
-    padding-top: 90px;
+    padding-top: 50px;
     margin-left: 350px;
     width: 550px;
     height: 2px;
@@ -145,19 +258,4 @@ body {
     font-family: 'Inria Sans', Arial, Helvetica, sans-serif;
     margin: 0 0 15px;
     color: #000000;
-}
-
-#status-button {
-    margin-left: 15px;
-    background-color: #d37e7e; /* Optional: Set background color */
-    color: #ffffff; /* Text color */
-    padding: 7px 10px;
-    border: none;
-    border-radius: 5px; /* Optional: Add rounded corners */
-    cursor: pointer;
-    font-size: 15px;
-}
-
-#status-button:hover {
-    background-color: rgb(255, 0, 0);
 }
