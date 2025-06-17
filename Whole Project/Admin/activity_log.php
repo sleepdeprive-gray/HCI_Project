@@ -6,7 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Acivity Logs</title>
+    <link rel="icon" href="images/logos.png" type="image/png">
     <link rel="stylesheet" href="admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
@@ -19,7 +20,7 @@
         width: 100%;   
     }
     thead th{
-        background-color: #3c554c;
+        background-color: rgb(94, 47, 18);
         color: white;
     }
     tbody tr:nth-child(even){
@@ -48,7 +49,7 @@
         <!-- NAVIGATION 1 -->
         <nav class="nav1">
             <div class="" style="display: flex; justify-self: center;margin-top: 10px;margin-bottom: 10px;">
-              <img src="../images/weblogo.png" alt="" style="width: 40px;height: 40px; border-radius: 0; border: none;">
+              <img src="images/logos.png" alt="" style="width: 40px;height: 40px; border-radius: 0; border: none;">
                 <p style="font-size: 15px;margin-left: 4px;font-weight: bold;">BOOK <span style="color: #A1BE95;">ROOM</span></p>
             </div>
             <!-- PROFILE PICTURE -->
@@ -125,7 +126,7 @@
                     <p>Activity Logs</p>
                 </div>
             </div>
-                <div class="bookCard" style="width: 90%; height: 500px;position: relative;background-color: #6A9C89; display: flex;margin: 5px;justify-self: center; padding: 10px; display: flex; flex-direction: column;
+                <div class="bookCard" style="width: 90%; height: 500px;position: relative;background-color: var(--background-color); display: flex;margin: 5px;justify-self: center; padding: 10px; display: flex; flex-direction: column;
                 flex-wrap: wrap; ">
                      
                         
@@ -136,8 +137,8 @@
                             
                             <!-- SORTING OPTION -->
                             <form method="post" class="" style="display: flex;">
-                                <p style="font-weight: bold; color: white;">Sort</p>
-                                <select name="orderBY" id="" onchange="this.form.submit()" style="color: white; margin-left: 10px; height: 30px; background-color: #3c554c; border: none;
+                                <p style="font-weight: bold; ">Sort</p>
+                                <select name="orderBY" id="" onchange="this.form.submit()" style="color: white; margin-left: 10px; height: 30px; background-color: rgb(117, 59, 22); border: none;
                                 display: flex;align-self: center;">
                                     <option value="<?php if(isset($_POST['orderBY'])){echo $_POST['orderBY'];}else{echo "";} ?>"><?php if(isset($_POST['orderBY'])){echo $_POST['orderBY'];}else{echo "Select";} ?></option>
                                     <option value="ID">ID</option>

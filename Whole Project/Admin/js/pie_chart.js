@@ -28,13 +28,13 @@ function showPieChart() {
     
 
     let slices = [
-        { size: scinceval, color: '#7fb8a3', label: 'Science' },
-        { size: fantasyval, color: '#72a592', label: 'Fantasy' },
-        { size: novelval, color: '#659282', label: 'Novel' },
-        { size: narrativeval, color: '#598072', label: 'Narrative' },
-        { size: historyval, color: '#4d6d61', label: 'History' },
-        { size: mysteryval, color: '#415c52', label: 'Mystery' },
-        { size: fictionalval, color: '#31463e', label: 'Fictional' }
+        { size: scinceval, color: '#BB5C22', label: 'Science' },
+        { size: fantasyval, color: 'rgb(158, 79, 29)', label: 'Fantasy' },
+        { size: novelval, color: 'rgb(136, 68, 25)', label: 'Novel' },
+        { size: narrativeval, color: 'rgb(117, 59, 22)', label: 'Narrative' },
+        { size: historyval, color: 'rgb(97, 49, 19)', label: 'History' },
+        { size: mysteryval, color: 'rgb(85, 42, 16)', label: 'Mystery' },
+        { size: fictionalval, color: 'rgb(68, 34, 13)', label: 'Fictional' }
     ];
 
     const total = slices.reduce((acc, slice) => acc + slice.size, 0);
@@ -82,8 +82,8 @@ function showPieChart() {
         const percentage = ((slice.size / total) * 100).toFixed(2);
         return `
             <div class="legend-item" style="display:flex; align-items: center;margin-bottom:5px;margin-left:-20px">
-                <div class="legend-color" style="background-color: ${slice.color}; width:20px; height:20px; border: 1px solid black"></div>
-                <span style="margin-left:10px; color:white; font-weight:bold">${slice.label}: ${percentage}%</span>
+                <div class="legend-color" style="background-color: ${slice.color}; width:20px; height:20px;"></div>
+                <span style="margin-left:10px; font-weight:bold">${slice.label}: ${percentage}%</span>
             </div>
         `;
     }).join('');

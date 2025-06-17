@@ -1,12 +1,7 @@
 function rejects(locations) {
-    let userResponse = confirm('This action will Reject the book, Do you want to proceed?');
-
-        // Check the user's response
-    if (userResponse) {
+   
         window.location.href = locations;
-    } else {
-        console.log('User clicked Cancel!');
-    }
+   
 }
 
 function archive(locations) {

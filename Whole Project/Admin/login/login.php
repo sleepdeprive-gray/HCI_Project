@@ -12,7 +12,7 @@
         <div class="picture">
             <div class="needed_content">
                 <h1>BOOK <span>ROOM</span></h1>
-                <img src="../../images/weblogo.png">
+                <img src="../images/logos.png">
                 <p class="text">Discover, Download, and Dive into</p>
                 <p class="text">Stories Across Many Genres!</p>
                 <p class="link">Forgot Account? <a href="forgot.html">Click Here</a>.</p>
@@ -21,7 +21,7 @@
 
         <div class="form">
             <div class="logo">
-                <img src="../../images/weblogo.png" alt="">
+                <img src="../images/logos.png" alt="">
                 <p>book.<span>room</span></p>
             </div>
 

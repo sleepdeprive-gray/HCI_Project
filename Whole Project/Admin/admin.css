@@ -1,10 +1,19 @@
+:root{
+    --background-color: #DBD0BC;
+    --font-weignt: bold;
+}
+i{
+    color: rgb(94, 47, 18);
+}
 body{
     padding: 0;
     margin: 0;
     background-repeat: no-repeat;
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url("Ground.jpg");
-    background-size: cover;
+    background-color: #ececec;
+}
+.bold{
+    font-weight: var(--font-weignt);
 }
 a{
     text-decoration: none;
@@ -16,13 +25,12 @@ a{
 }
 
 .nav1{
-    background-color: #16423C; 
+    background-color: var(--background-color); 
     width: 180px; 
     position: relative;
 }
 .nav1 p{
     justify-self: center;
-    color: white;
 }
 .nav1 img{
     border-radius: 100%; width: 100px; height: 100px; justify-self: center; display: flex;
@@ -46,7 +54,6 @@ a{
     width: 152px; 
     background-color: transparent; 
     border: none; 
-    color: white; 
     font-weight: bold; 
     margin-top: 10px;
     padding: 10px;
@@ -56,16 +63,13 @@ a{
 
     display: flex;
 }
-.nav1 .links_button a button{
-    color: white;
-}
 
 .nav1 .links_button button.Active{
     padding: 10px;border-bottom-left-radius: 30px;
-    border-top-left-radius: 30px;background-color: #6A9C89; color: white;
+    border-top-left-radius: 30px;background-color: #FC9902;
 }
 .nav1 .links_button button:hover{
-    border-top-left-radius: 30px;background-color: #6A9C89; color: white;
+    border-top-left-radius: 30px;background-color: #e68b03; color: white;
 }
 
 .nav1 .LOGOUT_CONTAINER{
@@ -75,7 +79,7 @@ a{
 
 .nav1 .LOGOUT_CONTAINER button{
     font-size: 19px;
-    background-color: #CC6A6C; border: none; color: white; width: 100px;padding: 5px; border-radius: 15px;
+    background-color: #e68b03; border: none; width: 100px;padding: 5px; border-radius: 15px;
                     justify-self: center; justify-content: center; justify-items: center; cursor: pointer;
                     margin-top: 40px;
 }
@@ -91,7 +95,7 @@ width: 40px;height: 40px; border-radius: 0; border: none;
 font-size: 15px;margin-left: 4px;font-weight: bold;
 }
 .nav1 .logo_TOP_LEFT span{
-color: #A1BE95;
+color: #BB5C22;
 }
 
 
@@ -103,20 +107,20 @@ color: #A1BE95;
     display: flex; flex-direction: column; justify-self: center; position: relative; margin-bottom: 10px; margin-top: 10px;
 }
 .mainARTICLE{
-    display: flex; flex-wrap: wrap; gap: 20px;
+    display: flex; flex-wrap: wrap; gap: 70px;
 }
 .totalACCOUNT_con, .totalBOOK_con{
      display: flex;
 }
 .totalACCOUNT_icon,.totalBOOK_icon{
-    background-color: #C4DAD2; width: 150px; height: 150px; border-radius: 50% 50% 0 50%; display: flex; 
+    background-color: var(--background-color); width: 150px; height: 150px; border-radius: 50% 50% 0 50%; display: flex; 
                         justify-content: center; align-items: center;
 }
 .totalACCOUNT_icon i , .totalBOOK_icon i{
     font-size: 70px;
 }
 .totalACCOUNT_rightside, .totalBOOK_rightside{
-background-color: #C4DAD2; width: 200px; height: 110px; margin-top: 40px; margin-left: -20px;
+background-color: var(--background-color); width: 200px; height: 110px; margin-top: 40px; margin-left: -20px;
                         border-top-right-radius: 25px;
 }
 .space{
@@ -126,37 +130,30 @@ background-color: #C4DAD2; width: 200px; height: 110px; margin-top: 40px; margin
     display: flex;  margin-top: -35px;
 }
 .Circle{
-    width: 25px; height: 25px; background-color: #6A9C89; border-radius: 100%;
+    width: 25px; height: 25px; background-color: var(--background-color); border-radius: 100%;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);
 }
 .ViewButton{
-    width: 140px; height: 25px; background-color: #6A9C89; border-radius: 15px;
-                                    margin-left: 10px;align-items: center; justify-content: center; display: flex; color: white;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);
+    width: 140px; height: 25px; background-color: var(--background-color); border-radius: 15px;
+                                    margin-left: 10px;align-items: center; justify-content: center; display: flex; color: black;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .insideTHEcard p{
-border-bottom: 2px solid #6A9C89; width: 160px;font-weight: bold;
+border-bottom: 2px solid #6A9C89; width: 160px;font-weight: bold;color: rgb(94, 47, 18);
                                     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; cursor: default;
 }
 .insideTHEcard h1{
 font-size: 50px; margin-top: -10px;cursor: default;
 }
 article{
-    width: calc(100%); overflow-y: auto;
+    width: calc(100%); overflow-y: auto;color: rgb(94, 47, 18);
   
 }
-body::before{
-content: "";
-position: absolute;
-width: calc(100%);
-height: 100%;
-background-color: rgba(0,0,0,0.6);
-}
-
 .time{
     border-radius: 20px;
 }
 .times{
     border-radius: 20px;
-    background-color: white;
     font-weight: bold;
 }
 
@@ -177,7 +174,6 @@ article .logo2 .logo2_container{
 }
 article .logo2 .text{
     display: flex; justify-content: center; flex-direction: column; margin-top: -10px; margin-left: 10px;
-    color: white;
 }
 article .logo2 .text {
     font-weight: bold;
@@ -195,7 +191,6 @@ article .time{
     position: relative;
 }
 article .time .times{
-    background-color: white;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -209,7 +204,7 @@ article .time .times p{
 }
 
 .CONTAINER_FOR_CARDS{
-    display:flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    display:flex; flex-wrap: wrap; gap: 60px; justify-content: center;
     position: relative;
 }
 
@@ -219,7 +214,7 @@ article .time .times p{
 /* TOP LEFT CARDS */
 .top_left_cards{
     width: 400px; height: 300px;
-    background-color: #6A9C89;
+    background-color: var(--background-color);
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, .7);
@@ -237,7 +232,7 @@ article .time .times p{
 /* BOTTOM LEFT CARDS */
 .bottom_left_cards{
     width: 400px; height: 200px; 
-    background-color: #C4DAD2;
+    background-color: var(--background-color);
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, .7);
@@ -261,7 +256,7 @@ article .time .times p{
 /* TOP CENTER CARDS */
 .top_center_cards{
     width: 350px; height: 175px; 
-    background-color: #6A9C89;
+    background-color: var(--background-color);
     border-radius: 15px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, .7);
     padding: 10px;
@@ -277,15 +272,13 @@ article .time .times p{
 
 .bottom_center_cards{
     width: 360px; height: 305px;  
-    background-color: #6A9C89;
+    background-color: var(--background-color);
     backdrop-filter: blur(7px);
     box-shadow: 0 10px 10px rgba(0, 0, 0, .7);
     border-radius: 15px;
     padding: 5px;
 }
-.bottom_center_cards h1{
-    color: white;
-}
+
 .bottom_center_cards button{
     background-color: #3c554c;
     border: none;
@@ -341,18 +334,19 @@ article .time .times p{
 
 .right_cards{
     width: 300px; height: 509px;   
-    background-color: #6A9C89;
+    background-color: var(--background-color);
     border-radius: 15px;
     padding: 5px;
     border: 1px solid white;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .7);
 }
-.right_cards h1{
-    color: white;
+.right_cards .top5Book{
     justify-self: center;
+    font-weight: bold;
 }
 
 .activitycon{
-    width: 90%; height: 500px;position: relative;background-color: #6A9C89; display: flex;margin: 5px;justify-self: center; padding: 10px; display: flex; flex-direction: column;
+    width: 90%; height: 500px;position: relative; display: flex;margin: 5px;justify-self: center; padding: 10px; display: flex; flex-direction: column;
                 flex-wrap: wrap;
 }
 .activityPage{
@@ -367,11 +361,11 @@ article .time .times p{
     display: flex;
 }
 .activitySORTcon form p, .bookSORTcon form p{
-font-weight: bold; color: white;
+font-weight: bold; color: black;
 }
 
 .activitySORTcon form select ,.bookSORTcon form select{
-color: white; margin-left: 10px; height: 30px; background-color: #3c554c; border: none;
+color: white; margin-left: 10px; height: 30px; background-color: rgb(117, 59, 22); border: none;
                                 display: flex;align-self: center;width: 100px;
 }
 .bookSORTcon form select{
@@ -385,7 +379,7 @@ color: white; margin-left: 10px; height: 30px; background-color: #3c554c; border
 }
 
 .bookcon{
-    width: 90%; height: 500px;position: relative;background-color: #6A9C89; display: flex;margin: 5px;justify-self: center; padding: 10px; display: flex; flex-direction: column;
+    width: 90%; height: 500px;position: relative;background-color: var(--background-color); display: flex;margin: 5px;justify-self: center; padding: 10px; display: flex; flex-direction: column;
                 flex-wrap: wrap; 
 }
 .bookconState{
@@ -399,7 +393,7 @@ color: white; margin-left: 10px; height: 30px; background-color: #3c554c; border
     display: flex; color: white; font-weight: bold; gap: 40px;margin-right: 10px;
 }
 .bookSORTcon ol a{
-    text-decoration: none; color: white;
+    text-decoration: none; color: black;
 }
 
 .bookSORTcon ol a ul{
@@ -450,7 +444,7 @@ margin-left: 10px;background-color: #3c554c; align-items: center; border-radius:
 }
 
 .viewbookcon{
-    width: 90%; height:600px;position: relative;background-color: #6A9C89; display: flex;margin: 5px;justify-self: center; padding: 10px;  flex-direction: column;
+    width: 90%; height:600px;position: relative;background-color: var(--background-color); display: flex;margin: 5px;justify-self: center; padding: 10px;  flex-direction: column;
                 flex-wrap: wrap; 
 }
 
@@ -489,6 +483,36 @@ width: 100%;display:flex; gap: 10px;
 width:30%;background-color:white;padding:10px 
 }
 
+ @media (max-width: 1199px) {
+    .pbook{
+        margin-bottom: -100px !important;
+        color: black !important;
+    }
+    .activityPage h1{
+        margin-top: -90px !important;
+        margin-bottom: -90px !important;
+        color: black !important;
+
+    }.activitycon{
+ background-color:transparent !important;
+    }
+ }
+
+ @media(max-width: 1186px){
+.pbook{
+        margin-bottom: 0px !important;
+        color: black !important;
+
+    }
+    .activityPage h1{
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+        color: black !important;
+
+    }.activitycon{
+ background-color:transparent !important;
+    }
+ }
 
     @media (max-width: 591px) {
 .nav2 i{
@@ -496,9 +520,12 @@ width:30%;background-color:white;padding:10px
     }
     .links_button p{
         display: none !important;
+    }.activitycon{
+ background-color:transparent !important;
     }
+   
     }
-@media (max-width: 1384px) {
+@media (max-width: 900px) {
     ol{
         display: none !important;
     }
@@ -598,7 +625,7 @@ thead th{
     position: sticky;
     top: 0;
     left: 0;
-    background-color: #3c554c;
+    background-color: rgb(117, 59, 22);
         color: white;
         cursor: default;
 }
@@ -610,7 +637,8 @@ tbody tr:hover{
     background-color: #fff6;
 }
 .container_TOP_BOOKS{
-border: 1px dashed black; padding: 5px; display: flex; justify-content: space-between; background-color: white;margin-bottom: 5px;
+border: 3px dashed rgb(94, 47, 18); padding: 5px; display: flex; justify-content: space-between; background-color: rgb(189, 95, 36);margin-bottom: 5px;
+color: white;
 }
 .top_books_image{
 display: flex;
@@ -620,7 +648,7 @@ width: 40px;
 height: 60px;
 }
 .BOOKS_name_and_author{
-margin-left: -50px; margin-top: -3px;
+margin-left: -50px; margin-top: -3px; color: white;
 }
 
 .BOOKS_name_and_author .p{
@@ -640,5 +668,5 @@ font-size: 12px;
 
 .BOOK_rank_and_date h1{
 margin-bottom: -14px; font-size: 15px; 
-color: black;
+color: white;
 }

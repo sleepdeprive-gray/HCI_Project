@@ -17,16 +17,16 @@ include 'db/db.php';
 
                                     if($rank == 1){
                                         $rank1 = ' 
-                                            <div class="" style="display: flex; flex-direction: column;align-items: center; justify-content: center;color: white">
+                                            <div class="" style="display: flex; flex-direction: column;align-items: center; justify-content: center;">
                                                 <p style="margin-bottom: 1px;font-weight: bold;">Top 1</p>
-                                                    <img src="../Admin/images/Agatha Christie.png" alt="" style="width: 90px;height: 90px; border: 3px dashed white; padding: 5px; box-shadow: 5px 5px 5px rgba(0, 0, 0,.6);">
+                                                    <img src="../Admin/images/Agatha Christie.png" alt="" style="width: 90px;height: 90px; border: 3px dashed rgb(94, 47, 18); padding: 5px; box-shadow: 5px 5px 5px rgba(0, 0, 0,.6);">
                                                 <p style="margin-top: 5px;">'.$names.'</p>
                                             </div>';
                                     }elseif ($rank == 2) {
                                         echo '
-                                        <div class="" style="display: flex; flex-direction: column;align-items: center; justify-content: center;color: white">
+                                        <div class="" style="display: flex; flex-direction: column;align-items: center; justify-content: center;">
                                             <p style="margin-bottom: 1px;font-weight: bold;">Top 2</p>
-                                                <img src="../Admin/images/Agatha Christie.png" alt="" style="width: 60px;height: 60px; border: 3px dashed white; padding: 5px; box-shadow: 5px 5px 5px rgba(0, 0, 0,.6);">
+                                                <img src="../Admin/images/Agatha Christie.png" alt="" style="width: 60px;height: 60px; border: 3px dashed rgb(94, 47, 18); padding: 5px; box-shadow: 5px 5px 5px rgba(0, 0, 0,.6);">
                                             <p style="margin-top: 5px;">';
                                             $author_id = $noice['author_id'];
                                     $ikawna =  mysqli_query($conn, "SELECT * FROM authors WHERE author_id = $author_id");
@@ -42,15 +42,20 @@ include 'db/db.php';
                                         echo $rank1;
                                     }elseif ($rank == 3) {
                                     echo '
-                                        <div class="" style="display: flex; flex-direction: column;align-items: center; justify-content: center;color: white">
+                                        <div class="" style="display: flex; flex-direction: column;align-items: center; justify-content: center;">
                                             <p style="margin-bottom: 1px;font-weight: bold;">Top 3</p>
-                                                <img src="images/Agatha Christie.png" alt="" style="width: 60px;height: 60px; border: 3px dashed white; padding: 5px; box-shadow: 5px 5px 5px rgba(0, 0, 0,.6);">
+                                                <img src="images/Agatha Christie.png" alt="" style="width: 60px;height: 60px; border: 3px dashed rgb(94, 47, 18); padding: 5px; box-shadow: 5px 5px 5px rgba(0, 0, 0,.6);">
                                             <p style="margin-top: 5px;">';
                                             $author_id = $noice['author_id'];
                                     $ikawna =  mysqli_query($conn, "SELECT * FROM authors WHERE author_id = $author_id");
                                         
                                         while($etona = mysqli_fetch_assoc($ikawna)){
-                                            echo $etona['author_name'];
+                                             if(strlen($results['fname']) < 6){
+                                                echo $etona['author_name'];
+                                            }
+                                            else{
+                                                echo substr($etona['author_name'], 0, 8)."...";
+                                            }  
                                         }
                                             echo'</p>
                                         </div>

@@ -1,13 +1,13 @@
-<!-- <?php
+<?php
     session_start();
-   
-?> -->
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Dashboard</title>
+    <link rel="icon" href="images/logos.png" type="image/png">
     <link rel="stylesheet" href="admin.css">
     <link rel="stylesheet" 
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
@@ -28,90 +28,14 @@
     ?>
     <div class="mainContainer">
 
-        <nav class="nav1">
-            <div class="logo_TOP_LEFT">
-                <img src="../images/weblogo.png" alt="">
-                <p>BOOK <span>ROOM</span></p>
-            </div>
-            <?php
-                if(!empty($results['profile_pic'])){
-                    ?><img src="images/<?php echo $results['profile_pic'] ?>" alt=""><?php
-                }else{
-                    ?><img src="images/Admin.png" alt=""><?php
-                }
-            ?>
-            <p style="font-weight: bold;">
-                <?php
-                    if(strlen($results['fname']) < 6){
-                        echo $results['fname'];
-                    }
-                    else{
-                        echo substr($results['fname'], 0, 4)."...";
-                    }                
-                ?>
-            </p>
-          
-            <div class="container_for_buttons">
-                <div class="links_button">
-                
-                    <button class="Active"><i class="fa-solid fa-house"></i>Dashboard</button>
-                    <a href="analytics.php"><button><i class="fa-solid fa-chart-simple"></i>Analytics</button></a>
-                    <a href="accounts/accounts.php?at=Editor"><button><i class="fa-solid fa-user"></i>Accounts</button></a>
-                    <a href="category/science.php?s=Pending&c=Science"><button><i class="fa-solid fa-book"></i>Books</button></a>
-                    <a href="activity_log.php"><button><i class="fa-solid fa-file"></i>Activity Log</button></a>
-                    
-                  
-                </div>
-                
-                <form action="../process/Admin/logput.php?id=<?= $id;?>" method="post" class="LOGOUT_CONTAINER">
-                    <button type="submit" name="LOGOUT">LOGOUT</button>
-                </form>
-            </div>
+        <?php require_once 'component/nav1.php'?>
+        <?php require_once 'component/nav2.php'?>
 
-        </nav>
-
-
-
-       <nav class="nav2">
-                <div class="logo">
-                    
-                    <img src="../images/weblogo.png" alt="">
-
-                    <p>BOOK <span>ROOM</span></p>
-                </div>
-
-               
-                <div class="links_button">
-                
-                    <a href="admin.php"><button class="Active"><i class="fa-solid fa-house"></i><p>Dashboard</p></button></a>
-                    <a href="analytics.php"><button><i class="fa-solid fa-chart-simple"></i><p>Analytics</p></button></a>
-                    <a href="accounts/accounts.php?at=Editor"><button><i class="fa-solid fa-user"></i><p>Accounts</p></button></a>
-                    <a href="category/science.php?s=Pending&c=Science"><button><i class="fa-solid fa-book"></i><p>Books</p></button></a>
-                    <a href="activity_log.php"><button><i class="fa-solid fa-file"></i><p>Activity Log</p></button></a>
-                  
-                </div>
-
-              
-                <form method="post"  action="../process/Admin/logput.php?id=<?= $id;?>" class="LOGOUT_AND_PIC_CONTAINER">
-                    <button type="submit" name="LOGOUT">LOGOUT</button>
-                     <?php
-                        if(!empty($results['profile_pic'])){
-                            ?><img src="images/<?php echo $results['profile_pic'] ?>" alt=""><?php
-                        }else{
-                            ?><img src="images/Admin.png" alt=""><?php
-                        }
-                    ?>
-                </form>
-
-        </nav>
         
-
-
-    
         <article>
             <div class="time">
-                <div class="times">
-                    <p>DASHBOARD</p>
+                <div class="times" style="background-color:rgb(168, 83, 30); ">
+                    <p style="color:white">DASHBOARD</p>
                 </div>
             </div>
         
@@ -134,13 +58,7 @@
                                 <div class="insideTHEcard">
                                     <p>Total Editor Account</p>
                                     <h1>
-                                        <?php
-                                            $COUNT_BOOKS = mysqli_query($conn, "SELECT COUNT(user_type) FROM users WHERE user_type='Editor'");
-
-                                            while ($a = mysqli_fetch_assoc($COUNT_BOOKS)) {
-                                                echo $a['COUNT(user_type)'];
-                                            }
-                                        ?>
+                                        <?php require_once 'component/editoraccount.php'?>
                                     </h1>
                                 </div>
                             </div>
@@ -168,13 +86,7 @@
                                 <div class="insideTHEcard">
                                     <p>Total Books</p>
                                     <h1>
-                                        <?php
-                                            $COUNT_BOOKS = mysqli_query($conn, "SELECT COUNT(title) FROM books");
-
-                                            while ($a = mysqli_fetch_assoc($COUNT_BOOKS)) {
-                                                echo $a['COUNT(title)'];
-                                            }
-                                        ?>
+                                        <?php require_once 'function/totalBookCount.php'?>
                                     </h1>
                                 </div>
                             </div>
@@ -190,7 +102,7 @@
                 <div class="left_cards">
                    
                     <div class="top_left_cards">
-                        <p style="color: white;"><i class="fa-solid fa-book"></i> BOOKS IN LIBRARY</p>
+                        <p><i class="fa-solid fa-book"></i> BOOKS IN LIBRARY</p>
                         <div class="result">
                             <div class="pie-chart-container" style="display: flex;">
                                 <canvas
@@ -209,13 +121,7 @@
                     <div class="bottom_left_cards">
                         <div class="contentL_bottom_left_cards">
                             <h1>
-                                <?php
-                                            $COUNT_BOOKS = mysqli_query($conn, "SELECT COUNT(title) FROM books");
-
-                                            while ($a = mysqli_fetch_assoc($COUNT_BOOKS)) {
-                                                echo $a['COUNT(title)'];
-                                            }
-                                        ?>
+                                <?php include 'function/totalBookCount.php'?>
                             </h1>
                             <p>TOTAL BOOK</p>
                             <p>COUNT</p>
@@ -233,10 +139,10 @@
                
                     <div class="top_center_cards">
                    
-                         <p style="font-weight: bold; color: white;margin: 5px; font-size: 20px;"><i class="fa-solid fa-user-tie"></i>       Top Author</p>
+                         <p style="font-weight: bold; margin: 5px; font-size: 20px;"><i class="fa-solid fa-user-tie"></i>       Top Author</p>
                          <div class="TOP3AUTHOR">
                            <?php
-                                include 'topthreeauthor.php';
+                                include 'component/topthreeauthor.php';
                            ?>
                            
                          </div>
@@ -245,7 +151,7 @@
                    
                     <div class="bottom_center_cards">
                        
-                        <h1>RECENT LOGS</h1>
+                        <p class="bold">RECENT LOGS</p>
                         <div class="table_body">
                             <table>
                                 <thead>
@@ -285,67 +191,22 @@
                                 </tbody>
                              </table>
                         </div>
-                         <a href="activity_log.php"><button>VIEW</button></a>
+                         <a href="activity_log.php"><button style="background-color: rgb(94, 47, 18);">VIEW</button></a>
                     </div>
                 </div>
 
                 <div class="right_cards">
                 
-                     <h1><i class="fa-solid fa-book-open"></i> TOP 5 BOOKS</h1>
-
-                  <?php
-                  $i = 5;
-                  $res = mysqli_query($conn, "SELECT *, DAY(date_published) as dayToday,
-                        MONTH(date_published) as MonthToday, YEAR(date_published) as YearToday FROM books ORDER BY downloads DESC LIMIT 5");
-                     while ($row=mysqli_fetch_array($res)) {
-                            ?>
-                              
-                                <div class="container_TOP_BOOKS" >
-                                    <div class="top_books_image">
-                                <?php
-                                    if(!empty($row['front_cover'])){
-                                       echo '<img src="data:image/jpeg;base64, '.base64_encode($row['front_cover']).'" height="100" width="100"/>';
-                                    }else{
-                                        echo '
-                                            <div style="width:38px; color:red; display:flex; justify-content:center; align-items: center; border:1px solid black; cursor: not-allowed; font-size:25px">
-                                                <i class="fa-solid fa-circle-exclamation"></i>
-                                            </div> 
-                                        ';
-                                    }
-                                echo '  
-                                    </div>
-                                    <div class="BOOKS_name_and_author">
-                                        <p style="font-weight: bold;">'. $row["title"] .'</p>
-                                        <p class="p">';
-                                         $authorNAME = $row["author_id"];
-                               
-                                        $selectsAUTHOR_name = mysqli_query($conn, "SELECT fname FROM author_account WHERE authorID = $authorNAME");
-                                        
-                                        while ($authorName = mysqli_fetch_assoc($selectsAUTHOR_name)) {
-                                            echo $authorName["fname"];
-                                        }
-                        echo            '</p>
-                                    </div>
-                                    <div class="BOOK_rank_and_date">
-                                        <h1>TOP '.$i.'</h1>
-                                        <p>';
-                                            $date = $row["MonthToday"];
-                                            $dateTime = date("M", $date);
-                                            echo  $dateTime. " " . $row["dayToday"]. " " . $row["YearToday"];
-                        echo            '</p>
-                                    </div>
-                                </div>    
-                                ';
-                                $i --;
-                        }
-                  ?>
+                     <p class="top5Book"><i class="fa-solid fa-book-open"></i> TOP 5 BOOKS</p>
+                    <?php include 'component/top10Book.php';?>        
+                 
                     
                 </div>
 
             </div>
 
         
-         <?= include 'function/getDLvalue.php';?>
+            <?php include 'function/getDLvalue.php';?>
         </article>
     </div>
     <script src="js/pie_chart.js"></script>
