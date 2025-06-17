@@ -8,7 +8,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>View book</title>
+    <link rel="icon" href="../../images/logos.png" type="image/png">
     <link rel="stylesheet" href="../../admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
@@ -50,7 +51,7 @@
        
         <nav class="nav1">
             <div class="logo_TOP_LEFT">
-                <img src="../../../images/weblogo.png" alt="">
+                <img src="../../images/logos.png" alt="">
                 <p>BOOK <span>ROOM</span></p>
             </div>
              <?php
@@ -161,7 +162,7 @@
                                     <?php
                                 }else{
                                     echo '
-                                     <img src="data:image/jpeg;base64, '.base64_encode($results['front_cover']).'"/>
+                                     <img src="data:image/jpeg;base64, '.base64_encode($results['front_cover']).'" width=250/>
                                      ';
                                 }
                             ?>
@@ -185,8 +186,8 @@
                                     ?>
                                 
                                     <a href="../<?php echo "science.php?s=".$statusofBook."&c=".$category?>">
-                                        <button>
-                                            <i class="fa-solid fa-arrow-left"></i>   BACK
+                                        <button style="background-color: rgb(117, 59, 22);">
+                                            <i class="fa-solid fa-arrow-left" style="color: white;"></i>   BACK
                                         </button>
                                     </a>
                                     

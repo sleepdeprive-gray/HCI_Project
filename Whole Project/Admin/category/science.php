@@ -8,7 +8,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Books</title>
+    <link rel="icon" href="../images/logos.png" type="image/png">
     <link rel="stylesheet" href="../admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
@@ -21,7 +22,7 @@
         width: 100%;   
     }
     thead th{
-        background-color: #3c554c;
+        background-color: rgb(117, 59, 22);
         color: white;
     }
     tbody tr:nth-child(even){
@@ -51,7 +52,7 @@
        
         <nav class="nav1">
             <div class="logo_TOP_LEFT">
-                <img src="../../images/weblogo.png" alt="">
+                <img src="../images/logos.png" alt="">
                 <p>BOOK <span>ROOM</span></p>
             </div>
              <?php
@@ -135,7 +136,7 @@
                      
                     <div class="bookconState">
                         <div class="bookPage">   
-                            <p style=""><?= $statusofBook ." ". $category?> BOOK</p>
+                            <p style="color: black"><?= $statusofBook ." ". $category?> BOOK</p>
                         </div>
                
                     </div>
@@ -155,7 +156,6 @@
 
                        
                         <ol>
-                            <ul style="color:black">Category :</ul>
                             <a href="science.php?s=<?= $statusofBook?>&c=Science"><ul>Science</ul></a>
                             <a href="science.php?s=<?= $statusofBook?>&c=Novel"><ul>Novel</ul></a>
                             <a href="science.php?s=<?= $statusofBook?>&c=Mystery"><ul>Mystery</ul></a>
@@ -255,7 +255,7 @@
                                                     <a href="view-book/view.php?book=<?= $recent_logs['book_id']?>&c=<?= $category?>&s=<?= $statusofBook?>">
                                                         <button style="background-color:rgb(40, 75, 109); color: white; border: none; padding: 5px; width: 30px;display: flex;
                                                             justify-content: space-around; align-items: center;cursor: pointer;">
-                                                            <i class="fa-solid fa-eye"></i>
+                                                            <i class="fa-solid fa-eye" style="color: white;"></i>
                                                                 
                                                         </button>
                                                     </a>
@@ -277,7 +277,6 @@
                         </div>
 
                         <div class="" style="display: flex; justify-content:end; align-items:center">
-                            <p style="margin-right:10px; font-weight:bold">Book status: </p>
 
                             <?php include 'fnc/book_status.php'; ?>
                           
