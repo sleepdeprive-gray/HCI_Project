@@ -14,7 +14,9 @@
        
        }
 
-        mysqli_query($conn, "UPDATE books SET status = '$status' WHERE book_id = $bookID"); 
+      
+        mysqli_query($conn, "UPDATE books SET status = '$status' WHERE book_id = $bookID");     
+        
         
         ?>
             <script>

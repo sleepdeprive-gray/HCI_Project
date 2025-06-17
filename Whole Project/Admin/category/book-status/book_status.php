@@ -21,7 +21,7 @@
         width: 100%;   
     }
     thead th{
-        background-color: #3c554c;
+        background-color: rgb(117, 59, 22);
         color: white;
     }
     tbody tr:nth-child(even){
@@ -131,7 +131,7 @@
 
                     <div class="bookconState">
                         <div class="bookPage">   
-                            <p><?= $statusofBook ." ". $category?> BOOK</p>
+                            <p style="color: black"><?= $statusofBook ." ". $category?> BOOK</p>
                         </div>            
                     </div>
                         
@@ -153,7 +153,7 @@
 
                            
                         <ol>
-                            <ul style="color:black">Category :</ul>
+                        
                             <a href="../science.php?s=<?= $statusofBook?>&c=Science" ><ul>Science</ul></a>
                             <a href="../science.php?s=<?= $statusofBook?>&c=Novel" ><ul>Novel</ul></a>
                             <a href="../science.php?s=<?= $statusofBook?>&c=Mystery" ><ul>Mystery</ul></a>
@@ -166,7 +166,7 @@
                             
                              <div class="category-in-selection-mode" style="display: none;">
                                 <p>Category</p>
-                                <select name="" id="linkSelect" onchange="navigateToLink()" style="color: white; margin-left: 10px; height: 30px; background-color: #3c554c; border: none;
+                                <select name="" id="linkSelect" onchange="navigateToLink()" style="color: white; margin-left: 10px; height: 30px; background-color: rgb(117, 59, 22); border: none;
                                 display: flex;align-self: center;">
                                     <option value="admin.html">Science</option>
                                     <option value="">Novel</option>
@@ -263,7 +263,7 @@
                                                     <a href="../view-book/view.php?book=<?= $recent_logs['book_id']?>&c=<?= $category?>&s=<?= $statusofBook?>">
                                                         <button style="background-color:rgb(40, 75, 109); color: white; border: none; padding: 5px; width: 30px;display: flex;
                                                             justify-content: space-around; align-items: center;cursor: pointer;">
-                                                            <i class="fa-solid fa-eye"></i>
+                                                            <i class="fa-solid fa-eye" style="color: white;"></i>
                                                                 
                                                         </button>
                                                     </a>
@@ -285,27 +285,27 @@
                         </div>
 
                         <div class="bookstatuscon">
-                            <p>Book status: </p>
+                   
 
-                            <a href="book_status.php?s=<?= 'Pending&c='.$category;?>">
+                            <a href="book_status.php?s=<?= 'Pending&c='.$category;?>" style="background-color: rgb(117, 59, 22);">
                                 <button>
                                     Pending
                                 </button>
                             </a>
                            
-                            <a href="book_status.php?s=<?= 'Approved&c='.$category;?>"
+                            <a href="book_status.php?s=<?= 'Approved&c='.$category;?>" style="background-color: rgb(117, 59, 22);"
                                >
                                 <button>
                                     Approved
                                 </button>
                             </a>
-                            <a href="book_status.php?s=<?= 'Rejected&c='.$category;?>"
+                            <a href="book_status.php?s=<?= 'Rejected&c='.$category;?>" style="background-color: rgb(117, 59, 22);"
                                >
                                 <button>
                                     Rejected
                                 </button>
                             </a>
-                            <a href="book_status.php?s=<?= 'Archive&c='.$category;?>"
+                            <a href="book_status.php?s=<?= 'Archive&c='.$category;?>" style="background-color: rgb(117, 59, 22);"
                                >
                                 <button>
                                     Archive
