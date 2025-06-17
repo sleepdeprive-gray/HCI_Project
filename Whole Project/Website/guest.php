@@ -162,7 +162,7 @@
           </form>
       </div>
     </div>
-  </section>
+  </section><br> <br>
 
   <!-- Footer Section -->
   <footer>

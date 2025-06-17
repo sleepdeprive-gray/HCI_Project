@@ -111,7 +111,7 @@ a {
 }
 
 .menu .newrelease-btn:hover {
-    background-color: #3f8f70;
+    background-color: #BB5C22;
     color: #fff;
 }
 
@@ -183,7 +183,7 @@ a {
 }
 
 .categories button:hover {
-    color: #3f8f70;
+    color: #b99680;
     text-decoration: underline;
 }
 
@@ -199,7 +199,7 @@ a {
 
 /* Book layout */
 .book {
-    background-color: #3f8f70;
+    background-color: #BB5C22;
     border-radius: 15px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     overflow: hidden;
@@ -213,7 +213,6 @@ a {
 .book img {
     width: 150px;
     height: auto;
-    margin-right: 20px;
     border-radius: 8px 0 0 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }

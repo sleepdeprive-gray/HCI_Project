@@ -22,7 +22,7 @@
 
     <header class="logo-and-title">
       <a href="../Website/guest.php" style ="text-decoration: none;">
-        <h2>Book<br><span style="color: #A1BE95;">Room</span></h2>
+        <h2>Book<br><span style="color: #BB5C22;">Room</span></h2>
       </a>
         <img src="../images/weblogo.png" alt="book room logo">
     </header>

@@ -105,7 +105,7 @@ $status = $book['status'];
 
     <!-- Navigation Panel -->
     <div class="sidebar">
-        <h1>Book <span style="color: #A1BE95;">Room</span></h1>
+        <h1>Book <span style="color:rgb(235, 116, 42);">Room</span></h1>
         <div class="profile">
             <img src="../process/view.php?user_id=<?= $_SESSION['user_id'] ?>" alt="Profile Picture" width="80" height="80" style="object-fit: cover; border-radius: 50%;">
             <h2><?= htmlspecialchars($editor_name ?: 'Editor') ?></h2>

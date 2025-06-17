@@ -145,7 +145,7 @@ input:focus, select:focus {
     margin-left: 150px;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #16423C;
+    background-color: #ff8f4a;
     color: white;
     border: none;
     border-radius: 25px;
@@ -153,7 +153,7 @@ input:focus, select:focus {
 }
 
 .submit-item button:hover {
-    background-color: #26746a;
+    background-color: #d6641d;
 }
 
 /* Footer */
@@ -197,7 +197,7 @@ input:focus, select:focus {
 }
 
 .modal-content {
-    background-color: rgb(22, 66, 60);
+    background-color: #53290f;
     color: white;
     border-radius: 15px;
     margin: auto;

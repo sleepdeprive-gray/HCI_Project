@@ -78,7 +78,7 @@ a {
 }
 
 .menu button:hover {
-    color: #42bdac;
+    color: #b99680;
     transition: 0.3s ease;
 }
 
@@ -92,7 +92,7 @@ a {
 }
 
 .menu .discover-btn:hover {
-    background-color: #3f8f70;
+    background-color: #bb5c22;
     color: #fff;
     transition: 0.3s ease;
 }
@@ -173,7 +173,7 @@ hr {
 }
 
 .categories button:hover {
-    color: #3f8f70;
+    color: #bb5c22;
     text-decoration: underline;
 }
 
@@ -207,7 +207,7 @@ hr {
 
 /* Book layout */
 .book {
-    background-color: #3f8f70;
+    background-color: #bb5c22;
     border-radius: 15px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     overflow: hidden;

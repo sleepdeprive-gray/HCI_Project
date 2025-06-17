@@ -64,7 +64,7 @@ switch ($page) {
 
 <!-- Header -->
 <header class="logo-and-title">
-    <h2>Book<br><span style="color: #A1BE95;">Room</span></h2>
+    <h2>Book<br><span style="color: #BB5C22;">Room</span></h2>
     <img src="../images/weblogo.png" alt="book room logo">
 </header>
 
