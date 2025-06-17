@@ -1,11 +1,12 @@
  table{
         background-color: #e6e6e6;
     }
+   
     .table_body{
         width: 100%;   
     }
     thead th{
-        background-color: #3c554c;
+        background-color: rgb(117, 59, 22);
         color: white;
     }
     tbody tr:nth-child(even){
@@ -117,7 +118,6 @@
     width: 152px; 
     background-color: transparent; 
     border: none; 
-    color: white; 
     font-weight: bold; 
     margin-top: 10px;
     padding: 10px;
@@ -127,19 +127,16 @@
 
     display: flex;
 }
-.nav1 .links_button a button{
-    color: white;
-}
 
 .nav1 .links_button button.Active{
     padding: 10px;border-bottom-left-radius: 30px;
-    border-top-left-radius: 30px;background-color: #6A9C89; color: white;
+    border-top-left-radius: 30px;background-color: #FC9902;
 }
 .nav1 .links_button button:hover{
-    border-top-left-radius: 30px;background-color: #6A9C89; color: white;
+    border-top-left-radius: 30px;background-color: #e68b03; color: white;
 }
 .bookcon{
-    width: 90%; height: 500px;position: relative;background-color: #6A9C89; display: flex;margin: 5px;justify-self: center; padding: 10px; display: flex; flex-direction: column;
+    width: 90%; height: 500px;position: relative;background-color: var(--background-color); display: flex;margin: 5px;justify-self: center; padding: 10px; display: flex; flex-direction: column;
                 flex-wrap: wrap; 
 }
 .bookconState{

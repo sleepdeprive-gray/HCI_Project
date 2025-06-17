@@ -6,7 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Accounts</title>
+    <link rel="icon" href="../images/logos.png" type="image/png">
     <link rel="stylesheet" href="../admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="account.css">
@@ -30,7 +31,7 @@
        
         <nav class="nav1">
              <div class="logo_TOP_LEFT">
-                <img src="../../images/weblogo.png" alt="">
+                <img src="../images/logos.png" alt="">
                 <p>BOOK <span>ROOM</span></p>
             </div>
             
@@ -123,13 +124,13 @@
                                <?php
                                     if($type_account == "Editor"){
                                         ?>
-                                        <a href="accounts.php?at=Editor" style="margin-left: 10px;background-color: #3c554c; align-items: center; align-content: center;border-radius: 10px;justify-content:center; width: 60px; display:flex">
+                                        <a href="accounts.php?at=Editor" style="margin-left: 10px;background-color: rgb(117, 59, 22); align-items: center; align-content: center;border-radius: 10px;justify-content:center; width: 60px; display:flex">
                                             <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">Editor</button>
                                         </a>
                                         <?php
                                     }else {
                                          ?>
-                                        <a href="accounts.php?at=Editor" style="align-self: center;margin-left: 10px;background-color: #3c554c; border-radius: 5px; height: 33px; width: 60px; display:flex;justify-content:center;">
+                                        <a href="accounts.php?at=Editor" style="align-self: center;margin-left: 10px;background-color: rgb(117, 59, 22); border-radius: 5px; height: 33px; width: 60px; display:flex;justify-content:center;">
                                             <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">Editor</button>
                                         </a>
                                         <?php
@@ -140,13 +141,13 @@
                                <?php
                                     if($type_account == "Admin"){
                                         ?>
-                                        <a href="accounts.php?at=Admin" style="margin-left: 10px;background-color: #3c554c; align-items: center; align-content: center;border-radius: 10px;justify-content:center; width: 60px; display:flex">
+                                        <a href="accounts.php?at=Admin" style="margin-left: 10px;background-color: rgb(117, 59, 22); align-items: center; align-content: center;border-radius: 10px;justify-content:center; width: 60px; display:flex">
                                             <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">Admin</button>
                                         </a>
                                         <?php
                                     }else {
                                          ?>
-                                        <a href="accounts.php?at=Admin" style="align-self: center;margin-left: 10px;background-color: #3c554c; border-radius: 5px; height: 33px; width: 60px; display:flex;justify-content:center;">
+                                        <a href="accounts.php?at=Admin" style="align-self: center;margin-left: 10px;background-color: rgb(117, 59, 22); border-radius: 5px; height: 33px; width: 60px; display:flex;justify-content:center;">
                                             <button style=" width: 50px; border: none;background-color: transparent; color: white; cursor: pointer;">Admin</button>
                                         </a>
                                         <?php
@@ -155,8 +156,8 @@
                             </div>
 
                             <form method="post" class="" style="display: flex;">
-                                <p style="font-weight: bold; color: white;">Sort</p>
-                                <select name="orderBY" id="" onchange="this.form.submit()" style="color: white; margin-left: 10px; height: 30px; background-color: #3c554c; border: none;
+                                <p style="font-weight: bold;">Sort</p>
+                                <select name="orderBY" id="" onchange="this.form.submit()" style="color: white; margin-left: 10px; height: 30px; background-color: rgb(117, 59, 22); border: none;
                                 display: flex;align-self: center;">
                                     <option value="<?php if(isset($_POST['orderBY'])){echo $_POST['orderBY'];}else{echo "";} ?>"><?php if(isset($_POST['orderBY'])){echo $_POST['orderBY'];}else{echo "Select";} ?></option>
                                     <option value="ID">ID</option>
@@ -231,7 +232,7 @@
                                              <td style="display: flex; justify-content:center">
                                                 <!-- VIEW BUTTON -->
                                              
-                                                        <button type="button" style="background-color: transparent; border:none; display:flex;color: white; text-align:center; width:100%; justify-content:space-between; align-items:center;background-color:#3c554c; color:white; border: none; padding: 5px; width: 60px;display: flex;" 
+                                                        <button type="button" style=" border:none; display:flex;color: white; text-align:center; width:100%; justify-content:space-between; align-items:center;background-color:rgb(117, 59, 22); color:white; border: none; padding: 5px; width: 60px;display: flex;" 
                                                         data-id="<?= $recent_logs[$userID];?>"
                                                         data-user="<?= $_GET['at']?>"
                                                         data-fname="<?= $recent_logs[$fname];?>"
@@ -251,7 +252,7 @@
                                                         this.getAttribute('data-pass'),
                                                         this.getAttribute('data-picture'),
                                                         )">
-                                                            <i class="fa-solid fa-eye" ></i>
+                                                            <i class="fa-solid fa-eye" style="color:white"></i>
                                                                 View
                                                         </button>
                                                     
